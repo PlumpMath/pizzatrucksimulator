@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SalesPhase : MonoBehaviour, IPhase {
-	public void Begin() {
+public class SalesPhase : Phase {
+	public override void Begin() {
 		print("SalesPhase Begin()");
+		base.Begin();
 	}
-
-	public void End() {
-
-	}
-
 }
 

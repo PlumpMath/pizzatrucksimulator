@@ -1,13 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class WorkPhase : MonoBehaviour, IPhase {
-	public void Begin() {
+public class WorkPhase : Phase {
+	public override void Begin() {
 		print("WorkPhase Begin()");
+		base.Begin();
 	}
-
-	public void End() {
-
-	}
-
 }

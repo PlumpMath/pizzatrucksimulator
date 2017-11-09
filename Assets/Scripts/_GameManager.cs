@@ -6,8 +6,11 @@ public class _GameManager : MonoBehaviour {
 	public float reputation = 0f;
 	public float money = 0f;
 	Turn currentTurn;
-	public int lastTurnNumber= 7;
+	public int numberOfTurnsInGame= 7;
 	int currentTurnNumber = 0;
+
+	public GameObject UICanvas;
+	public GameObject marketUI;
 
 	void Start () {
 		print("_GameManager Start()");
@@ -15,9 +18,6 @@ public class _GameManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyUp(KeyCode.RightArrow)) {
-			currentTurn.NextPhase();
-		}
 	}
 
 	void NewTurn() {
@@ -27,17 +27,17 @@ public class _GameManager : MonoBehaviour {
 		currentTurnObject.name = "Turn " + currentTurnNumber;
 		currentTurnObject.transform.SetParent(transform);
         currentTurn = currentTurnObject.gameObject.AddComponent<Turn>();
-        currentTurn.OnFinish += MoveToNextTurn;
+        currentTurn.OnTurnFinish += MoveToNextTurn;
 		currentTurn.Begin();
 	}
 
 	void MoveToNextTurn() {
 		// ...
 		print("_GameManager MoveToNextTurn()");
-		if (currentTurnNumber != lastTurnNumber) {
-			NewTurn();
-		} else {
+		if (currentTurnNumber == numberOfTurnsInGame) {
 			EndGame();
+		} else {
+			NewTurn();
 		}
 	}
 

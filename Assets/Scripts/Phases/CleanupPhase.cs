@@ -1,13 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class CleanupPhase : MonoBehaviour, IPhase {
-	public void Begin() {
+public class CleanupPhase : Phase {
+	public override void Begin() {
 		print("CleanupPhase Begin()");
+		base.Begin();
 	}
-
-	public void End() {
-
-	}
-
 }
