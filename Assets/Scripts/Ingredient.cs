@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Ingredient : MonoBehaviour {
 	public int ingredientId;
-	public Image icon;
+	public Sprite icon;
 	public string title;
 	public string description;
 	public float freshness;
