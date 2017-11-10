@@ -8,7 +8,7 @@ public class Ingredient : MonoBehaviour {
 	public Sprite icon;
 	public string title;
 	public string description;
-	public float freshness;
+	public int freshness;
 
 	void Start () {
 		
