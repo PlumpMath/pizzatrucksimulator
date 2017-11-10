@@ -41,7 +41,7 @@ public class ItemChoice : MonoBehaviour {
     {
         if (random == true)
         {
-            int i = Random.Range(0, 3);
+            int i = Random.Range(0, 4);
             if (i == 0)
             {
                 freshness.GetComponent<Text>().text = "Almost Spoiled";
