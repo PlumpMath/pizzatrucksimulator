@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ItemChoice : MonoBehaviour {
 
+
+
 	public GameObject icon;
 	public GameObject description;
 	public GameObject freshness;
@@ -12,13 +14,23 @@ public class ItemChoice : MonoBehaviour {
 
     public Button thisButton;
 
+    //public MarketUI marketUI;
 
     void Start()
     {
+
+        MarketUI.brotcast += this.TruckTransfer;
+        MarketUI.brotcast += this.HotPants;
+
         Button btn = thisButton.GetComponent<Button>();
         btn.onClick.AddListener(GatherIngredients);
+
     }
 
+    void TruckTransfer(GameObject obj)
+    {
+        print("Transferred ze " + obj.GetComponent<ItemChoice>().title.GetComponent<Text>().text + " to pizza shop");  
+    }
 
     public void SetIcon(Sprite sprite)
 	{
@@ -72,4 +84,9 @@ public class ItemChoice : MonoBehaviour {
 
     }
 
+    void HotPants(GameObject obj)
+    {
+    
+    }
+    
 }
