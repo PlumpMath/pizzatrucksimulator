@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 238145038}
   - component: {fileID: 238145037}
   m_Layer: 5
-  m_Name: Title _ Supplier
+  m_Name: TitleSupplier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585910602}
   m_HandleRect: {fileID: 585910601}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 664405832}
   m_HandleRect: {fileID: 664405831}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1711,7 +1711,7 @@ CanvasGroup:
   m_GameObject: {fileID: 648452598}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 0
+  m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &648452601
@@ -1742,6 +1742,7 @@ MonoBehaviour:
   viewportTruck: {fileID: 1102600382}
   ItemChoicePrefab: {fileID: 1567918102731458, guid: ce0918cb3d4b48b44973f13f4232f855,
     type: 2}
+  truckView: {fileID: 1917893889}
 --- !u!1 &664405830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,7 +1927,7 @@ GameObject:
   - component: {fileID: 779096607}
   - component: {fileID: 779096606}
   m_Layer: 5
-  m_Name: Title _ Your_Truck
+  m_Name: TitleTruck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3062,16 +3063,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114880352122271120, guid: ce0918cb3d4b48b44973f13f4232f855,
-        type: 2}
-      propertyPath: m_Interactable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114607737290678404, guid: ce0918cb3d4b48b44973f13f4232f855,
-        type: 2}
-      propertyPath: m_Text
-      value: Duckworth
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce0918cb3d4b48b44973f13f4232f855, type: 2}
   m_IsPrefabParent: 0
@@ -3764,6 +3755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eaca3599a2a0ae478cce21beeaa5ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GatheredIngredients: []
+  truckIngredientsCounter: 0
+  counterLimit: 4
 --- !u!114 &1917893892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3946,6 +3940,7 @@ GameObject:
   - component: {fileID: 1991953518}
   - component: {fileID: 1991953517}
   - component: {fileID: 1991953516}
+  - component: {fileID: 1991953519}
   m_Layer: 5
   m_Name: ShopUI
   m_TagString: Untagged
@@ -4039,6 +4034,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!225 &1991953519
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991953514}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2043012746
 GameObject:
   m_ObjectHideFlags: 0

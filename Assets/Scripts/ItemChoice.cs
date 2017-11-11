@@ -14,22 +14,23 @@ public class ItemChoice : MonoBehaviour {
 
     public Button thisButton;
 
-    //public MarketUI marketUI;
-
+    public bool inStore = true;
+    
     void Start()
     {
 
-        MarketUI.brotcast += this.TruckTransfer;
-        MarketUI.brotcast += this.HotPants;
+
+        MarketUI.brotcast += this.StoreDisplay;
+   
 
         Button btn = thisButton.GetComponent<Button>();
-        btn.onClick.AddListener(GatherIngredients);
+        btn.onClick.AddListener(TruckTransfer);
 
     }
 
-    void TruckTransfer(GameObject obj)
+    void StoreDisplay(GameObject obj)
     {
-        print("Transferred ze " + obj.GetComponent<ItemChoice>().title.GetComponent<Text>().text + " to pizza shop");  
+        print("Display ze " + obj.GetComponent<ItemChoice>().title.GetComponent<Text>().text + " to pizza shop");  
     }
 
     public void SetIcon(Sprite sprite)
@@ -41,7 +42,6 @@ public class ItemChoice : MonoBehaviour {
 	{
 		description.GetComponent<Text>().text = text.ToString();
 	}
-
 
 	public void SetTitle(string text){
 
@@ -77,16 +77,30 @@ public class ItemChoice : MonoBehaviour {
             }
     }
 
-    void GatherIngredients()
+    void TruckTransfer()
     {
-        print("Bravo, you took the " + title.GetComponent<Text>().text);
-        thisButton.interactable = false;
-
-    }
-
-    void HotPants(GameObject obj)
-    {
-    
+        TruckControl truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
+        GameObject shop = GameObject.Find("ShopUI"); 
+        switch (inStore)
+        {
+            case true:
+                truck.GatheredIngredients.Add(transform.gameObject);
+                print("Bravo, you took the " + title.GetComponent<Text>().text);
+                this.transform.SetParent(truck.transform.GetChild(0));
+                truck.truckIngredientsCounter++;
+                inStore = false;
+                break;
+            case false:
+                truck.GatheredIngredients.Remove(transform.gameObject);
+                print("I guess u didn't want the " + title.GetComponent<Text>().text);
+                this.transform.SetParent(shop.transform.GetChild(0));
+                truck.truckIngredientsCounter--;
+                inStore = true;
+                break;
+            default:
+                print("hot pants");
+                break;
+        }
     }
     
 }

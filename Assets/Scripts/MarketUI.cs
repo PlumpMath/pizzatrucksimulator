@@ -12,6 +12,7 @@ public GameObject viewportTruck;
 
 public GameObject ItemChoicePrefab;
 
+public GameObject truckView;
 List<int> usedValues = new List<int>();
 
 // learning events or something
@@ -32,56 +33,43 @@ public static event BroadcastEvent brotcast;
         GameObject ItemChoicePlaceholder = GameObject.Find("ItemChoicePrefab");
 		ItemChoicePlaceholder.SetActive(false);
 
-		ListIngredients();  //lists all ingredients
-
-
-
+		ListIngredients(0, 1, false, false);  //lists first ingredients ingredients
+        ListIngredients(2, 7, true, true);
 	}
-	
 
-	public void ListIngredients(){
 
-		for (int i = 0; i <= 1; i++)
-		{
-			GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
-			newItemChoiceObject.transform.SetParent(viewportShop.transform);
-			newItemChoiceObject.transform.localScale = Vector3.one; 
-			ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
-			Ingredient ingredient = ingredients[i];
-			newItemChoice.SetIcon(ingredient.icon);
-			newItemChoice.SetDescription(ingredient.description);
-			newItemChoice.SetTitle(ingredient.title);
-            newItemChoice.SetFreshness(false);
+    public void ListIngredients(int min, int max, bool random, bool freshness)
+    {
+
+        for (int i = min; i <= max; i++)
+        {
+            Ingredient ingredient = null;
+            GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
+            newItemChoiceObject.transform.SetParent(viewportShop.transform);
+            newItemChoiceObject.transform.localScale = Vector3.one;
+            ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
+            if (random == false)
+            {
+                ingredient = ingredients[i];
+            }
+            if (random == true)
+            {
+                ingredient = ingredients[UniqueRandomInt(min, ingredients.Length)];
+            }
+
+            newItemChoice.SetIcon(ingredient.icon);
+            newItemChoice.SetDescription(ingredient.description);
+            newItemChoice.SetTitle(ingredient.title);
+            newItemChoice.SetFreshness(freshness);
 
             DoIt(newItemChoiceObject);
         }
-
-        for (int i = 2; i <= 7; i++)
-		{
-			GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
-			newItemChoiceObject.transform.SetParent(viewportShop.transform);
-			newItemChoiceObject.transform.localScale = Vector3.one; 
-			ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
-			Ingredient ingredient = ingredients[UniqueRandomInt(2,10)];
-			newItemChoice.SetIcon(ingredient.icon);
-			newItemChoice.SetDescription(ingredient.description);
-			newItemChoice.SetTitle(ingredient.title);
-            newItemChoice.SetFreshness(true);
-
-            DoIt(newItemChoiceObject);
-
-
-        }
-	}
-
-    void HotPants(GameObject obj)
-    {
-       ///
     }
 
-   void TruckTransfer(GameObject obj)
-    {
+    void StoreDisplay(GameObject obj){
     }
+
+
 
     void DoIt(GameObject obj)
     {
@@ -103,4 +91,6 @@ public static event BroadcastEvent brotcast;
 			usedValues.Add(val);
 			return val;
 		}
+
+
 }
