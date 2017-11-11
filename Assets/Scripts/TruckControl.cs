@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TruckControl : MonoBehaviour {
 
@@ -12,38 +13,16 @@ public class TruckControl : MonoBehaviour {
 
     TruckControl truck;
     GameObject shop;
+    Button MarketButtonEnd;
 
     void Start()
     {
         MarketUI.brotcast += this.DoIt;
-        truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
-        shop = GameObject.Find("ShopUI");
-
     }
 
-    private void Update()
+    void  DoIt(GameObject whatever)
     {
-        if (truckIngredientsCounter < counterLimit)
-        {
-            shop.GetComponent<CanvasGroup>().interactable = true;
-        }
-        else
-        {
-            shop.GetComponent<CanvasGroup>().interactable = false;
-
-        }
-    }
-
-
-
-    public void  DoIt(GameObject whatever)
-    {
-        print("yoooooooo?");
-    }
-
-    public void GiveToTruck()
-    {
-
+    //    print("yoooooooo?" + whatever);
     }
 
 }

@@ -6,39 +6,46 @@ using UnityEngine.UI;
 public class MarketUI : MonoBehaviour {
 
 public Ingredient[] ingredients;
-
 public GameObject viewportShop;
 public GameObject viewportTruck;
-
 public GameObject ItemChoicePrefab;
-
+Button marketUIButton;
 public GameObject truckView;
 List<int> usedValues = new List<int>();
 
-// learning events or something
-
+    TruckControl truck;
+    GameObject shop;
+// events exploration
 
 public delegate void BroadcastEvent(GameObject yeah);
-
 public static event BroadcastEvent brotcast;
-
-
-
-//
-
-
-    // Use this for initialization
+    
     void Start () {
 
+        marketUIButton = this.GetComponentInChildren<Button>();
         GameObject ItemChoicePlaceholder = GameObject.Find("ItemChoicePrefab");
 		ItemChoicePlaceholder.SetActive(false);
-
-		ListIngredients(0, 1, false, false);  //lists first ingredients ingredients
-        ListIngredients(2, 7, true, true);
+        truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
+        shop = GameObject.Find("ShopUI");
+        ListIngredients(0, 1, true, false);  //lists first ingredients ingredients
+        ListIngredients(2, 7, false, true);
 	}
 
+    private void Update()
+    {
+        if (truck.truckIngredientsCounter < truck.counterLimit)
+        {
+            shop.GetComponent<CanvasGroup>().interactable = true;
+            marketUIButton.interactable = false;
+        }
+        else
+        {
+            shop.GetComponent<CanvasGroup>().interactable = false;
+            marketUIButton.interactable = true;
+        }
+    }
 
-    public void ListIngredients(int min, int max, bool random, bool freshness)
+    public void ListIngredients(int min, int max, bool preloaded, bool freshness)
     {
 
         for (int i = min; i <= max; i++)
@@ -48,11 +55,11 @@ public static event BroadcastEvent brotcast;
             newItemChoiceObject.transform.SetParent(viewportShop.transform);
             newItemChoiceObject.transform.localScale = Vector3.one;
             ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
-            if (random == false)
+            if (preloaded == true)
             {
                 ingredient = ingredients[i];
             }
-            if (random == true)
+            if (preloaded == false)
             {
                 ingredient = ingredients[UniqueRandomInt(min, ingredients.Length)];
             }
@@ -60,8 +67,14 @@ public static event BroadcastEvent brotcast;
             newItemChoice.SetIcon(ingredient.icon);
             newItemChoice.SetDescription(ingredient.description);
             newItemChoice.SetTitle(ingredient.title);
+            newItemChoiceObject.name = ingredient.title;
             newItemChoice.SetFreshness(freshness);
 
+            if (preloaded == true)
+            {
+                newItemChoice.TruckTransfer();
+                newItemChoice.GetComponentInChildren<Button>().interactable = false;
+            }
             DoIt(newItemChoiceObject);
         }
     }
@@ -91,6 +104,4 @@ public static event BroadcastEvent brotcast;
 			usedValues.Add(val);
 			return val;
 		}
-
-
 }

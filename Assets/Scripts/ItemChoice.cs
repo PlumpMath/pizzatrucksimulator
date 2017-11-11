@@ -18,19 +18,14 @@ public class ItemChoice : MonoBehaviour {
     
     void Start()
     {
-
-
         MarketUI.brotcast += this.StoreDisplay;
-   
-
         Button btn = thisButton.GetComponent<Button>();
         btn.onClick.AddListener(TruckTransfer);
-
     }
 
     void StoreDisplay(GameObject obj)
     {
-        print("Display ze " + obj.GetComponent<ItemChoice>().title.GetComponent<Text>().text + " to pizza shop");  
+  //      print("Display ze " + obj.GetComponent<ItemChoice>().title.GetComponent<Text>().text + " to pizza shop");  
     }
 
     public void SetIcon(Sprite sprite)
@@ -77,7 +72,7 @@ public class ItemChoice : MonoBehaviour {
             }
     }
 
-    void TruckTransfer()
+   public void TruckTransfer()
     {
         TruckControl truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
         GameObject shop = GameObject.Find("ShopUI"); 
@@ -85,14 +80,12 @@ public class ItemChoice : MonoBehaviour {
         {
             case true:
                 truck.GatheredIngredients.Add(transform.gameObject);
-                print("Bravo, you took the " + title.GetComponent<Text>().text);
                 this.transform.SetParent(truck.transform.GetChild(0));
                 truck.truckIngredientsCounter++;
                 inStore = false;
                 break;
             case false:
                 truck.GatheredIngredients.Remove(transform.gameObject);
-                print("I guess u didn't want the " + title.GetComponent<Text>().text);
                 this.transform.SetParent(shop.transform.GetChild(0));
                 truck.truckIngredientsCounter--;
                 inStore = true;

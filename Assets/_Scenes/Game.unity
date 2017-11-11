@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 42845592}
   - component: {fileID: 42845591}
   m_Layer: 5
-  m_Name: Market_Button_End
+  m_Name: MarketButtonEnd
   m_TagString: MarketUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,13 +485,15 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 189837965}
+  - component: {fileID: 189837966}
+  - component: {fileID: 189837967}
   m_Layer: 5
   m_Name: Phase 2 - Parking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &189837965
 RectTransform:
   m_ObjectHideFlags: 0
@@ -511,6 +513,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &189837966
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189837964}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &189837967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189837964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc864f6ba475d04ea45df547eb4d9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224834680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,8 +1734,8 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 648452598}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
+  m_Alpha: 0
+  m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &648452601
@@ -3063,6 +3087,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114880352122271120, guid: ce0918cb3d4b48b44973f13f4232f855,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce0918cb3d4b48b44973f13f4232f855, type: 2}
   m_IsPrefabParent: 0
@@ -3757,7 +3786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GatheredIngredients: []
   truckIngredientsCounter: 0
-  counterLimit: 4
+  counterLimit: 5
 --- !u!114 &1917893892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4155,5 +4184,3 @@ MonoBehaviour:
   reputation: 0
   money: 0
   numberOfTurnsInGame: 7
-  UICanvas: {fileID: 1570913111}
-  marketUI: {fileID: 648452598}

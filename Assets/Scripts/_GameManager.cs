@@ -9,9 +9,6 @@ public class _GameManager : MonoBehaviour {
 	public int numberOfTurnsInGame= 7;
 	int currentTurnNumber = 0;
 
-	public GameObject UICanvas;
-	public GameObject marketUI;
-
 	void Start () {
 		print("_GameManager Start()");
 		NewTurn();
