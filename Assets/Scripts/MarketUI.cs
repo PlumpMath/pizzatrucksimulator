@@ -10,7 +10,7 @@ public GameObject viewportShop;
 public GameObject viewportTruck;
 public GameObject ItemChoicePrefab;
 Button marketUIButton;
-public GameObject truckView;
+
 List<int> usedValues = new List<int>();
 
     TruckControl truck;
