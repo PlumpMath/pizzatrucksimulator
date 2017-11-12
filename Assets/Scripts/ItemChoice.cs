@@ -12,15 +12,34 @@ public class ItemChoice : MonoBehaviour {
 	public GameObject freshness;
 	public GameObject title;
 
-    public Button thisButton;
+    public Button button;
 
     public bool inStore = true;
+
+    public PizzaTruck pizzaTruck;
+    public Ingredient ingredient;
+
+    TruckControl truck;
+    GameObject shop;
+
+    
     
     void Start()
     {
+        truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
+        shop = GameObject.Find("ShopUI");
+
         MarketUI.brotcast += this.StoreDisplay;
-        Button btn = thisButton.GetComponent<Button>();
-        btn.onClick.AddListener(TruckTransfer);
+
+        button.onClick.AddListener(AddToTruck);
+    }
+
+    public void Setup(bool freshness) {
+        gameObject.name = ingredient.title;
+        SetIcon(ingredient.icon);
+        SetDescription(ingredient.description);
+        SetTitle(ingredient.title);
+        SetFreshness(freshness);
     }
 
     void StoreDisplay(GameObject obj)
@@ -28,8 +47,7 @@ public class ItemChoice : MonoBehaviour {
   //      print("Display ze " + obj.GetComponent<ItemChoice>().title.GetComponent<Text>().text + " to pizza shop");  
     }
 
-    public void SetIcon(Sprite sprite)
-	{
+    public void SetIcon(Sprite sprite){
 		icon.GetComponent<Image>().sprite = sprite;
 	}
 
@@ -72,27 +90,31 @@ public class ItemChoice : MonoBehaviour {
             }
     }
 
-   public void TruckTransfer()
-    {
-        TruckControl truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
-        GameObject shop = GameObject.Find("ShopUI"); 
-        switch (inStore)
-        {
-            case true:
-                truck.GatheredIngredients.Add(transform.gameObject);
-                this.transform.SetParent(truck.transform.GetChild(0));
-                truck.truckIngredientsCounter++;
-                inStore = false;
-                break;
-            case false:
-                truck.GatheredIngredients.Remove(transform.gameObject);
-                this.transform.SetParent(shop.transform.GetChild(0));
-                truck.truckIngredientsCounter--;
-                inStore = true;
-                break;
-            default:
-                print("hot pants");
-                break;
+   public void AddToTruck() {
+        this.transform.SetParent(truck.transform.GetChild(0));
+
+        pizzaTruck.AddIngredient(ingredient);
+
+        button.onClick.RemoveListener(AddToTruck);
+        button.onClick.AddListener(RemoveFromTruck);
+
+        Debug.Log("--- TRUCK Inventory ---");
+        for(int i = 0; i < pizzaTruck.ingredientList.Count; i++) {
+            Debug.Log(i+1 + ": " + pizzaTruck.ingredientList[i].title);
+        }
+    }
+
+    public void RemoveFromTruck() {
+        this.transform.SetParent(shop.transform.GetChild(0));
+        
+        pizzaTruck.RemoveIngredient(ingredient);
+        
+        button.onClick.RemoveListener(AddToTruck);
+        button.onClick.AddListener(RemoveFromTruck);
+
+        Debug.Log("--- TRUCK Inventory ---");
+        for(int i = 0; i < pizzaTruck.ingredientList.Count; i++) {
+            Debug.Log(i+1 + ": " + pizzaTruck.ingredientList[i].title);
         }
     }
     

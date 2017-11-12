@@ -5,10 +5,17 @@ using UnityEngine.UI;
 
 public class MarketUI : MonoBehaviour {
 
-public Ingredient[] ingredients;
+public Ingredient[] marketIngredients;
 public GameObject viewportShop;
 public GameObject viewportTruck;
 public GameObject ItemChoicePrefab;
+public GameObject gameManagerObject;
+
+public int itemsPerTurn = 4;
+
+public _GameManager gameManager;
+PizzaTruck pizzaTruck;
+
 Button marketUIButton;
 
 List<int> usedValues = new List<int>();
@@ -19,17 +26,23 @@ List<int> usedValues = new List<int>();
 
 public delegate void BroadcastEvent(GameObject yeah);
 public static event BroadcastEvent brotcast;
+
     
     void Start () {
+	}
 
+    public void Begin() {
         marketUIButton = this.GetComponentInChildren<Button>();
         GameObject ItemChoicePlaceholder = GameObject.Find("ItemChoicePrefab");
 		ItemChoicePlaceholder.SetActive(false);
         truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
         shop = GameObject.Find("ShopUI");
-        ListIngredients(0, 1, true, false);  //lists first ingredients ingredients
-        ListIngredients(2, 7, false, true);
-	}
+
+        gameManager = gameManagerObject.GetComponent<_GameManager>();
+        pizzaTruck = gameManager.pizzaTruck;
+
+        SetupMarketIngredients();
+    }
 
     private void Update()
     {
@@ -45,51 +58,33 @@ public static event BroadcastEvent brotcast;
         }
     }
 
-    public void ListIngredients(int min, int max, bool preloaded, bool freshness)
-    {
-
-        for (int i = min; i <= max; i++)
-        {
-            Ingredient ingredient = null;
-            GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
-            newItemChoiceObject.transform.SetParent(viewportShop.transform);
-            newItemChoiceObject.transform.localScale = Vector3.one;
-            ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
-            if (preloaded == true)
-            {
-                ingredient = ingredients[i];
-            }
-            if (preloaded == false)
-            {
-                ingredient = ingredients[UniqueRandomInt(min, ingredients.Length)];
-            }
-
-            newItemChoice.SetIcon(ingredient.icon);
-            newItemChoice.SetDescription(ingredient.description);
-            newItemChoice.SetTitle(ingredient.title);
-            newItemChoiceObject.name = ingredient.title;
-            newItemChoice.SetFreshness(freshness);
-
-            if (preloaded == true)
-            {
-                newItemChoice.TruckTransfer();
-                newItemChoice.GetComponentInChildren<Button>().interactable = false;
-            }
-            DoIt(newItemChoiceObject);
+    void SetupMarketIngredients() {
+        for (int i = 0; i < itemsPerTurn; i++) {
+            // Debug.Log("Market Deck Count: " + gameManager.marketIngredientsDeck.Count);
+            Ingredient ingredient = gameManager.marketIngredientsDeck.Dequeue();
+            // Debug.Log("Adding Market Ingredient: " + ingredient.title);
+            AddItemChoice(ingredient, true);
         }
     }
 
-    void StoreDisplay(GameObject obj){
+    void AddItemChoice(Ingredient ingredient, bool freshness) {
+        GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
+        newItemChoiceObject.transform.SetParent(viewportShop.transform);
+        newItemChoiceObject.transform.localScale = Vector3.one;
+        
+        ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
+
+        newItemChoice.pizzaTruck = pizzaTruck;
+        newItemChoice.ingredient = ingredient;
+
+        newItemChoice.Setup(freshness);
+
+        DoIt(newItemChoiceObject);
     }
 
-
-
-    void DoIt(GameObject obj)
-    {
-        if (brotcast != null)
-        {
+    void DoIt(GameObject obj) {
+        if (brotcast != null) {
             brotcast(obj);
-
         }
     }
 

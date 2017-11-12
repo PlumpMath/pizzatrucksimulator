@@ -1,11 +1,16 @@
 fileFormatVersion: 2
 guid: b2319cc7024addf45a314b3ea152f328
-timeCreated: 1510268705
-licenseType: Pro
+timeCreated: 1510518955
+licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - viewportShop: {instanceID: 0}
+  - viewportTruck: {instanceID: 0}
+  - ItemChoicePrefab: {instanceID: 0}
+  - truckView: {instanceID: 0}
+  - pizzaTruck: {fileID: 11400000, guid: 864576d4e44704a7698b994912d72cd5, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

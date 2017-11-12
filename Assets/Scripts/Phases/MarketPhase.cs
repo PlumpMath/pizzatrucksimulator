@@ -3,19 +3,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MarketPhase : Phase {
-	GameObject marketUI;
+	GameObject marketUIObject;
+	MarketUI marketUI;
 	Button marketUIButton;
     TruckControl truck;
     GameObject shop;
 
 	void Start() {
-		marketUI = GameObject.Find("MarketUI");
-		marketUI.GetComponent<CanvasGroup>().alpha = 1f;
-		marketUI.GetComponent<CanvasGroup>().interactable = true;
-		marketUI.GetComponent<CanvasGroup>().blocksRaycasts = true;
+		marketUIObject = GameObject.Find("MarketUI");
+		marketUIObject.GetComponent<CanvasGroup>().alpha = 1f;
+		marketUIObject.GetComponent<CanvasGroup>().interactable = true;
+		marketUIObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
 
         marketUIButton = GameObject.Find("MarketButtonEnd").GetComponent<Button>();
         marketUIButton.onClick.AddListener(End);
+
+		marketUI = marketUIObject.GetComponent<MarketUI>();
+		marketUI.Begin();
 	}
 
 

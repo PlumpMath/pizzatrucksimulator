@@ -1,20 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Ingredient : MonoBehaviour {
-	public int ingredientId;
-	public Sprite icon;
+[System.Serializable]
+public class Ingredient {
 	public string title;
 	public string description;
-	public int freshness;
-
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+	public bool isBaseIngredient;
+	public int quantity = 5;
+	public Sprite icon;
+	public Rigidbody ingredientObject;  // The prefab for the ingredient
 }
