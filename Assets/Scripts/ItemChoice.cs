@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ItemChoice : MonoBehaviour {
 
-
-
 	public GameObject icon;
 	public GameObject description;
 	public GameObject freshness;
@@ -19,18 +17,10 @@ public class ItemChoice : MonoBehaviour {
     public PizzaTruck pizzaTruck;
     public Ingredient ingredient;
 
-    TruckControl truck;
-    GameObject shop;
-
+    public Transform marketIngredientsArea;
+    public Transform truckIngredientsArea;
     
-    
-    void Start()
-    {
-        truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
-        shop = GameObject.Find("ShopUI");
-
-        MarketUI.brotcast += this.StoreDisplay;
-
+    void Start() {
         button.onClick.AddListener(AddToTruck);
     }
 
@@ -40,11 +30,6 @@ public class ItemChoice : MonoBehaviour {
         SetDescription(ingredient.description);
         SetTitle(ingredient.title);
         SetFreshness(freshness);
-    }
-
-    void StoreDisplay(GameObject obj)
-    {
-  //      print("Display ze " + obj.GetComponent<ItemChoice>().title.GetComponent<Text>().text + " to pizza shop");  
     }
 
     public void SetIcon(Sprite sprite){
@@ -84,14 +69,14 @@ public class ItemChoice : MonoBehaviour {
                 freshness.GetComponent<Text>().text = "Fresh";
             }
         }
-            else
-            {
-                freshness.GetComponent<Text>().text = "So Fresh";
-            }
+        else
+        {
+            freshness.GetComponent<Text>().text = "So Fresh";
+        }
     }
 
    public void AddToTruck() {
-        this.transform.SetParent(truck.transform.GetChild(0));
+        this.transform.SetParent(truckIngredientsArea.GetChild(0));
 
         pizzaTruck.AddIngredient(ingredient);
 
@@ -105,7 +90,7 @@ public class ItemChoice : MonoBehaviour {
     }
 
     public void RemoveFromTruck() {
-        this.transform.SetParent(shop.transform.GetChild(0));
+        this.transform.SetParent(marketIngredientsArea.GetChild(0));
         
         pizzaTruck.RemoveIngredient(ingredient);
         

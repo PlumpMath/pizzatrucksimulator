@@ -45,6 +45,7 @@ public class Turn : MonoBehaviour {
 
 	public void HandlePhaseFinish() {
 		Debug.Log("Turn OnPhaseFinished()");
+		currentPhase.OnPhaseFinish -= HandlePhaseFinish;
 		NextPhase();
 	}
 

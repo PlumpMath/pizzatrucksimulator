@@ -11,4 +11,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d9c453cdefd41a0b38d010c4fb8ab8, type: 3}
   m_Name: Pizza Truck Data
   m_EditorClassIdentifier: 
-  ingredientList: []
+  ingredientList:
+  - title: Dough
+    description: 
+    isBaseIngredient: 1
+    quantity: 0
+    icon: {fileID: 21300000, guid: 8fd0c39a2596d124ababbc21057a0479, type: 3}
+    ingredientObject: {fileID: 400000, guid: d756b126f6bd3584190b8da6921dad9c, type: 3}
+  - title: Sauce
+    description: 
+    isBaseIngredient: 1
+    quantity: 0
+    icon: {fileID: 21300000, guid: 6c033b509e2ae2c47a1e470bd56523ef, type: 3}
+    ingredientObject: {fileID: 4192938022510394, guid: e300aa7ab2a0bf044874a67d851a2cbd,
+      type: 2}
+  - title: Cheese
+    description: 
+    isBaseIngredient: 1
+    quantity: 0
+    icon: {fileID: 0}
+    ingredientObject: {fileID: 0}
+  - title: Mushrooms
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: c8353522aac9b9347bd8b27864a227c3, type: 3}
+    ingredientObject: {fileID: 4015486471389524, guid: 93779ecd805b5e14497e833b2741bce2,
+      type: 2}
+  - title: Sundried Tomatoes
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: b1dd9c6fe87f1514db639e7def079262, type: 3}
+    ingredientObject: {fileID: 4758568053748782, guid: ff654ec6c6c977d4cb6ad007e1bcdcac,
+      type: 2}
+  - title: Broccoli
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 9f42b99c0d9abf84ab20eb34ff4c3ca9, type: 3}
+    ingredientObject: {fileID: 4376618502304116, guid: bc15c54b012037e4483b8ea7b9dfcb63,
+      type: 2}
+  - title: Pepperoni
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 244668cb9f403d643844af6dc62cbf45, type: 3}
+    ingredientObject: {fileID: 4333899345193232, guid: 10a8315eb8faaf34a9b78156a13eae11,
+      type: 2}
+  ingredientLimit: 7

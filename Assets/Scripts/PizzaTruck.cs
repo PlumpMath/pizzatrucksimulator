@@ -7,6 +7,7 @@ public class PizzaTruck : ScriptableObject {
 	public List<Ingredient> ingredientList;
 	public List<TruckUpgrade> upgradeList;
 	public enum TruckLocation {School, Park, HipsterStore, OfficeDistrict, RetirementHome}
+	public int ingredientLimit = 7;
 
 	public void AddIngredient (Ingredient ingredient) {
 		ingredientList.Add(ingredient);
@@ -14,5 +15,9 @@ public class PizzaTruck : ScriptableObject {
 
 	public void RemoveIngredient (Ingredient ingredient) {
 		ingredientList.Remove(ingredient);
+	}
+
+	public bool HasIngredientSpace {
+		get { return ingredientList.Count < ingredientLimit; }
 	}
 }

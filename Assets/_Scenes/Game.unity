@@ -1333,9 +1333,11 @@ MonoBehaviour:
   viewportTruck: {fileID: 1102600382}
   ItemChoicePrefab: {fileID: 1567918102731458, guid: ce0918cb3d4b48b44973f13f4232f855,
     type: 2}
-  gameManagerObject: {fileID: 2142694016}
-  gameManager: {fileID: 0}
   marketList: []
+  pizzaTruck: {fileID: 11400000, guid: 864576d4e44704a7698b994912d72cd5, type: 2}
+  marketIngredientsArea: {fileID: 1991953515}
+  truckIngredientsArea: {fileID: 1917893890}
+  nextPhaseButton: {fileID: 42845591}
 --- !u!1 &664405830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,7 +2311,7 @@ GameObject:
   - component: {fileID: 1917893892}
   - component: {fileID: 1917893891}
   m_Layer: 5
-  m_Name: TruckUI
+  m_Name: Truck Ingredients Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2351,6 +2353,9 @@ MonoBehaviour:
   GatheredIngredients: []
   truckIngredientsCounter: 0
   counterLimit: 5
+  truck: {fileID: 0}
+  shop: {fileID: 0}
+  MarketButtonEnd: {fileID: 0}
 --- !u!114 &1917893892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,7 +2539,7 @@ GameObject:
   - component: {fileID: 1991953516}
   - component: {fileID: 1991953519}
   m_Layer: 5
-  m_Name: ShopUI
+  m_Name: Market Ingredients Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

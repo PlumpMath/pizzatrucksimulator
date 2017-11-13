@@ -8,7 +8,6 @@ public class MarketPhase : Phase {
 	GameObject marketUIObject;
 	MarketUI marketUI;
 	Button marketUIButton;
-    TruckControl truck;
     GameObject shop;
 	GameManager gameManager;
 	List<Ingredient> marketList;
@@ -17,6 +16,16 @@ public class MarketPhase : Phase {
 		print("MarketPhase Begin()");
 		base.Begin();
 
+
+		gameManager = GameObject.Find("_GameManager").GetComponent<GameManager>();
+
+		SetupMarketUI();
+		SetupMarketList();
+
+		marketUI.Begin();
+	}
+
+	void SetupMarketUI() {
 		marketUIObject = GameObject.Find("MarketUI");
 		marketUIObject.GetComponent<CanvasGroup>().alpha = 1f;
 		marketUIObject.GetComponent<CanvasGroup>().interactable = true;
@@ -26,12 +35,6 @@ public class MarketPhase : Phase {
         marketUIButton.onClick.AddListener(End);
 
 		marketUI = marketUIObject.GetComponent<MarketUI>();
-
-		gameManager = GameObject.Find("_GameManager").GetComponent<GameManager>();
-
-		SetupMarketList();
-
-		marketUI.Begin();
 	}
 
     void SetupMarketList() {
@@ -42,6 +45,7 @@ public class MarketPhase : Phase {
         }
     }
 	public override void End() {
+		
 		print("MarketPhase End()");
 		marketUI.GetComponent<CanvasGroup>().alpha = 0f;
 		marketUI.GetComponent<CanvasGroup>().interactable = false;

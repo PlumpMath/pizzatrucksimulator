@@ -5,47 +5,34 @@ using UnityEngine.UI;
 
 public class MarketUI : MonoBehaviour {
 
-public Ingredient[] marketIngredients;
 public GameObject viewportShop;
-public GameObject viewportTruck;
 public GameObject ItemChoicePrefab;
 
 public List<Ingredient> marketList;
 
 public PizzaTruck pizzaTruck;
 
-Button marketUIButton;
+public Transform marketIngredientsArea;
+public Transform truckIngredientsArea;
 
-List<int> usedValues = new List<int>();
+CanvasGroup marketIngredientsAreaCanvas;
 
-    TruckControl truck;
-    GameObject shop;
-// events exploration
+public Button nextPhaseButton;
 
-public delegate void BroadcastEvent(GameObject yeah);
-public static event BroadcastEvent brotcast;
+GameObject shop;
 
     public void Begin() {
-        marketUIButton = this.GetComponentInChildren<Button>();
-        truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
-        shop = GameObject.Find("ShopUI");
-
+        marketIngredientsAreaCanvas = marketIngredientsArea.GetComponent<CanvasGroup>();
         AddItemChoices();
     }
 
     private void Update() {
-        if (truck.truckIngredientsCounter < truck.counterLimit) {
-            shop.GetComponent<CanvasGroup>().interactable = true;
-            marketUIButton.interactable = false;
-        } else {
-            shop.GetComponent<CanvasGroup>().interactable = false;
-            marketUIButton.interactable = true;
-        }
+        marketIngredientsAreaCanvas.interactable = pizzaTruck.HasIngredientSpace;
+        nextPhaseButton.interactable = !pizzaTruck.HasIngredientSpace;
     }
 
     void AddItemChoices() {
         foreach (Ingredient ingredient in marketList) {
-            print("UI Adding ingredient: " + ingredient.title);
             AddItemChoice(ingredient);
         }
     }
@@ -59,27 +46,9 @@ public static event BroadcastEvent brotcast;
 
         newItemChoice.pizzaTruck = pizzaTruck;
         newItemChoice.ingredient = ingredient;
+        newItemChoice.marketIngredientsArea = marketIngredientsArea;
+        newItemChoice.truckIngredientsArea = truckIngredientsArea;
 
         newItemChoice.Setup(true);
-
-        DoIt(newItemChoiceObject);
     }
-
-    void DoIt(GameObject obj) {
-        if (brotcast != null) {
-            brotcast(obj);
-        }
-    }
-
-    public int UniqueRandomInt(int min, int max)
-		{
-            int val = Random.Range(min, max);
-
-			while(usedValues.Contains(val))
-			{
-				 val = Random.Range(min, max);
-			}
-			usedValues.Add(val);
-			return val;
-		}
 }

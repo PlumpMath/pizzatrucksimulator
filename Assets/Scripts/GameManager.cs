@@ -13,11 +13,18 @@ public class GameManager : MonoBehaviour {
     public int numberOfTurnsInGame = 7;
     int currentTurnNumber = 0;
 
+    #region Singleton
+    public static GameManager instance;
 
     void Awake()
     {
-        // SetupMarketDeck();
+        if (instance != null) {
+            Debug.LogWarning("More than one GameManager instance!");
+            return;
+        }
+        instance = this;
     }
+    #endregion
     void Start()
     {
         print("GameManager Start()");

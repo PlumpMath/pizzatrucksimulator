@@ -172,6 +172,8 @@ MonoBehaviour:
     quantity: 5
     icon: {fileID: 0}
     ingredientObject: {fileID: 0}
+  marketIngredientsArea: {fileID: 0}
+  truckIngredientsArea: {fileID: 0}
 --- !u!114 &114097506142228470
 MonoBehaviour:
   m_ObjectHideFlags: 1
