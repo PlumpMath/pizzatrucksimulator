@@ -9,12 +9,10 @@ public Ingredient[] marketIngredients;
 public GameObject viewportShop;
 public GameObject viewportTruck;
 public GameObject ItemChoicePrefab;
-public GameObject gameManagerObject;
 
-public int itemsPerTurn = 4;
+public List<Ingredient> marketList;
 
-public GameManager gameManager;
-PizzaTruck pizzaTruck;
+public PizzaTruck pizzaTruck;
 
 Button marketUIButton;
 
@@ -27,23 +25,15 @@ List<int> usedValues = new List<int>();
 public delegate void BroadcastEvent(GameObject yeah);
 public static event BroadcastEvent brotcast;
 
-    
-    void Start () {
-	}
-
     public void Begin() {
         marketUIButton = this.GetComponentInChildren<Button>();
         truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
         shop = GameObject.Find("ShopUI");
 
-        gameManager = gameManagerObject.GetComponent<GameManager>();
-        pizzaTruck = gameManager.pizzaTruck;
-
-        SetupMarketIngredients();
+        AddItemChoices();
     }
 
-    private void Update()
-    {
+    private void Update() {
         if (truck.truckIngredientsCounter < truck.counterLimit) {
             shop.GetComponent<CanvasGroup>().interactable = true;
             marketUIButton.interactable = false;
@@ -53,16 +43,14 @@ public static event BroadcastEvent brotcast;
         }
     }
 
-    void SetupMarketIngredients() {
-        for (int i = 0; i < itemsPerTurn; i++) {
-            // Debug.Log("Market Deck Count: " + gameManager.marketIngredientsDeck.Count);
-            Ingredient ingredient = gameManager.marketIngredientsDeck.Dequeue();
-            // Debug.Log("Adding Market Ingredient: " + ingredient.title);
-            AddItemChoice(ingredient, true);
+    void AddItemChoices() {
+        foreach (Ingredient ingredient in marketList) {
+            print("UI Adding ingredient: " + ingredient.title);
+            AddItemChoice(ingredient);
         }
     }
 
-    void AddItemChoice(Ingredient ingredient, bool freshness) {
+    void AddItemChoice(Ingredient ingredient) {
         GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
         newItemChoiceObject.transform.SetParent(viewportShop.transform);
         newItemChoiceObject.transform.localScale = Vector3.one;
@@ -72,7 +60,7 @@ public static event BroadcastEvent brotcast;
         newItemChoice.pizzaTruck = pizzaTruck;
         newItemChoice.ingredient = ingredient;
 
-        newItemChoice.Setup(freshness);
+        newItemChoice.Setup(true);
 
         DoIt(newItemChoiceObject);
     }
