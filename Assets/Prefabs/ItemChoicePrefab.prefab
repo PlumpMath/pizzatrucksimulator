@@ -162,7 +162,16 @@ MonoBehaviour:
   description: {fileID: 1266147659714614}
   freshness: {fileID: 1150331451092726}
   title: {fileID: 1337845207377480}
-  thisButton: {fileID: 114880352122271120}
+  button: {fileID: 114880352122271120}
+  inStore: 1
+  pizzaTruck: {fileID: 11400000, guid: 864576d4e44704a7698b994912d72cd5, type: 2}
+  ingredient:
+    title: 
+    description: 
+    isBaseIngredient: 0
+    quantity: 5
+    icon: {fileID: 0}
+    ingredientObject: {fileID: 0}
 --- !u!114 &114097506142228470
 MonoBehaviour:
   m_ObjectHideFlags: 1

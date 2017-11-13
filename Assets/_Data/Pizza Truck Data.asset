@@ -9,6 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28d9c453cdefd41a0b38d010c4fb8ab8, type: 3}
-  m_Name: Pizza Truck
+  m_Name: Pizza Truck Data
   m_EditorClassIdentifier: 
   ingredientList: []

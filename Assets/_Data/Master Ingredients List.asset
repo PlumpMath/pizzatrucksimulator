@@ -9,6 +9,96 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: IngredientsList
+  m_Name: Master Ingredients List
   m_EditorClassIdentifier: Assembly-CSharp::IngredientsList
-  ingredientList: []
+  ingredientList:
+  - title: Dough
+    description: 
+    isBaseIngredient: 1
+    quantity: 0
+    icon: {fileID: 21300000, guid: 8fd0c39a2596d124ababbc21057a0479, type: 3}
+    ingredientObject: {fileID: 4972924240263058, guid: 0f4d46152fd3e164d86eefc62550e1e6,
+      type: 2}
+  - title: Sauce
+    description: 
+    isBaseIngredient: 1
+    quantity: 0
+    icon: {fileID: 21300000, guid: 6c033b509e2ae2c47a1e470bd56523ef, type: 3}
+    ingredientObject: {fileID: 4192938022510394, guid: e300aa7ab2a0bf044874a67d851a2cbd,
+      type: 2}
+  - title: Cheese
+    description: 
+    isBaseIngredient: 1
+    quantity: 0
+    icon: {fileID: 0}
+    ingredientObject: {fileID: 0}
+  - title: Arugula
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 574a591d8d8b1c747bbef27ff72e1854, type: 3}
+    ingredientObject: {fileID: 4308535651496046, guid: 2a4ef0fb104d1fc4aa6d750e72ba43f4,
+      type: 2}
+  - title: Broccoli
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 9f42b99c0d9abf84ab20eb34ff4c3ca9, type: 3}
+    ingredientObject: {fileID: 4376618502304116, guid: bc15c54b012037e4483b8ea7b9dfcb63,
+      type: 2}
+  - title: Chicken Cutlet
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: b325703bf80b9f644979c642184c8bc8, type: 3}
+    ingredientObject: {fileID: 4097103092446990, guid: 9b110e636cd3ad34c89fd2384199e17e,
+      type: 2}
+  - title: Mushrooms
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: c8353522aac9b9347bd8b27864a227c3, type: 3}
+    ingredientObject: {fileID: 4015486471389524, guid: 93779ecd805b5e14497e833b2741bce2,
+      type: 2}
+  - title: Olives
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 244668cb9f403d643844af6dc62cbf45, type: 3}
+    ingredientObject: {fileID: 4740060470910528, guid: caa2428f9cc9e14449eb5b05248e646e,
+      type: 2}
+  - title: Pepperoni
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 244668cb9f403d643844af6dc62cbf45, type: 3}
+    ingredientObject: {fileID: 4333899345193232, guid: 10a8315eb8faaf34a9b78156a13eae11,
+      type: 2}
+  - title: Peppers
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 01c39a2165272704fa3ea5461f2deb4e, type: 3}
+    ingredientObject: {fileID: 4852857441609660, guid: 82691a32470d1fd4dbfec58b879dd7c5,
+      type: 2}
+  - title: Pineapple
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: bf2c45f094b24a04ca4e43460358caf8, type: 3}
+    ingredientObject: {fileID: 4241852007368834, guid: 88242992f2101f04f8552f09c2569c10,
+      type: 2}
+  - title: Sausage
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: 980b99cbd9a359b40aa2236a8b8c1a30, type: 3}
+    ingredientObject: {fileID: 4796570062311758, guid: 4d93042cd4b6d4047822dfa102904ea2,
+      type: 2}
+  - title: Sundried Tomatoes
+    description: 
+    isBaseIngredient: 0
+    quantity: 0
+    icon: {fileID: 21300000, guid: b1dd9c6fe87f1514db639e7def079262, type: 3}
+    ingredientObject: {fileID: 4758568053748782, guid: ff654ec6c6c977d4cb6ad007e1bcdcac,
+      type: 2}

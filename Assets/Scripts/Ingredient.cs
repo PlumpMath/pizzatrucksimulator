@@ -8,5 +8,5 @@ public class Ingredient {
 	public bool isBaseIngredient;
 	public int quantity = 5;
 	public Sprite icon;
-	public Rigidbody ingredientObject;  // The prefab for the ingredient
+	public Transform ingredientObject;  // The prefab for the ingredient
 }
