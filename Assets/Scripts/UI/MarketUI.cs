@@ -13,7 +13,7 @@ public GameObject gameManagerObject;
 
 public int itemsPerTurn = 4;
 
-public _GameManager gameManager;
+public GameManager gameManager;
 PizzaTruck pizzaTruck;
 
 Button marketUIButton;
@@ -33,12 +33,10 @@ public static event BroadcastEvent brotcast;
 
     public void Begin() {
         marketUIButton = this.GetComponentInChildren<Button>();
-        GameObject ItemChoicePlaceholder = GameObject.Find("ItemChoicePrefab");
-		ItemChoicePlaceholder.SetActive(false);
         truck = GameObject.Find("TruckUI").GetComponent<TruckControl>();
         shop = GameObject.Find("ShopUI");
 
-        gameManager = gameManagerObject.GetComponent<_GameManager>();
+        gameManager = gameManagerObject.GetComponent<GameManager>();
         pizzaTruck = gameManager.pizzaTruck;
 
         SetupMarketIngredients();
@@ -46,13 +44,10 @@ public static event BroadcastEvent brotcast;
 
     private void Update()
     {
-        if (truck.truckIngredientsCounter < truck.counterLimit)
-        {
+        if (truck.truckIngredientsCounter < truck.counterLimit) {
             shop.GetComponent<CanvasGroup>().interactable = true;
             marketUIButton.interactable = false;
-        }
-        else
-        {
+        } else {
             shop.GetComponent<CanvasGroup>().interactable = false;
             marketUIButton.interactable = true;
         }

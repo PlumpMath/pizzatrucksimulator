@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 224591627412990780}
   - component: {fileID: 114080846160574076}
   m_Layer: 5
-  m_Name: ItemChoicePrefab
+  m_Name: ItemChoice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
