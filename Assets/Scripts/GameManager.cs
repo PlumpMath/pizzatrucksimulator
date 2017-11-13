@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
+	public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController firstPersonController;
     public float reputation = 0f;
     public float money = 0f;
     public Queue<Ingredient> marketIngredientsDeck;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         print("GameManager Start()");
+		firstPersonController.enabled = false;
         SetupMarketDeck();
         SetupPizzaTruck();
         NewTurn();
