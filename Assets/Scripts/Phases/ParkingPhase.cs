@@ -10,12 +10,12 @@ public class ParkingPhase : Phase
 
     void Start()
     {
-        parkingUI = GameObject.Find("Phase 2 - Parking");
-        parkingUI.GetComponent<CanvasGroup>().alpha = 0f;
-        parkingUI.GetComponent<CanvasGroup>().interactable = false;
-        parkingUI.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        parkingUIButton = GameObject.Find("MarketButtonEnd").GetComponent<Button>();
-        parkingUIButton.onClick.AddListener(End);
+        // parkingUI = GameObject.Find("Phase 2 - Parking");
+        // parkingUI.GetComponent<CanvasGroup>().alpha = 0f;
+        // parkingUI.GetComponent<CanvasGroup>().interactable = false;
+        // parkingUI.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        // parkingUIButton = GameObject.Find("MarketButtonEnd").GetComponent<Button>();
+        // parkingUIButton.onClick.AddListener(End);
     }
 
     private void Update()

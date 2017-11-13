@@ -109,8 +109,8 @@ public class ItemChoice : MonoBehaviour {
         
         pizzaTruck.RemoveIngredient(ingredient);
         
-        button.onClick.RemoveListener(AddToTruck);
-        button.onClick.AddListener(RemoveFromTruck);
+        button.onClick.AddListener(AddToTruck);
+        button.onClick.RemoveListener(RemoveFromTruck);
 
         Debug.Log("--- TRUCK Inventory ---");
         for(int i = 0; i < pizzaTruck.ingredientList.Count; i++) {

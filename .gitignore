@@ -60,3 +60,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Ignore blender backup files
+*.blend1
+*.blend1.meta
