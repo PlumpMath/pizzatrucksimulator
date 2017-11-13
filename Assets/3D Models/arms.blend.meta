@@ -8,20 +8,40 @@ ModelImporter:
     100000: //RootNode
     100002: Cube
     100004: Empty
+    100006: Arm1_L
+    100008: Arm1_R
+    100010: Arm2_L
+    100012: Arm2_R
+    100014: Armature
+    100016: Arms
+    100018: Hand_L_
+    100020: Hand_R
+    100022: Mirror_Axis
     400000: //RootNode
     400002: Cube
     400004: Empty
+    400006: Arm1_L
+    400008: Arm1_R
+    400010: Arm2_L
+    400012: Arm2_R
+    400014: Armature
+    400016: Arms
+    400018: Hand_L_
+    400020: Hand_R
+    400022: Mirror_Axis
     2300000: Cube
     3300000: Cube
     4300000: Cube
+    4300002: Arms
     7400000: Default Take
     9500000: //RootNode
+    13700000: Arms
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: unnamed
-    second: {fileID: 2100000, guid: 9f3037b806329414fa2c925d5711fe44, type: 2}
+    second: {fileID: 2100000, guid: ba1751b25b639a044a977674b1d7fb7e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
