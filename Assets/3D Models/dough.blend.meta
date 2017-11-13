@@ -6,11 +6,19 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Dough
+    100004: Ingredent_Face
     400000: //RootNode
+    400002: Dough
+    400004: Ingredent_Face
+    2300000: Ingredent_Face
+    3300000: Ingredent_Face
     4300000: Dough
+    4300002: Ingredent_Face
     7400000: Default Take
     9500000: //RootNode
     13700000: //RootNode
+    13700002: Dough
   externalObjects:
   - first:
       type: UnityEngine:Material
