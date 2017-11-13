@@ -62,5 +62,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # Ignore blender backup files
-*.blend1
-*.blend1.meta
+*.blend[0-9]
+*.blend[0-9].meta
