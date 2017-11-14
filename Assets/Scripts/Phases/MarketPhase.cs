@@ -9,15 +9,11 @@ public class MarketPhase : Phase {
 	MarketUI marketUI;
 	Button marketUIButton;
     GameObject shop;
-	GameManager gameManager;
 	List<Ingredient> marketList;
 
     public override void Begin() {
 		print("MarketPhase Begin()");
 		base.Begin();
-
-
-		gameManager = GameObject.Find("_GameManager").GetComponent<GameManager>();
 
 		SetupMarketUI();
 		SetupMarketList();
@@ -39,7 +35,7 @@ public class MarketPhase : Phase {
 
     void SetupMarketList() {
         for (int i = 0; i < itemsPerTurn; i++) {
-            Ingredient ingredient = gameManager.marketIngredientsDeck.Dequeue();
+            Ingredient ingredient = GameManager.Instance.marketIngredientsDeck.Dequeue();
 			print("Adding ingredient: " + ingredient.title);
 			marketUI.marketList.Add(ingredient);
         }

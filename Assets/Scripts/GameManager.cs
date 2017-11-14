@@ -8,23 +8,25 @@ public class GameManager : MonoBehaviour {
     public float money = 0f;
     public Queue<Ingredient> marketIngredientsDeck;
     public IngredientsList masterIngredientsList;
-    public PizzaTruck pizzaTruck;
+
+    PizzaTruck pizzaTruck;
     Turn currentTurn;
     public int numberOfTurnsInGame = 7;
     int currentTurnNumber = 0;
 
     #region Singleton
-    public static GameManager instance;
+    public static GameManager Instance;
 
     void Awake()
     {
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("More than one GameManager instance!");
             return;
         }
-        instance = this;
+        Instance = this;
     }
     #endregion
+
     void Start()
     {
         print("GameManager Start()");
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour {
 
     void SetupPizzaTruck()
     {
+        pizzaTruck = PizzaTruck.Instance;
         pizzaTruck.ingredientList.Clear();
         pizzaTruck.AddIngredient(masterIngredientsList.ingredientList[0]); // Add Dough
         pizzaTruck.AddIngredient(masterIngredientsList.ingredientList[1]); // Add Sauce

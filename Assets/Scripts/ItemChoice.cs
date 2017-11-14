@@ -14,13 +14,15 @@ public class ItemChoice : MonoBehaviour {
 
     public bool inStore = true;
 
-    public PizzaTruck pizzaTruck;
     public Ingredient ingredient;
 
     public Transform marketIngredientsArea;
     public Transform truckIngredientsArea;
+
+    PizzaTruck pizzaTruck;
     
     void Start() {
+        pizzaTruck = PizzaTruck.Instance;
         button.onClick.AddListener(AddToTruck);
     }
 

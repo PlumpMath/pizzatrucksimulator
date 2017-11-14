@@ -10,8 +10,6 @@ public GameObject ItemChoicePrefab;
 
 public List<Ingredient> marketList;
 
-public PizzaTruck pizzaTruck;
-
 public Transform marketIngredientsArea;
 public Transform truckIngredientsArea;
 
@@ -19,9 +17,12 @@ CanvasGroup marketIngredientsAreaCanvas;
 
 public Button nextPhaseButton;
 
+PizzaTruck pizzaTruck;
+
 GameObject shop;
 
     public void Begin() {
+        pizzaTruck = PizzaTruck.Instance;
         marketIngredientsAreaCanvas = marketIngredientsArea.GetComponent<CanvasGroup>();
         AddItemChoices();
     }
@@ -44,7 +45,6 @@ GameObject shop;
         
         ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
 
-        newItemChoice.pizzaTruck = pizzaTruck;
         newItemChoice.ingredient = ingredient;
         newItemChoice.marketIngredientsArea = marketIngredientsArea;
         newItemChoice.truckIngredientsArea = truckIngredientsArea;

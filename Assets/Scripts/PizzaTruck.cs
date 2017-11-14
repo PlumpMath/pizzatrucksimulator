@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
  
 [CreateAssetMenu(fileName = "Pizza Truck", menuName = "Assets/Create/Pizza Truck")]
-public class PizzaTruck : ScriptableObject {
+public class PizzaTruck : SingletonScriptableObject<PizzaTruck> {
 	public List<Ingredient> ingredientList;
 	public List<TruckUpgrade> upgradeList;
 	public enum TruckLocation {School, Park, HipsterStore, OfficeDistrict, RetirementHome}
