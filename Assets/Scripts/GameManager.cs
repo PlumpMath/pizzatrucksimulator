@@ -31,8 +31,9 @@ public class GameManager : MonoBehaviour {
     {
         print("GameManager Start()");
 		firstPersonController.enabled = false;
-        SetupMarketDeck();
-        SetupPizzaTruck();
+        SetupIngredients();
+        PizzaTruck.Instance.Init();
+        // SetupPizzaTruck();
         NewTurn();
     }
 
@@ -40,13 +41,17 @@ public class GameManager : MonoBehaviour {
     {
     }
 
-    void SetupMarketDeck()
+    void SetupIngredients()
     {
         List<Ingredient> shuffledList = new List<Ingredient>();
         int ingredientQuantity = 4;
         foreach (Ingredient ingredient in masterIngredientsList.ingredientList)
         {
-            if (!ingredient.isBaseIngredient)
+            if (ingredient.isBaseIngredient)
+            {
+                ingredient.spawnPoint = GameObject.Find(ingredient.title + " Spawnpoint").transform;
+            }
+            else
             {
                 for (int i = 0; i < ingredientQuantity; i++)
                 {
@@ -78,15 +83,6 @@ public class GameManager : MonoBehaviour {
             list[k] = list[n];
             list[n] = value;
         }
-    }
-
-    void SetupPizzaTruck()
-    {
-        pizzaTruck = PizzaTruck.Instance;
-        pizzaTruck.ingredientList.Clear();
-        pizzaTruck.AddIngredient(masterIngredientsList.ingredientList[0]); // Add Dough
-        pizzaTruck.AddIngredient(masterIngredientsList.ingredientList[1]); // Add Sauce
-        pizzaTruck.AddIngredient(masterIngredientsList.ingredientList[2]); // Add Cheese
     }
 
     void NewTurn()

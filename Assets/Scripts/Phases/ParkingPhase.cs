@@ -5,8 +5,7 @@ using UnityEngine.UI;
 public class ParkingPhase : Phase
 {
     GameObject parkingUI;
-    Button parkingUIButton;
-
+    // Button parkingUIButton;
 
     void Start()
     {
@@ -30,7 +29,7 @@ public class ParkingPhase : Phase
         parkingUI.GetComponent<CanvasGroup>().alpha = 1f;
         parkingUI.GetComponent<CanvasGroup>().interactable = true;
         parkingUI.GetComponent<CanvasGroup>().blocksRaycasts = true;
-        parkingUIButton.onClick.AddListener(End);
+        // parkingUIButton.onClick.AddListener(End);
         base.Begin();
     }
 

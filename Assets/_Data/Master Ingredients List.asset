@@ -15,89 +15,104 @@ MonoBehaviour:
   - title: Dough
     description: 
     isBaseIngredient: 1
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 8fd0c39a2596d124ababbc21057a0479, type: 3}
-    ingredientObject: {fileID: 400000, guid: d756b126f6bd3584190b8da6921dad9c, type: 3}
+    ingredientObject: {fileID: 4875765303607786, guid: 3bdd532664eba4f41a568616f8221679,
+      type: 2}
+    spawnPoint: {fileID: 0}
   - title: Sauce
     description: 
     isBaseIngredient: 1
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 6c033b509e2ae2c47a1e470bd56523ef, type: 3}
-    ingredientObject: {fileID: 4192938022510394, guid: e300aa7ab2a0bf044874a67d851a2cbd,
+    ingredientObject: {fileID: 4789105091104594, guid: d2b5f629521b0c5479f4f2b89073cc7f,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Cheese
     description: 
     isBaseIngredient: 1
-    quantity: 0
+    quantity: 4
     icon: {fileID: 0}
-    ingredientObject: {fileID: 0}
+    ingredientObject: {fileID: 4562998347744812, guid: aeffa348350d20e45b8384f646e3dcdb,
+      type: 2}
+    spawnPoint: {fileID: 0}
   - title: Arugula
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 574a591d8d8b1c747bbef27ff72e1854, type: 3}
-    ingredientObject: {fileID: 4308535651496046, guid: 2a4ef0fb104d1fc4aa6d750e72ba43f4,
+    ingredientObject: {fileID: 4953540306895116, guid: f69645cb7e48c22448b62103c7080e95,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Broccoli
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 9f42b99c0d9abf84ab20eb34ff4c3ca9, type: 3}
-    ingredientObject: {fileID: 4376618502304116, guid: bc15c54b012037e4483b8ea7b9dfcb63,
+    ingredientObject: {fileID: 4574676452484426, guid: 7d2a32cb5a2ead64cb301e375200ac37,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Chicken Cutlet
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: b325703bf80b9f644979c642184c8bc8, type: 3}
-    ingredientObject: {fileID: 4097103092446990, guid: 9b110e636cd3ad34c89fd2384199e17e,
+    ingredientObject: {fileID: 4334687444511856, guid: cd195fd24d2d38b4588870a284c3308a,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Mushrooms
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: c8353522aac9b9347bd8b27864a227c3, type: 3}
-    ingredientObject: {fileID: 4015486471389524, guid: 93779ecd805b5e14497e833b2741bce2,
+    ingredientObject: {fileID: 4577574702659774, guid: d921a59e226699340b4203f0417763c3,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Olives
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 244668cb9f403d643844af6dc62cbf45, type: 3}
-    ingredientObject: {fileID: 4740060470910528, guid: caa2428f9cc9e14449eb5b05248e646e,
+    ingredientObject: {fileID: 4851440454628888, guid: e3d4a58eec46cc84894fdb52cb567511,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Pepperoni
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 244668cb9f403d643844af6dc62cbf45, type: 3}
-    ingredientObject: {fileID: 4333899345193232, guid: 10a8315eb8faaf34a9b78156a13eae11,
+    ingredientObject: {fileID: 4866032549891770, guid: bd2229d787b96334eb302fcbaa040d86,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Peppers
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 01c39a2165272704fa3ea5461f2deb4e, type: 3}
-    ingredientObject: {fileID: 4852857441609660, guid: 82691a32470d1fd4dbfec58b879dd7c5,
+    ingredientObject: {fileID: 4838691539653408, guid: 005f309eb68c58c49b25bc4d4a0e8727,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Pineapple
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: bf2c45f094b24a04ca4e43460358caf8, type: 3}
-    ingredientObject: {fileID: 4241852007368834, guid: 88242992f2101f04f8552f09c2569c10,
+    ingredientObject: {fileID: 4206498251095920, guid: aa8f0f2526217bc4abf904534e81bc99,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Sausage
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: 980b99cbd9a359b40aa2236a8b8c1a30, type: 3}
-    ingredientObject: {fileID: 4796570062311758, guid: 4d93042cd4b6d4047822dfa102904ea2,
+    ingredientObject: {fileID: 4523575260044714, guid: b11a1fe44770ed546b4ed217e991da94,
       type: 2}
+    spawnPoint: {fileID: 0}
   - title: Sundried Tomatoes
     description: 
     isBaseIngredient: 0
-    quantity: 0
+    quantity: 4
     icon: {fileID: 21300000, guid: b1dd9c6fe87f1514db639e7def079262, type: 3}
-    ingredientObject: {fileID: 4758568053748782, guid: ff654ec6c6c977d4cb6ad007e1bcdcac,
+    ingredientObject: {fileID: 4006859633484612, guid: d2ac123b839a3754f8fa875beeb71f00,
       type: 2}
+    spawnPoint: {fileID: 0}

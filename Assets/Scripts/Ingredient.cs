@@ -9,4 +9,5 @@ public class Ingredient {
 	public int quantity = 5;
 	public Sprite icon;
 	public Transform ingredientObject;  // The prefab for the ingredient
+	public Transform spawnPoint;
 }

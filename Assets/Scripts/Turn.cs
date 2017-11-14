@@ -30,6 +30,10 @@ public class Turn : MonoBehaviour {
 	}
 	
 	void Update () {
+		if(Input.GetKeyUp(KeyCode.N)) {
+			currentPhase.End();
+
+		}
 	}
 
 	public void NextPhase() {
