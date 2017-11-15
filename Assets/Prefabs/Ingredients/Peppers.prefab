@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4838691539653408}
   - component: {fileID: 95784013474987390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Peppers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23298165551008240}
   - component: {fileID: 65086786071517242}
   - component: {fileID: 54878203747757052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}

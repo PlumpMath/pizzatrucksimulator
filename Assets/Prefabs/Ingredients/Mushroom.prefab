@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4577574702659774}
   - component: {fileID: 95138609209842578}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23913638784848416}
   - component: {fileID: 65115232085422920}
   - component: {fileID: 54492912284214168}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}

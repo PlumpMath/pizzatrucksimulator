@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 137155584576867578}
   - component: {fileID: 65767025132696010}
   - component: {fileID: 54717452914882170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dough Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4875765303607786}
   - component: {fileID: 95142834845424850}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoughPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

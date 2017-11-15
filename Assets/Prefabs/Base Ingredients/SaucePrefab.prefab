@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4789105091104594}
   - component: {fileID: 95464684100679302}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SaucePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23354620515082384}
   - component: {fileID: 65523632190110990}
   - component: {fileID: 54107234550470968}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}

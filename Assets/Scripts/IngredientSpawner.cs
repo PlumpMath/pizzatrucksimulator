@@ -23,8 +23,7 @@ public class IngredientSpawner : MonoBehaviour {
 
     public void SpawnTruckIngredients() {
         foreach (Ingredient ingredient in pizzaTruck.baseIngredientList) {
-            Transform newIngredientObject = Instantiate(ingredient.ingredientObject, ingredient.spawnPoint);
-            newIngredientObject.SetParent(ingredient.spawnPoint);
+            Instantiate(ingredient.ingredientObject, ingredient.spawnPoint);
         }
 
         int spawnIndex = 0;
@@ -32,9 +31,12 @@ public class IngredientSpawner : MonoBehaviour {
 
             for (int i = 0; i < ingredient.quantity; i++)
             {
-                Transform newIngredientObject = Instantiate(ingredient.ingredientObject, ingredientSpawningPoints[spawnIndex].position+Vector3.up*.3f*i, Quaternion.identity);
-                newIngredientObject.SetParent(ingredientSpawningPoints[spawnIndex]);
-
+                Instantiate(
+                    ingredient.ingredientObject, // prefab
+                    ingredientSpawningPoints[spawnIndex].position + Vector3.up * .15f * i, //position 
+                    Quaternion.identity, // rotation
+                    ingredientSpawningPoints[spawnIndex] // parent
+                );
             }
             spawnIndex++;
 

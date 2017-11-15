@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4851440454628888}
   - component: {fileID: 95203408656839560}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Olives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23284482739726050}
   - component: {fileID: 65573687134823392}
   - component: {fileID: 54281029958409948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}

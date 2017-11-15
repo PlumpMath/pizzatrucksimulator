@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4334687444511856}
   - component: {fileID: 95820802066608232}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ChickenCutlet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23707858769563832}
   - component: {fileID: 65174988938250520}
   - component: {fileID: 54586089202266004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}

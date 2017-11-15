@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23684573421042400}
   - component: {fileID: 65029783476658862}
   - component: {fileID: 54341766192934576}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4574676452484426}
   - component: {fileID: 95331987081398430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Broccoli
   m_TagString: Untagged
   m_Icon: {fileID: 0}

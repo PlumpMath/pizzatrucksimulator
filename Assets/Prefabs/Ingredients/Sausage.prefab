@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23419272952241234}
   - component: {fileID: 65185649450394768}
   - component: {fileID: 54362045011121704}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4523575260044714}
   - component: {fileID: 95145239409227518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sausage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

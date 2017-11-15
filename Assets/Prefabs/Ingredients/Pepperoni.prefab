@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23658033913855916}
   - component: {fileID: 65670279792925772}
   - component: {fileID: 54513309747176400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866032549891770}
   - component: {fileID: 95957845662645632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pepperoni
   m_TagString: Untagged
   m_Icon: {fileID: 0}

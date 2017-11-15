@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class ArmsController : MonoBehaviour {
 	public bool controlsEnabled = false;
 
+	public Transform armsHolder;
 	public Transform leftArm;
 	public Transform rightArm;
 	public Transform leftForearm;
@@ -14,8 +14,17 @@ public class ArmsController : MonoBehaviour {
 	public Transform leftHand;
     public Transform rightHand;
 
+	public Camera mainCamera;
+
+	public Transform holdingArea;
+
+	bool isHolding = false;
+	Transform heldObject;
+	Transform heldObjectParent;
 	Animator animator;
 
+	Vector3 initialArmsHolderPosition;
+	Quaternion initialArmsHolderRotation;
 	// Vector3 initialLeftForearmScale;
 	// Vector3 initialRightForearmScale;
 	// Quaternion initialLeftHandRotation;
@@ -32,6 +41,8 @@ public class ArmsController : MonoBehaviour {
         }
         Instance = this;
 		this.animator = this.GetComponent<Animator>();
+		initialArmsHolderPosition = armsHolder.position;
+		initialArmsHolderRotation = armsHolder.rotation;
 	}
 	#endregion Singleton
 
@@ -46,16 +57,50 @@ public class ArmsController : MonoBehaviour {
 		if (!controlsEnabled) {
 			return;
 		}
-		// float speed = 5f;
+
 		if (Input.GetMouseButtonDown(0)) {
+			if (isHolding) {
+				DropObject();
+			} else  {
+                LiftObject();
+			}
 			animator.SetTrigger("Lift");
-			// leftHand.Rotate(0, 0, -1 * speed);
-			// leftForearm.localScale = new Vector3(leftForearm.localScale.x * 1.05f, leftForearm.localScale.y, leftForearm.localScale.z);
-			// leftForearm.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.back * 5000f, ForceMode.VelocityChange);
-			// leftArm.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.back * 5000f, ForceMode.VelocityChange);
-		} else {// if (leftHand.rotation != initialLeftHandRotation) {
-			// leftHand.rotation = Quaternion.RotateTowards(leftHand.rotation, initialLeftHandRotation, 0.75f * speed);
-			// leftHand.rotation = initialLeftHandRotation;
 		}
 	}
+
+	void LiftObject() {
+		RaycastHit hitInfo;
+		int layerMask = 1 << 10; // Layer 10, ingredients
+		bool hitSomething = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hitInfo, 10f, layerMask);
+		Color color = hitSomething ? Color.green : Color.red;
+
+        Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * 10f, color);
+        if (hitSomething) {
+			isHolding = true;
+
+			heldObject = hitInfo.transform;
+			heldObject.gameObject.GetComponent<Rigidbody>().useGravity = false;
+			heldObject.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+
+			heldObjectParent = heldObject.parent;
+			heldObject.parent.SetParent(holdingArea);
+			heldObject.parent.localPosition = Vector3.zero;
+			heldObject.localPosition = Vector3.zero;
+
+			armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
+        }
+	}
+	void DropObject() {
+        heldObject.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        heldObject.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+
+        heldObject.parent.parent = null;
+		heldObject.parent.position = holdingArea.position;
+		heldObject.parent.rotation = Quaternion.identity;
+
+        armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z - .5f);
+
+        isHolding = false;
+        heldObject = null;
+    }
 }

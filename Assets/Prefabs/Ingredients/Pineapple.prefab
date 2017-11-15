@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4206498251095920}
   - component: {fileID: 95672194373330184}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pineapple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23272492865167078}
   - component: {fileID: 65494797716827072}
   - component: {fileID: 54586254057541970}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ingredent_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}

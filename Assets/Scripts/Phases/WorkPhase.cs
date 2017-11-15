@@ -2,15 +2,11 @@
 using UnityEngine;
 
 public class WorkPhase : Phase {
-
-	PizzaTruck pizzaTruck;
-
 	public override void Begin() {
 		print("WorkPhase Begin()");
 		base.Begin();
 		GameManager.Instance.firstPersonController.enabled = true;
 		ArmsController.Instance.controlsEnabled = true;
-		pizzaTruck = PizzaTruck.Instance;
 		SetupWorkArea();
 	}
 
