@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MarketProduct : MonoBehaviour {
-	public Ingredient ingredient;
+	public IngredientBundle ingredientBundle;
 	public float price;
 	public int quantity;
 	public float freshness;

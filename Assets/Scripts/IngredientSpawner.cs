@@ -22,17 +22,20 @@ public class IngredientSpawner : MonoBehaviour {
     #endregion
 
     public void SpawnTruckIngredients() {
-        foreach (Ingredient ingredient in pizzaTruck.baseIngredientList) {
-            Instantiate(ingredient.ingredientObject, ingredient.spawnPoint);
+        foreach (IngredientBundle ingredientBundle in pizzaTruck.baseIngredientList) {
+            Instantiate(
+                ingredientBundle.ingredientObject, 
+                ingredientBundle.spawnPoint
+            );
         }
 
         int spawnIndex = 0;
-        foreach (Ingredient ingredient in pizzaTruck.ingredientList) {
+        foreach (IngredientBundle ingredientBundle in pizzaTruck.ingredientList) {
 
-            for (int i = 0; i < ingredient.quantity; i++)
+            for (int i = 0; i < ingredientBundle.quantity; i++)
             {
                 Instantiate(
-                    ingredient.ingredientObject, // prefab
+                    ingredientBundle.ingredientObject, // prefab
                     ingredientSpawningPoints[spawnIndex].position + Vector3.up * .15f * i, //position 
                     Quaternion.Euler(-90,0,0), // rotation
                     ingredientSpawningPoints[spawnIndex] // parent

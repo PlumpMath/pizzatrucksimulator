@@ -8,7 +8,7 @@ public class MarketUI : MonoBehaviour {
 public GameObject viewportShop;
 public GameObject ItemChoicePrefab;
 
-public List<Ingredient> marketList;
+public List<IngredientBundle> marketList;
 
 public Transform marketIngredientsArea;
 public Transform truckIngredientsArea;
@@ -33,19 +33,19 @@ GameObject shop;
     }
 
     void AddItemChoices() {
-        foreach (Ingredient ingredient in marketList) {
-            AddItemChoice(ingredient);
+        foreach (IngredientBundle ingredientBundle in marketList) {
+            AddItemChoice(ingredientBundle);
         }
     }
 
-    void AddItemChoice(Ingredient ingredient) {
+    void AddItemChoice(IngredientBundle ingredient) {
         GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
         newItemChoiceObject.transform.SetParent(viewportShop.transform);
         newItemChoiceObject.transform.localScale = Vector3.one;
         
         ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
 
-        newItemChoice.ingredient = ingredient;
+        newItemChoice.ingredientBundle = ingredient;
         newItemChoice.marketIngredientsArea = marketIngredientsArea;
         newItemChoice.truckIngredientsArea = truckIngredientsArea;
 
