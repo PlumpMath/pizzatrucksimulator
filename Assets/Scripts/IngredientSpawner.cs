@@ -34,7 +34,7 @@ public class IngredientSpawner : MonoBehaviour {
                 Instantiate(
                     ingredient.ingredientObject, // prefab
                     ingredientSpawningPoints[spawnIndex].position + Vector3.up * .15f * i, //position 
-                    Quaternion.identity, // rotation
+                    Quaternion.Euler(-90,0,0), // rotation
                     ingredientSpawningPoints[spawnIndex] // parent
                 );
             }

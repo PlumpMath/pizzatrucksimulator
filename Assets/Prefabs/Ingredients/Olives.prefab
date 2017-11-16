@@ -19,7 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4851440454628888}
-  - component: {fileID: 95203408656839560}
+  - component: {fileID: 33006811769148622}
+  - component: {fileID: 23726354216196826}
+  - component: {fileID: 65203520302170024}
+  - component: {fileID: 54095789331775364}
   m_Layer: 10
   m_Name: Olives
   m_TagString: Untagged
@@ -27,38 +30,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1401711584001406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4415400718630370}
-  - component: {fileID: 33297808723749158}
-  - component: {fileID: 23284482739726050}
-  - component: {fileID: 65573687134823392}
-  - component: {fileID: 54281029958409948}
-  m_Layer: 10
-  m_Name: Ingredent_Face
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4415400718630370
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401711584001406}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4851440454628888}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4851440454628888
 Transform:
   m_ObjectHideFlags: 1
@@ -67,18 +38,17 @@ Transform:
   m_GameObject: {fileID: 1056850192653756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3447019, y: 0.3447019, z: 0.3447019}
-  m_Children:
-  - {fileID: 4415400718630370}
+  m_LocalScale: {x: 0.3447019, y: 0.344702, z: 0.344702}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23284482739726050
+--- !u!23 &23726354216196826
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401711584001406}
+  m_GameObject: {fileID: 1056850192653756}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -107,19 +77,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33297808723749158
+--- !u!33 &33006811769148622
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401711584001406}
+  m_GameObject: {fileID: 1056850192653756}
   m_Mesh: {fileID: 4300002, guid: d756b126f6bd3584190b8da6921dad9c, type: 3}
---- !u!54 &54281029958409948
+--- !u!54 &54095789331775364
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401711584001406}
+  m_GameObject: {fileID: 1056850192653756}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -129,32 +99,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!65 &65573687134823392
+--- !u!65 &65203520302170024
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1401711584001406}
+  m_GameObject: {fileID: 1056850192653756}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.96665, y: 1.9666502, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0.004386762}
---- !u!95 &95203408656839560
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056850192653756}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d756b126f6bd3584190b8da6921dad9c, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
