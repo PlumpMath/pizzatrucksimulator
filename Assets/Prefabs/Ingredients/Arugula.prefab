@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23378918954041066}
   - component: {fileID: 65440890634565382}
   - component: {fileID: 54205286728376596}
+  - component: {fileID: 114250559948896154}
   m_Layer: 10
   m_Name: Arugula
   m_TagString: Untagged
@@ -111,3 +112,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.96665, y: 1.9666502, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0.004386762}
+--- !u!114 &114250559948896154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1536837673805758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87bad63689d8394baa8489e57d150e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

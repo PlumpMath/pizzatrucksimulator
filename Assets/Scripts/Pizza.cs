@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pizza : MonoBehaviour {
-	public List<Ingredient> ingredients;
+	public List<Ingredient> ingredientsList;
+
+    
+
 	public int Reputation { get; set; }
-	public Customer customer;
+	// public Customer customer;
 
 	void Start () {
 		
