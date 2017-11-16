@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4206498251095920}
   - component: {fileID: 95672194373330184}
+  - component: {fileID: 114588131083474304}
   m_Layer: 10
   m_Name: Pineapple
   m_TagString: Untagged
@@ -158,3 +159,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114588131083474304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1374691651378144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87bad63689d8394baa8489e57d150e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,7 +14,7 @@ public class ItemChoice : MonoBehaviour {
 
     public bool inStore = true;
 
-    public Ingredient ingredient;
+    public IngredientBundle ingredientBundle;
 
     public Transform marketIngredientsArea;
     public Transform truckIngredientsArea;
@@ -27,10 +27,10 @@ public class ItemChoice : MonoBehaviour {
     }
 
     public void Setup(bool freshness) {
-        gameObject.name = ingredient.title;
-        SetIcon(ingredient.icon);
-        SetDescription(ingredient.description);
-        SetTitle(ingredient.title);
+        gameObject.name = ingredientBundle.title;
+        SetIcon(ingredientBundle.icon);
+        SetDescription(ingredientBundle.description);
+        SetTitle(ingredientBundle.title);
         SetFreshness(freshness);
     }
 
@@ -80,7 +80,7 @@ public class ItemChoice : MonoBehaviour {
    public void AddToTruck() {
         this.transform.SetParent(truckIngredientsArea.GetChild(0));
 
-        pizzaTruck.AddIngredient(ingredient);
+        pizzaTruck.AddIngredient(ingredientBundle);
 
         button.onClick.RemoveListener(AddToTruck);
         button.onClick.AddListener(RemoveFromTruck);
@@ -94,7 +94,7 @@ public class ItemChoice : MonoBehaviour {
     public void RemoveFromTruck() {
         this.transform.SetParent(marketIngredientsArea.GetChild(0));
         
-        pizzaTruck.RemoveIngredient(ingredient);
+        pizzaTruck.RemoveIngredient(ingredientBundle);
         
         button.onClick.AddListener(AddToTruck);
         button.onClick.RemoveListener(RemoveFromTruck);

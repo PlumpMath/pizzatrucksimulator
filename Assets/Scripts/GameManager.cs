@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour {
 	public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController firstPersonController;
     public float reputation = 0f;
     public float money = 0f;
-    public Queue<Ingredient> marketIngredientsDeck;
-    public IngredientsList masterIngredientsList;
+    public Queue<IngredientBundle> marketIngredientsDeck;
 
     PizzaTruck pizzaTruck;
     Turn currentTurn;
@@ -43,26 +42,26 @@ public class GameManager : MonoBehaviour {
 
     void SetupIngredients()
     {
-        List<Ingredient> shuffledList = new List<Ingredient>();
+        List<IngredientBundle> shuffledList = new List<IngredientBundle>();
         int ingredientQuantity = 4;
-        foreach (Ingredient ingredient in masterIngredientsList.ingredientList)
+        foreach (IngredientBundle ingredientBundle in MasterIngredientsList.Instance.list)
         {
-            if (ingredient.isBaseIngredient)
+            if (ingredientBundle.isBaseIngredient)
             {
-                ingredient.spawnPoint = GameObject.Find(ingredient.title + " Spawnpoint").transform;
+                ingredientBundle.spawnPoint = GameObject.Find(ingredientBundle.title + " Spawnpoint").transform;
             }
             else
             {
                 for (int i = 0; i < ingredientQuantity; i++)
                 {
-                    shuffledList.Add(ingredient);
+                    shuffledList.Add(ingredientBundle);
                 }
             }
         }
 
         Shuffle(shuffledList);
 
-        marketIngredientsDeck = new Queue<Ingredient>(shuffledList.ToArray());
+        marketIngredientsDeck = new Queue<IngredientBundle>(shuffledList.ToArray());
 
         // Debug.Log("--- Market Deck ---");
         // for(int i = 0; i < shuffledList.Count; i++) {

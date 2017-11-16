@@ -9,7 +9,7 @@ public class MarketPhase : Phase {
 	MarketUI marketUI;
 	Button marketUIButton;
     GameObject shop;
-	List<Ingredient> marketList;
+	List<IngredientBundle> marketList;
 
     public override void Begin() {
 		print("MarketPhase Begin()");
@@ -35,9 +35,9 @@ public class MarketPhase : Phase {
 
     void SetupMarketList() {
         for (int i = 0; i < itemsPerTurn; i++) {
-            Ingredient ingredient = GameManager.Instance.marketIngredientsDeck.Dequeue();
-			print("Adding ingredient: " + ingredient.title);
-			marketUI.marketList.Add(ingredient);
+            IngredientBundle ingredientBundle = GameManager.Instance.marketIngredientsDeck.Dequeue();
+			print("Adding ingredient: " + ingredientBundle.title);
+			marketUI.marketList.Add(ingredientBundle);
         }
     }
 	public override void End() {
