@@ -6,6 +6,10 @@ TagManager:
   tags:
   - MarketUI
   - Dough
+  - Sauce
+  - Cheese
+  - Toppings
+  - Oven
   layers:
   - Default
   - TransparentFX

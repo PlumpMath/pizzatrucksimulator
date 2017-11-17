@@ -24,13 +24,10 @@ public class ArmsController : MonoBehaviour
     Transform heldObject;
     Transform heldObjectParent;
     Animator animator;
+    Pizza pizza;
 
     Vector3 initialArmsHolderPosition;
     Quaternion initialArmsHolderRotation;
-    // Vector3 initialLeftForearmScale;
-    // Vector3 initialRightForearmScale;
-    // Quaternion initialLeftHandRotation;
-    // Quaternion initialRightHandRotation;
 
     #region Singleton
     public static ArmsController Instance;
@@ -52,10 +49,7 @@ public class ArmsController : MonoBehaviour
 
     void Start()
     {
-        // initialLeftForearmScale = leftForearm.localScale;
-        // initialRightForearmScale = rightForearm.localScale;
-        // initialLeftHandRotation = leftHand.rotation;
-        // initialRightHandRotation = rightHand.rotation;
+
     }
 
     void Update()
@@ -93,19 +87,77 @@ public class ArmsController : MonoBehaviour
         Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * 10f, color);
         if (hitSomething)
         {
-            isHolding = true;
+            {
+                GameObject pizzaObject;
+                if (hoveringOverDough)
+                    {
+                        print("Dough was hit!");
+                        pizzaObject = hitInfo.transform.gameObject;
+                        pizza = pizzaObject.GetComponent<Pizza>();
 
-            heldObject = hitInfo.transform;
-            heldObject.gameObject.GetComponent<Rigidbody>().useGravity = false;
-            heldObject.gameObject.GetComponent<BoxCollider>().enabled = false;
+                        if (pizza.doughRolled == true)
+                        {
+                            {
+                                if (pizza.sauceAdded == true)
+                                {
+                                    if (pizza.cheeseAdded == true)
+                                    {
 
-            heldObject.SetParent(holdingArea);
-            heldObject.localPosition = Vector3.zero;
+                                        if (pizza.gettable == true)
+                                        {
+                                            isHolding = true;
+                                            pizza.holdingAPizza = true;
+                                            heldObject = hitInfo.transform;
+                                            heldObject.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                                            heldObject.gameObject.GetComponent<BoxCollider>().enabled = false;
+                                            heldObject.SetParent(holdingArea);
+                                            heldObject.localPosition = Vector3.zero;
+                                            armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
+
+                                        }
+                                        else
+                                        {
+                                            print("you gotta lay out the cheese, ya boob");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        print("you gotta spread the sauce, bub");
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            pizza.RollDough();
+                        }
+                    }
 
 
-            armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
+                else if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hitInfo, 10f, layerMask)
+                   && hitInfo.transform.gameObject.tag == "Oven")
+
+                {
+                    print("That's the oven, mane.  Put a pizza in thurr.");
+                }
+
+                else
+                {
+                    isHolding = true;
+                    heldObject = hitInfo.transform;
+                    heldObject.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                    heldObject.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    heldObject.SetParent(holdingArea);
+                    heldObject.localPosition = Vector3.zero;
+                    armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
+
+                }
+                
+
+            }
         }
     }
+
 
     void LookForDough()
     {
@@ -117,14 +169,12 @@ public class ArmsController : MonoBehaviour
             // and the raycast hit object tag is this
             if (doughInfo.transform.CompareTag("Dough"))
                 {
-
                 hoveringOverDough = true;
                 }
             }
         else
         {
             hoveringOverDough = false;
-
         }
      }
 
@@ -135,7 +185,7 @@ public class ArmsController : MonoBehaviour
         int layerMask = 1 << 10; // Layer 10, ingredients
 
         GameObject pizzaObject;
-        Pizza pizza;
+
 
         Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hitInfo, 10f, layerMask);
 
@@ -144,14 +194,94 @@ public class ArmsController : MonoBehaviour
             print("Dough was hit!");
             pizzaObject = hitInfo.transform.gameObject;
             pizza = pizzaObject.GetComponent<Pizza>();
-            pizza.ingredientsList.Add(heldObject.GetComponent<Ingredient>());
-            heldObject.GetComponent<Renderer>().enabled = false;
-            heldObject.SetParent(pizza.transform);
-            isHolding = false;
-            heldObject = null;
+
+            if (pizza.doughRolled == true)
+            {
+
+                if (pizza.sauceAdded == true)
+                {
+
+                    if (pizza.cheeseAdded == true)
+                    {
+                        pizza.ingredientsList.Add(heldObject.GetComponent<Ingredient>());
+                        heldObject.GetComponent<Renderer>().enabled = false;
+                        heldObject.SetParent(pizza.transform);
+                        heldObject.localPosition = (new Vector3(0f, 0f, 0f));
+                        heldObject.localRotation = Quaternion.Euler(-90, 0, 0);
+                        isHolding = false;
+                        print("You added " + heldObject.name + " to the pizza.");
+                        heldObject = null;
+                        
+                    }
+
+                    else
+                    {
+                        if (heldObject.tag == "Cheese")
+                        {
+                            pizza.ingredientsList.Add(heldObject.GetComponent<Ingredient>());
+                            heldObject.GetComponent<Renderer>().enabled = false;
+                            heldObject.SetParent(pizza.transform);
+                            heldObject.localPosition = (new Vector3(0f, 0f, 0f));
+                            heldObject.localRotation = Quaternion.Euler(-90, 0, 0);
+                            isHolding = false;
+                            heldObject = null;
+                            pizza.cheeseAdded = true;
+                            print("The cheese is spread.");
+                        }
+                        else
+                        {
+                            print("ya gonna sprinkle that cheese?!");
+                        }
+                    }
+
+                }
+
+                else
+                {
+                    if (heldObject.tag == "Sauce")
+                    {
+                        pizza.ingredientsList.Add(heldObject.GetComponent<Ingredient>());
+                        heldObject.GetComponent<Renderer>().enabled = false;
+                        heldObject.SetParent(pizza.transform);
+                        heldObject.localPosition = (new Vector3(0f, 0f, 0f));
+                        heldObject.localRotation = Quaternion.Euler(-90, 0, 0);
+                        isHolding = false;
+                        heldObject = null;
+                        pizza.sauceAdded = true;
+                        print("the sauce is spread");
+                    }
+                    else
+                    {
+                        print("You gotta spread the sauce first, ya boob.");
+                    }
+                }
+            }
+
+            else
+            {
+
+                print("You gotta roll the dough first, bub.");
+
+             }
+
         }
-        //print(hitInfo.transform.tag);
-        else
+        
+        else if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hitInfo, 10f, layerMask) 
+            && hitInfo.transform.gameObject.tag == "Oven")
+            {
+                print("you hit the oven, dude");
+                    if (pizza.holdingAPizza)
+                    {
+                        print("dropping the pizza in the oven");
+                        heldObject.SetParent(hitInfo.transform.GetChild(0));
+                        heldObject.localPosition = holdingArea.localPosition;
+                        heldObject.localRotation = Quaternion.Euler(-90, 0, 0);
+                        isHolding = false;
+                        heldObject = null;
+            }
+            }
+
+        else // just drop whatever you're holding
         {
             heldObject.gameObject.GetComponent<Rigidbody>().useGravity = true;
             heldObject.gameObject.GetComponent<BoxCollider>().enabled = true;
@@ -161,10 +291,10 @@ public class ArmsController : MonoBehaviour
             heldObject.rotation = Quaternion.Euler(-90, 0, 0);
 
             armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z - .5f);
-
             isHolding = false;
             heldObject = null;
         }
+
 
     }
 }

@@ -81,7 +81,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e926c1732af942a45ad16061c806bf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredientsList: []
+  doughRolled: 0
+  sauceAdded: 0
+  cheeseAdded: 0
+  gettable: 1
+  doughMesh: {fileID: 0}
+  blendShapeWeightCurrent: 100
 --- !u!137 &137081872925565524
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

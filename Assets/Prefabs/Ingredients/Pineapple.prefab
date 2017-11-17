@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114446573838133876}
   m_Layer: 10
   m_Name: Pineapple
-  m_TagString: Untagged
+  m_TagString: Toppings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87bad63689d8394baa8489e57d150e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 
