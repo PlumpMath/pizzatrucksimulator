@@ -10,6 +10,8 @@ public class Pizza : MonoBehaviour {
     public bool cheeseAdded = false;
     public bool gettable = true;
     public bool holdingAPizza = false;
+    public bool cooked = false;
+
     public SkinnedMeshRenderer doughMesh;
     public float blendShapeWeightCurrent = 100;
 

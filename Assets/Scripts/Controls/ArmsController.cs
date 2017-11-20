@@ -24,7 +24,7 @@ public class ArmsController : MonoBehaviour
     Transform heldObject;
     Transform heldObjectParent;
     Animator animator;
-    Pizza pizza;
+    Pizza pizza; 
 
     Vector3 initialArmsHolderPosition;
     Quaternion initialArmsHolderRotation;
@@ -112,7 +112,7 @@ public class ArmsController : MonoBehaviour
                                             heldObject.gameObject.GetComponent<BoxCollider>().enabled = false;
                                             heldObject.SetParent(holdingArea);
                                             heldObject.localPosition = Vector3.zero;
-                                            armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
+  //                                          armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
 
                                         }
                                         else
@@ -149,7 +149,7 @@ public class ArmsController : MonoBehaviour
                     heldObject.gameObject.GetComponent<BoxCollider>().enabled = false;
                     heldObject.SetParent(holdingArea);
                     heldObject.localPosition = Vector3.zero;
-                    armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
+  //                  armsHolder.localPosition = new Vector3(armsHolder.localPosition.x, armsHolder.localPosition.y, armsHolder.localPosition.z + .5f);
 
                 }
                 
@@ -270,16 +270,27 @@ public class ArmsController : MonoBehaviour
             && hitInfo.transform.gameObject.tag == "Oven")
             {
                 print("you hit the oven, dude");
-                    if (pizza.holdingAPizza)
+                    if (pizza.holdingAPizza && pizza.cooked == false)
                     {
                         print("dropping the pizza in the oven");
+
+                        OvenConveyor ovenConveyor = hitInfo.transform.GetComponent<OvenConveyor>();
+                        ovenConveyor.placedPizza = heldObject.transform.gameObject;
+
+                        heldObject.transform.GetComponent<Rigidbody>().useGravity = false;
                         heldObject.SetParent(hitInfo.transform.GetChild(0));
-                        heldObject.localPosition = holdingArea.localPosition;
+                        heldObject.localPosition = new Vector3(0f,0f,0f);
                         heldObject.localRotation = Quaternion.Euler(-90, 0, 0);
+                    
                         isHolding = false;
                         heldObject = null;
-            }
-            }
+                        ovenConveyor.placed = true;
+                     }
+                    if (pizza.holdingAPizza && pizza.cooked == true)
+                    {
+                          print("It's already cooked, Paulie");
+                    }
+        }
 
         else // just drop whatever you're holding
         {
