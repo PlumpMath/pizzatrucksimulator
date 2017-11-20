@@ -36,7 +36,7 @@ public class MarketPhase : Phase {
     void SetupMarketList() {
         for (int i = 0; i < itemsPerTurn; i++) {
             IngredientBundle ingredientBundle = GameManager.Instance.marketIngredientsDeck.Dequeue();
-			print("Adding ingredient: " + ingredientBundle.title);
+			print("Adding ingredient: " + ingredientBundle.ingredient.Name);
 			marketUI.marketList.Add(ingredientBundle);
         }
     }

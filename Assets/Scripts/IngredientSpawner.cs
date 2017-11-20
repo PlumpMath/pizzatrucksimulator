@@ -24,7 +24,7 @@ public class IngredientSpawner : MonoBehaviour {
     public void SpawnTruckIngredients() {
         foreach (IngredientBundle ingredientBundle in pizzaTruck.baseIngredientList) {
             Instantiate(
-                ingredientBundle.ingredientObject, 
+                ingredientBundle.ingredient, 
                 ingredientBundle.spawnPoint
             );
         }
@@ -35,7 +35,7 @@ public class IngredientSpawner : MonoBehaviour {
             for (int i = 0; i < ingredientBundle.quantity; i++)
             {
                 Instantiate(
-                    ingredientBundle.ingredientObject, // prefab
+                    ingredientBundle.ingredient, // prefab
                     ingredientSpawningPoints[spawnIndex].position + Vector3.up * .15f * i, //position 
                     Quaternion.Euler(-90,0,0), // rotation
                     ingredientSpawningPoints[spawnIndex] // parent

@@ -20,10 +20,12 @@ public Button nextPhaseButton;
 PizzaTruck pizzaTruck;
 
 GameObject shop;
-
-    public void Begin() {
+    void Awake() {
         pizzaTruck = PizzaTruck.Instance;
         marketIngredientsAreaCanvas = marketIngredientsArea.GetComponent<CanvasGroup>();
+    }
+
+    public void Begin() {
         AddItemChoices();
     }
 

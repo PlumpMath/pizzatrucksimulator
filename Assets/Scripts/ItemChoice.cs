@@ -27,10 +27,10 @@ public class ItemChoice : MonoBehaviour {
     }
 
     public void Setup(bool freshness) {
-        gameObject.name = ingredientBundle.title;
-        SetIcon(ingredientBundle.icon);
-        SetDescription(ingredientBundle.description);
-        SetTitle(ingredientBundle.title);
+        gameObject.name = ingredientBundle.ingredient.Name;
+        SetIcon(ingredientBundle.ingredient.icon);
+        SetDescription(ingredientBundle.ingredient.description);
+        SetTitle(ingredientBundle.ingredient.Name);
         SetFreshness(freshness);
     }
 
@@ -54,20 +54,16 @@ public class ItemChoice : MonoBehaviour {
         if (random == true)
         {
             int i = Random.Range(0, 4);
-            if (i == 0)
-            {
+            if (i == 0) {
                 freshness.GetComponent<Text>().text = "Almost Spoiled";
             }
-            if (i == 1)
-            {
+            if (i == 1) {
                 freshness.GetComponent<Text>().text = "Stale";
             }
-            if (i == 2)
-            {
+            if (i == 2) {
                 freshness.GetComponent<Text>().text = "Past Fresh";
             }
-            if (i == 3)
-            {
+            if (i == 3) {
                 freshness.GetComponent<Text>().text = "Fresh";
             }
         }
@@ -87,7 +83,7 @@ public class ItemChoice : MonoBehaviour {
 
         Debug.Log("--- TRUCK Inventory ---");
         for(int i = 0; i < pizzaTruck.ingredientList.Count; i++) {
-            Debug.Log(i+1 + ": " + pizzaTruck.ingredientList[i].title);
+            Debug.Log(i+1 + ": " + pizzaTruck.ingredientList[i].ingredient.Name);
         }
     }
 
@@ -101,7 +97,7 @@ public class ItemChoice : MonoBehaviour {
 
         Debug.Log("--- TRUCK Inventory ---");
         for(int i = 0; i < pizzaTruck.ingredientList.Count; i++) {
-            Debug.Log(i+1 + ": " + pizzaTruck.ingredientList[i].title);
+            Debug.Log(i+1 + ": " + pizzaTruck.ingredientList[i].ingredient.Name);
         }
     }
     

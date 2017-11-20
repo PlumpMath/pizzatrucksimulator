@@ -573,7 +573,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585910602}
   m_HandleRect: {fileID: 585910601}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 664405832}
   m_HandleRect: {fileID: 664405831}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 224834682}
   m_HandleRect: {fileID: 224834681}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3036,34 +3036,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1794650511
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1794650512}
-  m_Layer: 0
-  m_Name: Ingredients List
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1794650512
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1794650511}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.137928, y: 2.6594024, z: 0.3374172}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843006632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3835,3 +3807,14 @@ MonoBehaviour:
   reputation: 0
   money: 0
   numberOfTurnsInGame: 7
+  availableToppings:
+  - {fileID: 114250559948896154, guid: f618bc8d62e76ed4db26cb9ab7cd13f6, type: 2}
+  - {fileID: 114306894274158918, guid: 8d49a3cad0e22874a80b54de443d5c22, type: 2}
+  - {fileID: 114180646101718208, guid: 4d56b03a27e89f24aabcd26956f0958a, type: 2}
+  - {fileID: 114683295915764766, guid: 2ad480312620be740ad6dfd6b66b4654, type: 2}
+  - {fileID: 114447176745056024, guid: c547b01cc83f9154ab355ff0adc4cbae, type: 2}
+  - {fileID: 114522160955025286, guid: b49ed8897807b5d4dac0fe56fedbc3fe, type: 2}
+  - {fileID: 114059477231772988, guid: 6629143fa54284449b855f7d55496e1e, type: 2}
+  - {fileID: 114446573838133876, guid: 20ce6adfa6f8f68498fa4a47ad866103, type: 2}
+  - {fileID: 114796479853735364, guid: 6848ad3fa4e473e45a1724512efa411f, type: 2}
+  - {fileID: 114162054045116684, guid: 7d2a36b1dae1052478fde24918f443ef, type: 2}

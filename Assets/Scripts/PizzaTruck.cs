@@ -2,8 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
  
-[CreateAssetMenu(fileName = "Pizza Truck", menuName = "Assets/Create/Pizza Truck")]
-public class PizzaTruck : SingletonScriptableObject<PizzaTruck> {
+public class PizzaTruck {
 	public List<IngredientBundle> baseIngredientList;
 	public List<IngredientBundle> ingredientList;
 
@@ -11,13 +10,34 @@ public class PizzaTruck : SingletonScriptableObject<PizzaTruck> {
 	public enum TruckLocation {School, Park, HipsterStore, OfficeDistrict, RetirementHome}
 	public int ingredientLimit = 4;
 
+    static PizzaTruck _instance;
+
+	private PizzaTruck() {
+		baseIngredientList = new List<IngredientBundle>();
+		ingredientList = new List<IngredientBundle>();
+	}
+
+    public static PizzaTruck Instance
+    {
+        get {
+            if (_instance == null) {
+                _instance = new PizzaTruck();
+			}
+            return _instance;
+        }
+    }
+
 	public void Init() {
-		List<IngredientBundle> masterIngredientsList = MasterIngredientsList.Instance.list;
-        baseIngredientList.Clear();
-        AddBaseIngredient(masterIngredientsList[0]); // Add Dough
-        AddBaseIngredient(masterIngredientsList[1]); // Add Sauce
-        AddBaseIngredient(masterIngredientsList[2]); // Add Cheese
-		ingredientList.Clear();
+		// Add Sauce
+        // AddBaseIngredient(
+		// 	new IngredientBundle(IngredientDatabase.GetIngredient(0), 4)
+		// ); 
+
+		// Add Cheese
+
+        // AddBaseIngredient(
+		// 	new IngredientBundle(IngredientDatabase.GetIngredient(0), 4)
+		// ); 
     }
 
 	public void AddIngredient (IngredientBundle ingredientBundle) {

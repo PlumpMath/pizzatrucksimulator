@@ -8,9 +8,11 @@ public class GameManager : MonoBehaviour {
     public float money = 0f;
     public Queue<IngredientBundle> marketIngredientsDeck;
 
+    public int numberOfTurnsInGame = 7;
+    public List<Ingredient> availableToppings;
+
     PizzaTruck pizzaTruck;
     Turn currentTurn;
-    public int numberOfTurnsInGame = 7;
     int currentTurnNumber = 0;
 
     #region Singleton
@@ -26,47 +28,28 @@ public class GameManager : MonoBehaviour {
     }
     #endregion
 
-    void Start()
-    {
+    void Start() {
         print("GameManager Start()");
 		firstPersonController.enabled = false;
-        SetupIngredients();
+        IngredientDatabase.LoadDatabase();
+        SetupMarketDeck();
         PizzaTruck.Instance.Init();
-        // SetupPizzaTruck();
         NewTurn();
     }
 
-    void Update()
-    {
+    void Update() {
     }
 
-    void SetupIngredients()
-    {
+    void SetupMarketDeck() {
         List<IngredientBundle> shuffledList = new List<IngredientBundle>();
         int ingredientQuantity = 4;
-        foreach (IngredientBundle ingredientBundle in MasterIngredientsList.Instance.list)
-        {
-            if (ingredientBundle.isBaseIngredient)
-            {
-                ingredientBundle.spawnPoint = GameObject.Find(ingredientBundle.title + " Spawnpoint").transform;
-            }
-            else
-            {
-                for (int i = 0; i < ingredientQuantity; i++)
-                {
-                    shuffledList.Add(ingredientBundle);
-                }
-            }
+        foreach (Ingredient ingredient in IngredientDatabase.GetList()) {
+            IngredientBundle ingredientBundle = new IngredientBundle(ingredient, ingredientQuantity);
+            ingredientBundle.quantity = ingredientQuantity;
+            shuffledList.Add(ingredientBundle);
         }
-
         Shuffle(shuffledList);
-
         marketIngredientsDeck = new Queue<IngredientBundle>(shuffledList.ToArray());
-
-        // Debug.Log("--- Market Deck ---");
-        // for(int i = 0; i < shuffledList.Count; i++) {
-        // 	Debug.Log(i + " " + shuffledList[i].title);
-        // }
     }
 
     void Shuffle<T>(List<T> list)
