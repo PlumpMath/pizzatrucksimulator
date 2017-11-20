@@ -18,7 +18,6 @@ public class IngredientDatabase {
         }
         foreach (Ingredient ingredient in GameManager.Instance.availableToppings) {
             if (!ingredientList.Contains(ingredient)) {
-                int i = ingredient.ingredientID;
                 ingredientList.Add(ingredient);
             }
         }

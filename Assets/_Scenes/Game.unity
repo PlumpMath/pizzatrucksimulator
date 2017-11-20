@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387972975}
   m_HandleRect: {fileID: 387972974}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1831,7 +1831,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 913515331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.969, y: 1, z: -0.775}
+  m_LocalPosition: {x: -2.008, y: 1, z: -0.701}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 1311058486}
@@ -2460,7 +2460,7 @@ Transform:
   - {fileID: 913515332}
   - {fileID: 2133337121}
   m_Father: {fileID: 1599361680}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364251824
 GameObject:
@@ -2495,7 +2495,7 @@ Transform:
   - {fileID: 994866112}
   - {fileID: 321957115}
   m_Father: {fileID: 1599361680}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1402404341 stripped
 Transform:
@@ -2619,7 +2619,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1493396417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.537, y: 1, z: -1.635}
+  m_LocalPosition: {x: -1.769, y: 1, z: -1.479}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1311058486}
@@ -2777,8 +2777,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1364251825}
   - {fileID: 1311058486}
+  - {fileID: 1364251825}
   m_Father: {fileID: 1609408410}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2793,10 +2793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc27330820b00934f88a765940ea1f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseIngredientSpawningPoints:
-  - {fileID: 2133337121}
-  - {fileID: 1493396418}
-  - {fileID: 913515332}
   ingredientSpawningPoints:
   - {fileID: 53809572}
   - {fileID: 1419229910}
@@ -2805,6 +2801,15 @@ MonoBehaviour:
   - {fileID: 1149113979}
   - {fileID: 994866112}
   - {fileID: 321957115}
+  doughPrefab: {fileID: 4875765303607786, guid: 3bdd532664eba4f41a568616f8221679,
+    type: 2}
+  doughSpawnpoint: {fileID: 2133337121}
+  saucePrefab: {fileID: 4789105091104594, guid: 5dd3179a1803f2845af8912ecd48c352,
+    type: 2}
+  sauceSpawnpoint: {fileID: 1493396418}
+  cheesePrefab: {fileID: 4562998347744812, guid: 4472a97b43576c04e81a618ad9be617b,
+    type: 2}
+  cheeseSpawnpoint: {fileID: 913515332}
 --- !u!4 &1609408410 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: ff8d63efb6aaacc43a5d3ccb0755cb4d, type: 3}

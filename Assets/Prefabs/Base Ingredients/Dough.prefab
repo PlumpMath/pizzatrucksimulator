@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 65868229661245508}
   - component: {fileID: 54094211040228306}
   - component: {fileID: 114266617527797348}
+  - component: {fileID: 114636438925103752}
   m_Layer: 10
-  m_Name: DoughPrefab
+  m_Name: Dough
   m_TagString: Dough
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,8 +87,20 @@ MonoBehaviour:
   sauceAdded: 0
   cheeseAdded: 0
   gettable: 1
+  holdingAPizza: 0
   doughMesh: {fileID: 0}
   blendShapeWeightCurrent: 100
+--- !u!114 &114636438925103752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533653551561502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef80adf6ac259fa448a87349989aa608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137081872925565524
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
