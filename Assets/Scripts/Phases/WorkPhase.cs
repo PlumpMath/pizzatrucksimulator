@@ -12,6 +12,7 @@ public class WorkPhase : Phase {
 
 	void SetupWorkArea() {
 		IngredientSpawner.Instance.SpawnTruckIngredients();
+		CustomerSpawner.Instance.Begin();
 	}
 
 	public override void End() {

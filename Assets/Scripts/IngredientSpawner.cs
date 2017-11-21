@@ -51,6 +51,7 @@ public class IngredientSpawner : MonoBehaviour {
             spawnIndex++;
         }
     }
+
 	void Start () {
 		
 	}

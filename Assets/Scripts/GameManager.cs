@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-	public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController firstPersonController;
+    public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController firstPersonController;
     public float reputation = 0f;
     public float money = 0f;
     public Queue<IngredientBundle> marketIngredientsDeck;
@@ -11,15 +11,14 @@ public class GameManager : MonoBehaviour {
     public int numberOfTurnsInGame = 7;
     public List<Ingredient> availableToppings;
 
-    PizzaTruck pizzaTruck;
-    Turn currentTurn;
+    public Turn currentTurn;
+
     int currentTurnNumber = 0;
 
     #region Singleton
     public static GameManager Instance;
 
-    void Awake()
-    {
+    void Awake() {
         if (Instance != null) {
             Debug.LogWarning("More than one GameManager instance!");
             return;
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         print("GameManager Start()");
-		firstPersonController.enabled = false;
+        firstPersonController.enabled = false;
         IngredientDatabase.LoadDatabase();
         SetupMarketDeck();
         PizzaTruck.Instance.Init();
@@ -52,13 +51,11 @@ public class GameManager : MonoBehaviour {
         marketIngredientsDeck = new Queue<IngredientBundle>(shuffledList.ToArray());
     }
 
-    void Shuffle<T>(List<T> list)
-    {
+    void Shuffle<T>(List<T> list) {
         System.Random rng = new System.Random();
 
         int n = list.Count;
-        while (n > 1)
-        {
+        while (n > 1) {
             n--;
             int k = rng.Next(n + 1);
             T value = list[k];
@@ -67,33 +64,30 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void NewTurn()
-    {
+    void NewTurn() {
         currentTurnNumber++;
         print("GameManager NewTurn() " + currentTurnNumber);
         GameObject currentTurnObject = new GameObject();
         currentTurnObject.name = "Turn " + currentTurnNumber;
         currentTurnObject.transform.SetParent(transform);
+
         currentTurn = currentTurnObject.gameObject.AddComponent<Turn>();
+        currentTurn.turnNumber = currentTurnNumber;
+
         currentTurn.OnTurnFinish += MoveToNextTurn;
         currentTurn.Begin();
     }
 
-    void MoveToNextTurn()
-    {
+    void MoveToNextTurn() {
         print("GameManager MoveToNextTurn()");
-        if (currentTurnNumber == numberOfTurnsInGame)
-        {
+        if (currentTurnNumber == numberOfTurnsInGame) {
             EndGame();
-        }
-        else
-        {
+        } else {
             NewTurn();
         }
     }
 
-    void EndGame()
-    {
+    void EndGame() {
         print("GameManager EndGame()");
     }
 }

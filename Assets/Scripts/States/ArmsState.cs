@@ -6,9 +6,7 @@ public abstract class ArmsState {
     public virtual void OnEnter() { }
     public virtual void OnExit() { }
 
-    public ArmsState(Arms arms)
-    {
+    public ArmsState(Arms arms) {
         this.arms = arms;
     }
-
 }

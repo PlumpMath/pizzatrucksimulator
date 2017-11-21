@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Turn : MonoBehaviour {
 	public int turnNumber;
+	public int customerCount;
+
 	// ReputationCalculator reputationCalculator;
 	Queue<IPhase> phases;
 	IPhase currentPhase;
@@ -25,6 +27,8 @@ public class Turn : MonoBehaviour {
 						// gameObject.AddComponent<CleanupPhase>()
 					}
 				);
+
+		customerCount = 5 * turnNumber;
 
 		NextPhase();
 	}

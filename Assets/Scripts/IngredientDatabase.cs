@@ -35,5 +35,4 @@ public class IngredientDatabase {
     static public List<Ingredient> GetList() {
         return ingredientList;
     }
-
 }
