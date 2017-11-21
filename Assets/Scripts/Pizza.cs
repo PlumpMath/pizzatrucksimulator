@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pizza : MonoBehaviour {
-	public List<Ingredient> ingredientsList;
+    public List<Ingredient> ingredientsList;
 
     public bool doughRolled = false;
     public bool sauceAdded = false;
@@ -15,28 +15,26 @@ public class Pizza : MonoBehaviour {
     public SkinnedMeshRenderer doughMesh;
     public float blendShapeWeightCurrent = 100;
 
-    float blendShapeWeightTarget= 100;
+    float blendShapeWeightTarget = 100;
 
-    void Start()
-    {
+    void Start() {
         doughMesh = GetComponent<SkinnedMeshRenderer>();
     }
 
 
 
     public int Reputation { get; set; }
-	// public Customer customer;
+    // public Customer customer;
 
 
-    public void RollDough()
-    {
-        doughRolled = true;
-        blendShapeWeightTarget = 0;
+    public void RollDough() {
+        if (!doughRolled) {
+            doughRolled = true;
+            blendShapeWeightTarget = 0;
+        }
     }
-    
-	
-	
-	void Update () {
+
+    void Update() {
 
         blendShapeWeightCurrent = Mathf.Lerp(blendShapeWeightCurrent, blendShapeWeightTarget, Time.deltaTime);
         doughMesh.SetBlendShapeWeight(0, blendShapeWeightCurrent);

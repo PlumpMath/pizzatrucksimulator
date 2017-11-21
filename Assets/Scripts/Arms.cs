@@ -13,9 +13,10 @@ public class Arms : MonoBehaviour {
 
     bool isHolding = false;
     public bool hoveringOverDough = false;
-    Transform heldObject;
+    public Transform heldObject;
     Transform heldObjectParent;
     public Animator animator;
+
     Pizza pizza;
 
     #region Singleton

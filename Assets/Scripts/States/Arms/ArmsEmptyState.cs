@@ -5,6 +5,7 @@ public class ArmsEmptyState : ArmsState {
     Camera mainCamera;
     RaycastHit hitInfo;
     Transform holdingArea;
+    Transform target;
 
     public ArmsEmptyState(Arms arms) : base(arms) {
 
@@ -17,63 +18,46 @@ public class ArmsEmptyState : ArmsState {
     }
 
     public override void Tick() {
-        if (Input.GetMouseButtonDown(0)) {
-            InteractWithObject();
-            animator.SetTrigger("Lift");
+
+        string tag;
+        RaycastHit objectInfo;
+        int layerMask = 1 << 10;
+        ArmsState newState;
+
+        bool hitSomething = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out objectInfo, 10f, layerMask);
+        // only then check if raycast hits anything
+        if (hitSomething) {
+            target = objectInfo.transform;
+            Debug.Log(target);
+            tag = objectInfo.transform.tag;
+            newState = GetStateFromTag(tag);
+            if (newState != null) {
+                arms.SetState(newState);
+            }
         }
     }
 
     public override void OnExit() {
-
     }
 
-    void InteractWithObject() {
-        if (ObjectIsTargeted(out hitInfo)) {
-            LiftObject();
-            // hitInfo.transform.gameObject.GetComponent<IArmsClickable>().OnArmsClick(arms);
-            arms.SetState(new ArmsHoldingState(arms));
+    ArmsState GetStateFromTag(string tag) {
+        if (tag == "Toppings") {
+            return new ArmsEmptyTargettingTopping(arms, target);
+        }
+        if (tag == "Dough") {
+            return new ArmsEmptyTargettingDough(arms, target);
+        }
+        if (tag == "Sauce") {
+            return new ArmsEmptyTargettingSauce(arms, target);
+        }
+        if (tag == "Cheese") {
+            return new ArmsEmptyTargettingCheese(arms, target);
+        }
+        if (tag == "Oven") {
+            return new ArmsEmptyTargettingOven(arms, target);
+        } else {
+            return null;
         }
     }
 
-    bool ObjectIsTargeted(out RaycastHit hitInfo) {
-        int layerMask = 1 << 10; // Layer 10, ingredients
-
-        // An object is targeted if a Ray from our main camera
-        // hits it within 10 units
-        bool objectIsTargeted = Physics.Raycast(
-            mainCamera.transform.position,
-            mainCamera.transform.forward,
-            out hitInfo,
-            10f,
-            layerMask
-        );
-
-        // Draw our ray in the Unity editor
-        Debug.DrawRay(
-            mainCamera.transform.position,
-            mainCamera.transform.forward * 10f,
-            objectIsTargeted ? Color.green : Color.red
-        );
-
-        return objectIsTargeted;
-    }
-
-    void LiftObject() {
-        Transform target = hitInfo.transform;
-
-        GameObject pizzaObject;
-
-        target.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        target.gameObject.GetComponent<BoxCollider>().enabled = false;
-        target.SetParent(holdingArea);
-        target.localPosition = Vector3.zero;
-    }
-
-    bool IsTargetingOven() {
-        bool _isTargetingOven = hitInfo.transform != null && hitInfo.transform.gameObject.tag == "Oven";
-        if (_isTargetingOven) {
-            Debug.Log("That's the oven, mane.  Put a pizza in thurr.");
-        }
-        return _isTargetingOven;
-    }
 }
