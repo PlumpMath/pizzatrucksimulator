@@ -6,7 +6,7 @@ public class WorkPhase : Phase {
 		print("WorkPhase Begin()");
 		base.Begin();
 		GameManager.Instance.firstPersonController.enabled = true;
-		ArmsController.Instance.controlsEnabled = true;
+		Arms.Instance.controlsEnabled = true;
 		SetupWorkArea();
 	}
 
@@ -17,7 +17,7 @@ public class WorkPhase : Phase {
 	public override void End() {
 		print("WorkPhase End()");
 		GameManager.Instance.firstPersonController.enabled = false;
-		ArmsController.Instance.controlsEnabled = false;
+		Arms.Instance.controlsEnabled = false;
 		base.End();
 	}
 }
