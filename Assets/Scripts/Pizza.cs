@@ -22,10 +22,8 @@ public class Pizza : MonoBehaviour {
     }
 
 
-
     public int Reputation { get; set; }
     // public Customer customer;
-
 
     public void RollDough() {
         if (!doughRolled) {
@@ -35,8 +33,55 @@ public class Pizza : MonoBehaviour {
     }
 
     void Update() {
-
         blendShapeWeightCurrent = Mathf.Lerp(blendShapeWeightCurrent, blendShapeWeightTarget, Time.deltaTime);
         doughMesh.SetBlendShapeWeight(0, blendShapeWeightCurrent);
+    }
+
+    public bool AddToPizza(Transform ingredient) {
+        if (!CanReceiveIngredient(ingredient)) {
+            // Show warning that this ingredient cannot be received
+            return false;
+        }
+
+        string ingredientType = GetIngredientType(ingredient);
+        switch (ingredientType) {
+            case "Sauce":
+                sauceAdded = true;
+                break;
+            case "Cheese":
+                cheeseAdded = true;
+                break;
+            case "Topping":
+                ingredientsList.Add(ingredient.GetComponent<Ingredient>());
+                break;
+            default:
+                break;
+        }
+
+        ingredient.SetParent(null);
+        ingredient.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        return true;
+    }
+
+    public bool CanReceiveIngredient(Transform ingredient) {
+        if (ingredient.tag == "Sauce") {
+            return doughRolled && !sauceAdded;
+        } else if (ingredient.tag == "Cheese") {
+            return doughRolled && sauceAdded && !cheeseAdded;
+        } else if (ingredient.GetComponent<Ingredient>() != null) {
+            return doughRolled && sauceAdded && cheeseAdded;
+        } else {
+            Debug.Log("Not sauce or cheese or ingredient!");
+            return false;
+        }
+    }
+
+    public string GetIngredientType(Transform ingredient) {
+        if (ingredient.tag == "Sauce" || ingredient.tag == "Cheese") {
+            return ingredient.tag;
+        } else if (ingredient.GetComponent<Ingredient>() != null) {
+            return "Topping";
+        }
+        return null;
     }
 }

@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 
 public class ArmsEmptyTargettingTopping : ArmsState {
-
-    Animator animator;
+    // Animator animator;
     Camera mainCamera;
     Transform holdingArea;
-    Transform target;
+    Transform topping;
 
-    public ArmsEmptyTargettingTopping(Arms _arms, Transform _target) : base(_arms) {
+    public ArmsEmptyTargettingTopping(Arms _arms, Transform _topping) : base(_arms) {
 
-        target = _target;
+        topping = _topping;
 
     }
 
     public override void OnEnter() {
-
-        animator = arms.animator;
+        // animator = arms.animator;
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
     }
@@ -28,12 +26,18 @@ public class ArmsEmptyTargettingTopping : ArmsState {
         bool hitSomething = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out objectInfo, 10f, layerMask);
 
         if (!hitSomething) {
-            arms.SetState (new ArmsEmptyState(arms));
+            arms.SetState(new ArmsEmptyState(arms));
             return;
         }
 
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0)) {
             LiftObject();
+        }
+
+        if (hitSomething && objectInfo.transform.tag == "Dough") {
+            Transform dough = objectInfo.transform;
+            arms.SetState(new ArmsHoldingIngredientOverDoughState(arms, topping, dough));
+            return;
         }
 
     }
@@ -43,15 +47,15 @@ public class ArmsEmptyTargettingTopping : ArmsState {
     }
 
     void LiftObject() {
-    
-  //      arms.heldObject = target;
 
-        target.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        target.gameObject.GetComponent<BoxCollider>().enabled = false;
-        target.SetParent(holdingArea);
-        target.localPosition = Vector3.zero;
+        //      arms.heldObject = target;
 
-            arms.SetState(new ArmsHoldingToppingState(arms, target));
+        topping.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        topping.gameObject.GetComponent<BoxCollider>().enabled = false;
+        topping.SetParent(holdingArea);
+        topping.localPosition = Vector3.zero;
+
+        arms.SetState(new ArmsHoldingToppingState(arms, topping));
     }
 
 }

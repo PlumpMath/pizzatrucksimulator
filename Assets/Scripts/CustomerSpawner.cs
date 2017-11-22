@@ -32,10 +32,10 @@ public class CustomerSpawner : MonoBehaviour {
 
     IEnumerator SpawnCustomers() {
         Debug.Log("CustomerSpawner SpawnCustomers(), spawning customers: " + currentTurn.customerCount);
-        float spawningRadius = spawnArea.localScale.y;
+        // float spawningRadius = spawnArea.localScale.y;
 
         for(int i = 0; i < currentTurn.customerCount; i++) {
-            Debug.Log("CustomerSpawner Spawning Customer " + i);
+            // Debug.Log("CustomerSpawner Spawning Customer " + i);
             Vector3 randomPosition = new Vector3(
                                          Random.Range(-7f, 7f), 
                                          0, 

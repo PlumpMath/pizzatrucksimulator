@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ArmsHoldingCheese : ArmsState {
+public class ArmsHoldingCheeseState : ArmsState {
 
     Animator animator;
     RaycastHit hitInfo;
@@ -8,10 +8,10 @@ public class ArmsHoldingCheese : ArmsState {
     Transform cheese;
     Transform dough;
 
-    public ArmsHoldingCheese(Arms _arms, Transform _target) : base(_arms) {
+    public ArmsHoldingCheeseState(Arms _arms, Transform _cheese) : base(_arms) {
 
         holdingArea = arms.holdingArea;
-        cheese = _target;
+        cheese = _cheese;
 
     }
 
@@ -25,20 +25,18 @@ public class ArmsHoldingCheese : ArmsState {
         string tag;
         RaycastHit objectInfo;
         int layerMask = 1 << 10;
-        ArmsState newState;
 
         bool hitSomething = Physics.Raycast(arms.mainCamera.transform.position, arms.mainCamera.transform.forward, out objectInfo, 10f, layerMask);
         // only then check if raycast hits anything
         if (hitSomething) {
             dough = objectInfo.transform;
             tag = objectInfo.transform.tag;
-        
-            if (tag == "Dough")
-            {
-                arms.SetState(new ArmsHoldingCheeseOverDough(arms, cheese, dough));
+
+            if (tag == "Dough") {
+                arms.SetState(new ArmsHoldingIngredientOverDoughState(arms, cheese, dough));
                 return;
             }
-            
+
 
         }
 
@@ -66,7 +64,7 @@ public class ArmsHoldingCheese : ArmsState {
         arms.SetState(new ArmsEmptyState(arms));
 
     }
-    
+
 
 
 }

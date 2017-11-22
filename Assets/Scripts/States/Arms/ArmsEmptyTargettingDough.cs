@@ -1,22 +1,18 @@
 ﻿using UnityEngine;
 
 public class ArmsEmptyTargettingDough : ArmsState {
-
-    Animator animator;
+    // Animator animator;
     Camera mainCamera;
     Transform holdingArea;
-    Transform target;
+    Transform dough;
     Pizza pizza;
 
-    public ArmsEmptyTargettingDough(Arms _arms, Transform _target) : base(_arms) {
-
-        target = _target;
-
+    public ArmsEmptyTargettingDough(Arms _arms, Transform _dough) : base(_arms) {
+        dough = _dough;
     }
 
     public override void OnEnter() {
-
-        animator = arms.animator;
+        // animator = arms.animator;
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
     }
@@ -34,25 +30,21 @@ public class ArmsEmptyTargettingDough : ArmsState {
         }
 
         if (Input.GetMouseButtonDown(0)){
-            
-			pizza = target.GetComponent<Pizza>();
+			pizza = dough.GetComponent<Pizza>();
             pizza.RollDough();
-            
         }
-
     }
 
+    
     public override void OnExit() {
 
     }
 
     void LiftObject() {
-    
-
-        target.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        target.gameObject.GetComponent<BoxCollider>().enabled = false;
-        target.SetParent(holdingArea);
-        target.localPosition = Vector3.zero;
+        dough.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        dough.gameObject.GetComponent<BoxCollider>().enabled = false;
+        dough.SetParent(holdingArea);
+        dough.localPosition = Vector3.zero;
     }
 
 }

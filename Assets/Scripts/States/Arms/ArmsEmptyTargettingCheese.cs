@@ -1,22 +1,18 @@
 ﻿using UnityEngine;
 
 public class ArmsEmptyTargettingCheese : ArmsState {
-
-    Animator animator;
+    // Animator animator;
     Camera mainCamera;
     Transform holdingArea;
-    Transform target;
+    Transform cheese;
     Pizza pizza;
 
-    public ArmsEmptyTargettingCheese(Arms _arms, Transform _target) : base(_arms) {
-
-        target = _target;
-
+    public ArmsEmptyTargettingCheese(Arms _arms, Transform _cheese) : base(_arms) {
+        cheese = _cheese;
     }
 
     public override void OnEnter() {
-
-        animator = arms.animator;
+        // animator = arms.animator;
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
     }
@@ -47,12 +43,12 @@ public class ArmsEmptyTargettingCheese : ArmsState {
             
        // arms.heldObject = target;
 
-        target.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        target.gameObject.GetComponent<BoxCollider>().enabled = false;
-        target.SetParent(holdingArea);
-        target.localPosition = Vector3.zero;
+        cheese.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        cheese.gameObject.GetComponent<BoxCollider>().enabled = false;
+        cheese.SetParent(holdingArea);
+        cheese.localPosition = Vector3.zero;
 
-        arms.SetState(new ArmsHoldingCheese(arms, target));
+        arms.SetState(new ArmsHoldingCheeseState(arms, cheese));
     }
 
 }

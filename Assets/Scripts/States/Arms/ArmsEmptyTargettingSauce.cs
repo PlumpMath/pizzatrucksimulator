@@ -1,22 +1,18 @@
 ﻿using UnityEngine;
 
 public class ArmsEmptyTargettingSauce : ArmsState {
-
-    Animator animator;
+    // Animator animator;
     Camera mainCamera;
     Transform holdingArea;
-    Transform target;
+    Transform sauce;
     Pizza pizza;
 
-    public ArmsEmptyTargettingSauce(Arms _arms, Transform _target) : base(_arms) {
-
-        target = _target;
-
+    public ArmsEmptyTargettingSauce(Arms _arms, Transform _sauce) : base(_arms) {
+        sauce = _sauce;
     }
 
     public override void OnEnter() {
-
-        animator = arms.animator;
+        // animator = arms.animator;
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
     }
@@ -29,12 +25,12 @@ public class ArmsEmptyTargettingSauce : ArmsState {
         bool hitSomething = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out objectInfo, 10f, layerMask);
 
         if (!hitSomething) {
-            arms.SetState (new ArmsEmptyState(arms));
+            arms.SetState(new ArmsEmptyState(arms));
             return;
         }
 
-        if (Input.GetMouseButtonDown(0)){
-                LiftObject();
+        if (Input.GetMouseButtonDown(0)) {
+            LiftObject();
         }
 
     }
@@ -43,15 +39,11 @@ public class ArmsEmptyTargettingSauce : ArmsState {
 
     }
 
-        void LiftObject() {
-    
-         //   arms.heldObject = target;
-
-        target.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        target.gameObject.GetComponent<BoxCollider>().enabled = false;
-        target.SetParent(holdingArea);
-        target.localPosition = Vector3.zero;
-
-            arms.SetState(new ArmsHoldingSauce(arms, target));
+    void LiftObject() {
+        sauce.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        sauce.gameObject.GetComponent<BoxCollider>().enabled = false;
+        sauce.SetParent(holdingArea);
+        sauce.localPosition = Vector3.zero;
+        arms.SetState(new ArmsHoldingSauceState(arms, sauce));
     }
 }

@@ -1,23 +1,19 @@
 ﻿using UnityEngine;
 
 public class ArmsEmptyTargettingOven : ArmsState {
-
-    Animator animator;
+    // Animator animator;
+    // Transform holdingArea;
+    // Transform target;
     Camera mainCamera;
-    Transform holdingArea;
-    Transform target;
 
     public ArmsEmptyTargettingOven(Arms _arms, Transform _target) : base(_arms) {
-
-        target = _target;
-
+        // target = _target;
     }
 
     public override void OnEnter() {
-
-        animator = arms.animator;
+        // animator = arms.animator;
+        // holdingArea = arms.holdingArea;
         mainCamera = arms.mainCamera;
-        holdingArea = arms.holdingArea;
     }
 
     public override void Tick() {

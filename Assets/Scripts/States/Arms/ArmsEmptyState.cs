@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 public class ArmsEmptyState : ArmsState {
-    Animator animator;
+    // Animator animator;
     Camera mainCamera;
     RaycastHit hitInfo;
-    Transform holdingArea;
+    // Transform holdingArea;
     Transform target;
 
     public ArmsEmptyState(Arms arms) : base(arms) {
@@ -12,9 +12,9 @@ public class ArmsEmptyState : ArmsState {
     }
 
     public override void OnEnter() {
-        animator = arms.animator;
+        // animator = arms.animator;
+        // holdingArea = arms.holdingArea;
         mainCamera = arms.mainCamera;
-        holdingArea = arms.holdingArea;
     }
 
     public override void Tick() {
@@ -28,7 +28,6 @@ public class ArmsEmptyState : ArmsState {
         // only then check if raycast hits anything
         if (hitSomething) {
             target = objectInfo.transform;
-            Debug.Log(target);
             tag = objectInfo.transform.tag;
             newState = GetStateFromTag(tag);
             if (newState != null) {
