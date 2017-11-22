@@ -13,7 +13,6 @@ public class Pizza : MonoBehaviour {
     public bool cooked = false;
 
     public SkinnedMeshRenderer doughMesh;
-    public float blendShapeWeightCurrent = 100;
 
     float blendShapeWeightTarget = 100;
 
@@ -28,13 +27,26 @@ public class Pizza : MonoBehaviour {
     public void RollDough() {
         if (!doughRolled) {
             doughRolled = true;
-            blendShapeWeightTarget = 0;
+            StartCoroutine(RollOutDough());
+            //            blendShapeWeightTarget = 0;
         }
     }
 
+    IEnumerator RollOutDough() {
+        print("rolling teh dough");
+        float blendShapeWeightCurrent = 100;
+        float interpolation = 0f;
+        while (blendShapeWeightCurrent > 0f) {
+            blendShapeWeightCurrent = Mathf.Floor(Mathf.Lerp(blendShapeWeightCurrent, 0f, interpolation));
+            doughMesh.SetBlendShapeWeight(0, blendShapeWeightCurrent);
+            interpolation += Time.deltaTime * .1f;
+            yield return null;
+        }
+        print("done");
+    }
+
     void Update() {
-        blendShapeWeightCurrent = Mathf.Lerp(blendShapeWeightCurrent, blendShapeWeightTarget, Time.deltaTime);
-        doughMesh.SetBlendShapeWeight(0, blendShapeWeightCurrent);
+
     }
 
     public bool AddToPizza(Transform ingredient) {
