@@ -49,6 +49,7 @@ public class ArmsHoldingIngredientOverDoughState : ArmsState {
 
         if (Input.GetMouseButtonDown(0)) {
             pizza.AddToPizza(ingredient);
+            arms.SetState(new ArmsEmptyState(arms));
         }
     }
 }

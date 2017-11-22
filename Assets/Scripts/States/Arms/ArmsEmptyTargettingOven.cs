@@ -27,12 +27,6 @@ public class ArmsEmptyTargettingOven : ArmsState {
             arms.SetState (new ArmsEmptyState(arms));
             return;
         }
-
-        if (Input.GetMouseButtonDown(0)){
-		
-           Debug.Log("It's an oven, mane.");
-        }
-
     }
 
     public override void OnExit() {

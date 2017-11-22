@@ -32,6 +32,10 @@ public class ArmsEmptyTargettingDough : ArmsState {
         if (Input.GetMouseButtonDown(0)){
 			pizza = dough.GetComponent<Pizza>();
             pizza.RollDough();
+            if (pizza.doughRolled)
+            {
+                LiftObject();
+            }
         }
     }
 
@@ -45,6 +49,15 @@ public class ArmsEmptyTargettingDough : ArmsState {
         dough.gameObject.GetComponent<BoxCollider>().enabled = false;
         dough.SetParent(holdingArea);
         dough.localPosition = Vector3.zero;
+        dough.localRotation = Quaternion.Euler(-120,0,0);
+        if (!pizza.cooked)
+        {
+        arms.SetState(new ArmsHoldingDoughState(arms, dough));
+        }
+        else if (pizza.cooked)
+        {
+            arms.SetState(new ArmsHoldingCookedPizzaState(arms,dough));
+        }
     }
 
 }

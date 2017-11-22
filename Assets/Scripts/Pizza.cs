@@ -14,8 +14,6 @@ public class Pizza : MonoBehaviour {
 
     public SkinnedMeshRenderer doughMesh;
 
-    float blendShapeWeightTarget = 100;
-
     void Start() {
         doughMesh = GetComponent<SkinnedMeshRenderer>();
     }
@@ -26,14 +24,19 @@ public class Pizza : MonoBehaviour {
 
     public void RollDough() {
         if (!doughRolled) {
-            doughRolled = true;
             StartCoroutine(RollOutDough());
             //            blendShapeWeightTarget = 0;
         }
     }
 
+    void OnCollisionEnter(Collision col) {
+        UnityEngine.AI.NavMeshAgent navMeshAgent = col.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>(); 
+        if (navMeshAgent != null) {
+            navMeshAgent.enabled = false;
+        }
+    }
+
     IEnumerator RollOutDough() {
-        print("rolling teh dough");
         float blendShapeWeightCurrent = 100;
         float interpolation = 0f;
         while (blendShapeWeightCurrent > 0f) {
@@ -42,7 +45,7 @@ public class Pizza : MonoBehaviour {
             interpolation += Time.deltaTime * .1f;
             yield return null;
         }
-        print("done");
+        doughRolled = true;
     }
 
     void Update() {

@@ -910,7 +910,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 664405832}
   m_HandleRect: {fileID: 664405831}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1105,6 +1105,16 @@ Prefab:
     - target: {fileID: 4625929175001214, guid: ba13a67834c13174ba29a29488178332, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136166322330327560, guid: ba13a67834c13174ba29a29488178332,
+        type: 2}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 136166322330327560, guid: ba13a67834c13174ba29a29488178332,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba13a67834c13174ba29a29488178332, type: 2}
@@ -3479,12 +3489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3c3fa5951c2774caf03de39abc1439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedPizza: {fileID: 0}
   destinationPoint: {fileID: 1665566067}
   conveyorSpeed: 0.2
-  placed: 0
-  cooked: 0
-  distance: 0
+  isCooking: 0
 --- !u!1 &1905053628
 GameObject:
   m_ObjectHideFlags: 0
