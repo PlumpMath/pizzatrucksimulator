@@ -10,23 +10,253 @@ ModelImporter:
     100004: Work_Counter
     100006: //RootNode
     100008: Simple_Simple_Simple_GP_Layer_001
+    100010: van_body
+    100012: van_body_001
+    100014: van_brakepedal
+    100016: van_bumper_F
+    100018: van_bumpersignal_FL
+    100020: van_bumpersignal_FR
+    100022: van_chmsl
+    100024: van_door_FL
+    100026: van_door_FR
+    100028: van_doorglass_FL
+    100030: van_doorglass_FR
+    100032: van_doorpanel_FL
+    100034: van_doorpanel_FR
+    100036: van_engbaycrap
+    100038: van_fender_L
+    100040: van_fender_R
+    100042: van_gaspedal
+    100044: van_gauges
+    100046: van_grille
+    100048: van_headlight_L
+    100050: van_headlight_R
+    100052: van_headlightglass_L
+    100054: van_headlightglass_R
+    100056: van_hood
+    100058: van_interior
+    100060: van_intmirror
+    100062: van_parkingbrake
+    100064: van_reardoor_L
+    100066: van_reardoor_R
+    100068: van_reardoorglass_L
+    100070: van_reardoorglass_R
+    100072: van_seat_FL
+    100074: van_seat_FR
+    100076: van_signal_FL
+    100078: van_signal_FR
+    100080: van_signalframe_FL
+    100082: van_signalframe_FR
+    100084: van_steer
+    100086: van_taillight_L
+    100088: van_taillight_R
+    100090: van_taillightframe_L
+    100092: van_taillightframe_R
+    100094: van_tubs
+    100096: van_valance
+    100098: van_windshield
+    100100: van_wipers
     400000: Oven
     400002: Window
     400004: Work_Counter
     400006: //RootNode
     400008: Simple_Simple_Simple_GP_Layer_001
+    400010: van_body
+    400012: van_body_001
+    400014: van_brakepedal
+    400016: van_bumper_F
+    400018: van_bumpersignal_FL
+    400020: van_bumpersignal_FR
+    400022: van_chmsl
+    400024: van_door_FL
+    400026: van_door_FR
+    400028: van_doorglass_FL
+    400030: van_doorglass_FR
+    400032: van_doorpanel_FL
+    400034: van_doorpanel_FR
+    400036: van_engbaycrap
+    400038: van_fender_L
+    400040: van_fender_R
+    400042: van_gaspedal
+    400044: van_gauges
+    400046: van_grille
+    400048: van_headlight_L
+    400050: van_headlight_R
+    400052: van_headlightglass_L
+    400054: van_headlightglass_R
+    400056: van_hood
+    400058: van_interior
+    400060: van_intmirror
+    400062: van_parkingbrake
+    400064: van_reardoor_L
+    400066: van_reardoor_R
+    400068: van_reardoorglass_L
+    400070: van_reardoorglass_R
+    400072: van_seat_FL
+    400074: van_seat_FR
+    400076: van_signal_FL
+    400078: van_signal_FR
+    400080: van_signalframe_FL
+    400082: van_signalframe_FR
+    400084: van_steer
+    400086: van_taillight_L
+    400088: van_taillight_R
+    400090: van_taillightframe_L
+    400092: van_taillightframe_R
+    400094: van_tubs
+    400096: van_valance
+    400098: van_windshield
+    400100: van_wipers
     2300000: Oven
     2300002: Window
     2300004: Work_Counter
     2300006: Simple_Simple_Simple_GP_Layer_001
+    2300008: van_body
+    2300010: van_body_001
+    2300012: van_brakepedal
+    2300014: van_bumper_F
+    2300016: van_bumpersignal_FL
+    2300018: van_bumpersignal_FR
+    2300020: van_chmsl
+    2300022: van_door_FL
+    2300024: van_door_FR
+    2300026: van_doorglass_FL
+    2300028: van_doorglass_FR
+    2300030: van_doorpanel_FL
+    2300032: van_doorpanel_FR
+    2300034: van_engbaycrap
+    2300036: van_fender_L
+    2300038: van_fender_R
+    2300040: van_gaspedal
+    2300042: van_gauges
+    2300044: van_grille
+    2300046: van_headlight_L
+    2300048: van_headlight_R
+    2300050: van_headlightglass_L
+    2300052: van_headlightglass_R
+    2300054: van_hood
+    2300056: van_interior
+    2300058: van_intmirror
+    2300060: van_parkingbrake
+    2300062: van_reardoor_L
+    2300064: van_reardoor_R
+    2300066: van_reardoorglass_L
+    2300068: van_reardoorglass_R
+    2300070: van_seat_FL
+    2300072: van_seat_FR
+    2300074: van_signal_FL
+    2300076: van_signal_FR
+    2300078: van_signalframe_FL
+    2300080: van_signalframe_FR
+    2300082: van_steer
+    2300084: van_taillight_L
+    2300086: van_taillight_R
+    2300088: van_taillightframe_L
+    2300090: van_taillightframe_R
+    2300092: van_tubs
+    2300094: van_valance
+    2300096: van_windshield
+    2300098: van_wipers
     3300000: Oven
     3300002: Window
     3300004: Work_Counter
     3300006: Simple_Simple_Simple_GP_Layer_001
+    3300008: van_body
+    3300010: van_body_001
+    3300012: van_brakepedal
+    3300014: van_bumper_F
+    3300016: van_bumpersignal_FL
+    3300018: van_bumpersignal_FR
+    3300020: van_chmsl
+    3300022: van_door_FL
+    3300024: van_door_FR
+    3300026: van_doorglass_FL
+    3300028: van_doorglass_FR
+    3300030: van_doorpanel_FL
+    3300032: van_doorpanel_FR
+    3300034: van_engbaycrap
+    3300036: van_fender_L
+    3300038: van_fender_R
+    3300040: van_gaspedal
+    3300042: van_gauges
+    3300044: van_grille
+    3300046: van_headlight_L
+    3300048: van_headlight_R
+    3300050: van_headlightglass_L
+    3300052: van_headlightglass_R
+    3300054: van_hood
+    3300056: van_interior
+    3300058: van_intmirror
+    3300060: van_parkingbrake
+    3300062: van_reardoor_L
+    3300064: van_reardoor_R
+    3300066: van_reardoorglass_L
+    3300068: van_reardoorglass_R
+    3300070: van_seat_FL
+    3300072: van_seat_FR
+    3300074: van_signal_FL
+    3300076: van_signal_FR
+    3300078: van_signalframe_FL
+    3300080: van_signalframe_FR
+    3300082: van_steer
+    3300084: van_taillight_L
+    3300086: van_taillight_R
+    3300088: van_taillightframe_L
+    3300090: van_taillightframe_R
+    3300092: van_tubs
+    3300094: van_valance
+    3300096: van_windshield
+    3300098: van_wipers
     4300000: Oven
     4300002: Window
     4300004: Work_Counter
     4300006: Simple_Simple_Simple_GP_Layer_001
+    4300008: van_body_001
+    4300010: van_body
+    4300012: van_brakepedal
+    4300014: van_bumper_F
+    4300016: van_bumpersignal_FL
+    4300018: van_bumpersignal_FR
+    4300020: van_chmsl
+    4300022: van_door_FL
+    4300024: van_door_FR
+    4300026: van_doorglass_FL
+    4300028: van_doorglass_FR
+    4300030: van_doorpanel_FL
+    4300032: van_doorpanel_FR
+    4300034: van_engbaycrap
+    4300036: van_fender_L
+    4300038: van_fender_R
+    4300040: van_gaspedal
+    4300042: van_gauges
+    4300044: van_grille
+    4300046: van_headlight_L
+    4300048: van_headlight_R
+    4300050: van_headlightglass_L
+    4300052: van_headlightglass_R
+    4300054: van_hood
+    4300056: van_interior
+    4300058: van_intmirror
+    4300060: van_parkingbrake
+    4300062: van_reardoor_L
+    4300064: van_reardoor_R
+    4300066: van_reardoorglass_L
+    4300068: van_reardoorglass_R
+    4300070: van_seat_FL
+    4300072: van_seat_FR
+    4300074: van_signal_FL
+    4300076: van_signal_FR
+    4300078: van_signalframe_FL
+    4300080: van_signalframe_FR
+    4300082: van_steer
+    4300084: van_taillight_L
+    4300086: van_taillight_R
+    4300088: van_taillightframe_L
+    4300090: van_taillightframe_R
+    4300092: van_tubs
+    4300094: van_valance
+    4300096: van_windshield
+    4300098: van_wipers
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -53,8 +283,98 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: pickup_001__pickup_s_dds
+    second: {fileID: 2100000, guid: 97a09e1aa3bb4ea49a376d517c0f64c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pickup_001__van_s_png
+    second: {fileID: 2100000, guid: ecf85409d10914b4b93f2996afdacd6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: unnamed
     second: {fileID: 2100000, guid: 9f3037b806329414fa2c925d5711fe44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_001
+    second: {fileID: 2100000, guid: 29c599ade239c154aa9dfeb5c34d4a28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_001__van_s_png
+    second: {fileID: 2100000, guid: ecf85409d10914b4b93f2996afdacd6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_chmsl_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_gauges_001__van_gauges_d_png
+    second: {fileID: 2100000, guid: f7185399716aab4499671c5b659de1b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_glass_001__van_glass_d_png
+    second: {fileID: 2100000, guid: 4ca4ee9e2b20bd847ac4838637479123, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_headlight_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_interior_001
+    second: {fileID: 2100000, guid: 158b3edba4563a34ab51d9c74879419b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_interior_001__van_interior_s_png
+    second: {fileID: 2100000, guid: 158b3edba4563a34ab51d9c74879419b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_reverselight_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_seats_001__van_seats_s_png
+    second: {fileID: 2100000, guid: 16c4f6700db8cc4439fcce9cac9a61f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_signal_L_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_signal_R_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_taillight_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_taillight_L_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: van_taillight_R_001__van_lights_d_png
+    second: {fileID: 2100000, guid: 515241609be53d846b91c451bda2f5bb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

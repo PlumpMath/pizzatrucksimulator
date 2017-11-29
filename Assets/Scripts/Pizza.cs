@@ -30,10 +30,14 @@ public class Pizza : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col) {
-        UnityEngine.AI.NavMeshAgent navMeshAgent = col.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>(); 
-        if (navMeshAgent != null) {
-            navMeshAgent.enabled = false;
+
+        CharacterAnimator anim = col.gameObject.GetComponent<CharacterAnimator>();
+
+        if (anim != null)
+        {
+            anim.MakeRagdoll();
         }
+ 
     }
 
     IEnumerator RollOutDough() {

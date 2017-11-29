@@ -26,7 +26,7 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
     IEnumerator FirePizza() {
         float pizzaPower = 0f;
         while (Input.GetMouseButton(0)) {
-            pizzaPower += 1f;
+            pizzaPower += 1.25f;
             yield return null;
         }
         // pizzaPower = Mathf.Clamp(pizzaPower, 1f, 5f);
