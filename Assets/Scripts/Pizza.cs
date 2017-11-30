@@ -11,6 +11,7 @@ public class Pizza : MonoBehaviour {
     public bool gettable = true;
     public bool holdingAPizza = false;
     public bool cooked = false;
+    public bool rollingDough;
 
     public SkinnedMeshRenderer doughMesh;
 
@@ -46,11 +47,10 @@ public class Pizza : MonoBehaviour {
     }
 
     IEnumerator RollOutDough() {
-
-
         float blendShapeWeightCurrent = 100;
         float interpolation = 0f;
         Arms.Instance.GetComponent<Animator>().SetTrigger("Roll");
+        rollingDough = true;
         while (blendShapeWeightCurrent > 0f) {
             blendShapeWeightCurrent = Mathf.Floor(Mathf.Lerp(blendShapeWeightCurrent, 0f, interpolation));
             doughMesh.SetBlendShapeWeight(0, blendShapeWeightCurrent);
@@ -58,6 +58,7 @@ public class Pizza : MonoBehaviour {
             yield return null;
         }
         doughRolled = true;
+        rollingDough = false;
     }
 
     void Update() {
