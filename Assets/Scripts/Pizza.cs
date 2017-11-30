@@ -24,6 +24,8 @@ public class Pizza : MonoBehaviour {
 
     public void RollDough() {
         if (!doughRolled) {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
             StartCoroutine(RollOutDough());
             //            blendShapeWeightTarget = 0;
         }
@@ -44,6 +46,8 @@ public class Pizza : MonoBehaviour {
     }
 
     IEnumerator RollOutDough() {
+
+
         float blendShapeWeightCurrent = 100;
         float interpolation = 0f;
         Arms.Instance.GetComponent<Animator>().SetTrigger("Roll");
