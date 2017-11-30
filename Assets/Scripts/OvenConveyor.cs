@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OvenConveyor : MonoBehaviour {
 
+    AudioSource audio;
 
     public GameObject destinationPoint;
     public float conveyorSpeed;
@@ -18,6 +19,10 @@ public class OvenConveyor : MonoBehaviour {
         pizza.transform.SetParent(transform.GetChild(0));
         pizza.transform.localPosition = new Vector3(0, 0, 0);
         pizza.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+
+        audio = GetComponent<AudioSource>();
+        audio.Play();
+
 
         StartCoroutine(MoveOnOven());
     }
@@ -38,8 +43,10 @@ public class OvenConveyor : MonoBehaviour {
             if (atDestination) {
                 pizza.cooked = true;
                 placedPizza.GetComponent<BoxCollider>().enabled = true;
+                audio.Stop();
             }
             yield return null;
+    
         }
 
         isCooking = false;
