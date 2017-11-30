@@ -785,7 +785,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585910602}
   m_HandleRect: {fileID: 585910601}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224834681}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387972975}
   m_HandleRect: {fileID: 387972974}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2636,6 +2636,18 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -27.613
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 2304dd5d900b79e478366d6d514e207c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d60d524dda521d444b8f8d77ebc297c1, type: 2}
+    - target: {fileID: 13700000, guid: 2304dd5d900b79e478366d6d514e207c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d60d524dda521d444b8f8d77ebc297c1, type: 2}
+    - target: {fileID: 13700000, guid: 2304dd5d900b79e478366d6d514e207c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a112de48af460b64a89021c3e4e07c14, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 2304dd5d900b79e478366d6d514e207c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 2304dd5d900b79e478366d6d514e207c, type: 3}
