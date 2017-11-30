@@ -43,7 +43,7 @@ public class OvenConveyor : MonoBehaviour {
             if (atDestination) {
                 pizza.cooked = true;
                 placedPizza.GetComponent<BoxCollider>().enabled = true;
-                audio.Stop();
+                
             }
             yield return null;
     
