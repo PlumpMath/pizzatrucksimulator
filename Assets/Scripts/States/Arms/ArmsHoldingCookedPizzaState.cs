@@ -54,6 +54,8 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
             pizzaObject.localPosition = originalPosition;
             pizzaObject.localRotation = Quaternion.Euler(-120, 0, 0);
             pizzaCollider.enabled = false;
+        } else {
+            arms.SetState(new ArmsEmptyState(arms));
         }
     }
 }

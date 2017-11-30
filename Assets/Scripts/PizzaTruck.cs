@@ -36,17 +36,6 @@ public class PizzaTruck {
             ingredientBundle.quantity = ingredientQuantity;
 			AddIngredient(ingredientBundle);
         }
-
-        // Add Sauce
-        // AddBaseIngredient(
-        // 	new IngredientBundle(IngredientDatabase.GetIngredient(0), 4)
-        // ); 
-
-        // Add Cheese
-
-        // AddBaseIngredient(
-        // 	new IngredientBundle(IngredientDatabase.GetIngredient(0), 4)
-        // ); 
     }
 
     public void AddIngredient(IngredientBundle ingredientBundle) {
