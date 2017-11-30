@@ -52,7 +52,7 @@ public class Customer : MonoBehaviour {
     }
 
     public void OnPizzaHit(Pizza pizza) {
-
+        Destroy(pizza.gameObject);
     }
 
     void SetNeeds() {
