@@ -28,8 +28,8 @@ public class IngredientSpawner : MonoBehaviour {
     #endregion
 
     public void SpawnTruckIngredients() {
-        // For now, just spawn 1 dough, 4 sauce, 4 cheese
-        Instantiate(doughPrefab, doughSpawnpoint);
+        SpawnDough();
+
         int baseIngredientQuantity = 1;
         for (int i = 0; i < baseIngredientQuantity; i++) {
             Instantiate(saucePrefab, sauceSpawnpoint.position + Vector3.up * 0.15f * i, Quaternion.Euler(-90, 0, 0), sauceSpawnpoint);
@@ -50,6 +50,10 @@ public class IngredientSpawner : MonoBehaviour {
             }
             spawnIndex++;
         }
+    }
+
+    public void SpawnDough() {
+        Instantiate(doughPrefab, doughSpawnpoint);
     }
 
     void Start() {

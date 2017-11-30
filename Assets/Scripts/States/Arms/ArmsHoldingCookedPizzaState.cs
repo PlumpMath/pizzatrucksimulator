@@ -16,7 +16,7 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
 
     public override void Tick() {
         if (Input.GetMouseButtonDown(0)) {
-            arms.StartCoroutine(FirePizza());    
+            arms.StartCoroutine(FirePizza());
         }
     }
 
@@ -29,9 +29,10 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
             pizzaPower += 1.25f;
             yield return null;
         }
-        // pizzaPower = Mathf.Clamp(pizzaPower, 1f, 5f);
 
-        Debug.Log("FIRING PIZZA AT: " + pizzaPower);
+        // pizzaPower = Mathf.Clamp(pizzaPower, 1f, 5f);
+        // Debug.Log("FIRING PIZZA AT: " + pizzaPower);
+
         Rigidbody pizzaBody = pizzaObject.GetComponent<Rigidbody>();
         Vector3 originalPosition = pizzaObject.transform.localPosition;
         BoxCollider pizzaCollider = pizzaObject.GetComponent<BoxCollider>();
@@ -42,24 +43,17 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
         // pizzaBody.velocity = Vector3.back * pizzaPower;
         pizzaBody.constraints = RigidbodyConstraints.None;
         pizzaCollider.enabled = true;
-        yield return new WaitForSeconds(3);
-        pizzaBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;        
-        pizzaBody.transform.SetParent(arms.holdingArea.transform);
-        pizzaBody.velocity = Vector3.zero;
-        pizzaBody.angularVelocity = Vector3.zero;
-        pizzaBody.useGravity = false;
-        pizzaObject.localPosition = originalPosition;
-        pizzaObject.localRotation = Quaternion.Euler(-120,0,0);
-        pizzaCollider.enabled = false;        
-    }
 
-    // void DropObject() {
-    //     dough.gameObject.GetComponent<Rigidbody>().useGravity = true;
-    //     dough.gameObject.GetComponent<BoxCollider>().enabled = true;
-    //     dough.SetParent(null);
-    //     dough.position = holdingArea.position;
-    //     dough.rotation = Quaternion.Euler(-90, 0, 0);
-    //     arms.heldObject = null;
-    //     arms.SetState(new ArmsEmptyState(arms));
-    // }
+        if (GameManager.Instance.debugMode) {
+            yield return new WaitForSeconds(3);
+            pizzaBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+            pizzaBody.transform.SetParent(arms.holdingArea.transform);
+            pizzaBody.velocity = Vector3.zero;
+            pizzaBody.angularVelocity = Vector3.zero;
+            pizzaBody.useGravity = false;
+            pizzaObject.localPosition = originalPosition;
+            pizzaObject.localRotation = Quaternion.Euler(-120, 0, 0);
+            pizzaCollider.enabled = false;
+        }
+    }
 }

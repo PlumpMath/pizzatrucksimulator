@@ -12,6 +12,8 @@ public class PizzaTruck {
 
     static PizzaTruck _instance;
 
+    static System.Random rng = new System.Random();
+
     private PizzaTruck() {
         baseIngredientList = new List<IngredientBundle>();
         ingredientList = new List<IngredientBundle>();
@@ -57,6 +59,11 @@ public class PizzaTruck {
 
     public void RemoveIngredient(IngredientBundle ingredientBundle) {
         ingredientList.Remove(ingredientBundle);
+    }
+
+    public Ingredient GetRandomIngredient() {
+        int r = PizzaTruck.rng.Next(0, ingredientList.Count - 1);
+        return ingredientList[r].ingredient;
     }
 
     public bool HasIngredientSpace {

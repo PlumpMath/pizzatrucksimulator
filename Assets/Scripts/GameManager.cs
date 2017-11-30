@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
     public Turn currentTurn;
 
+    public bool debugMode;
+
     int currentTurnNumber = 0;
 
     #region Singleton
@@ -24,15 +26,15 @@ public class GameManager : MonoBehaviour {
             return;
         }
         Instance = this;
+        firstPersonController.enabled = false;
+        IngredientDatabase.LoadDatabase();
+        // SetupMarketDeck();
+        PizzaTruck.Instance.Init();
     }
     #endregion
 
     void Start() {
         print("GameManager Start()");
-        firstPersonController.enabled = false;
-        IngredientDatabase.LoadDatabase();
-        // SetupMarketDeck();
-        PizzaTruck.Instance.Init();
         NewTurn();
     }
 

@@ -31,6 +31,7 @@ public class ArmsHoldingDoughOverOvenState : ArmsState {
             ovenConveyor.CookPizza(dough.gameObject);
             arms.SetState(new ArmsEmptyState(arms));
             Debug.Log("You dropped the pizza into the oven!");
+            IngredientSpawner.Instance.SpawnDough();
         }
 
         if (!hitSomething) {

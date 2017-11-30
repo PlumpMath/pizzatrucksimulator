@@ -44,7 +44,8 @@ public class CustomerSpawner : MonoBehaviour {
             Transform customerObject = Instantiate(customerPrefab);
             customerObject.parent = transform;
             customerObject.localPosition = randomPosition;
-            customerObject.GetComponent<Customer>().SetDestination(truckWindow.position);
+            Customer customer = customerObject.GetComponent<Customer>();
+            customer.SetDestination(truckWindow.position);
             yield return new WaitForSeconds(1);
         }
     }
