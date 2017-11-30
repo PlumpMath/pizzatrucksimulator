@@ -25,15 +25,20 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
 
     IEnumerator FirePizza() {
         float pizzaPower = 0f;
+        Rigidbody pizzaBody = pizzaObject.GetComponent<Rigidbody>();
+        pizzaBody.maxAngularVelocity = 75f;
+        pizzaBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+
         while (Input.GetMouseButton(0)) {
             pizzaPower += 1.25f;
+            pizzaBody.AddTorque(.1f, 0f, 0f, ForceMode.VelocityChange);
             yield return null;
         }
 
-        // pizzaPower = Mathf.Clamp(pizzaPower, 1f, 5f);
-        // Debug.Log("FIRING PIZZA AT: " + pizzaPower);
 
-        Rigidbody pizzaBody = pizzaObject.GetComponent<Rigidbody>();
+        pizzaPower = Mathf.Clamp(pizzaPower, 1f, 150f);
+        Debug.Log("FIRING PIZZA AT: " + pizzaPower);
+
         Vector3 originalPosition = pizzaObject.transform.localPosition;
         BoxCollider pizzaCollider = pizzaObject.GetComponent<BoxCollider>();
 
