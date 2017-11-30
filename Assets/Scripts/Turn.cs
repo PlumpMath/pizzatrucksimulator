@@ -20,7 +20,7 @@ public class Turn : MonoBehaviour {
 
 		phases = new Queue<IPhase>(
 					new IPhase[] { 
-						gameObject.AddComponent<MarketPhase>(),
+						// gameObject.AddComponent<MarketPhase>(),
 						// gameObject.AddComponent<ParkingPhase>(),
 						gameObject.AddComponent<WorkPhase>(),
 						// gameObject.AddComponent<SalesPhase>(),

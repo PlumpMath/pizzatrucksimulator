@@ -5,6 +5,7 @@ using UnityEngine;
 public class Customer : MonoBehaviour {
     public enum Type { Teenager, Hipster, Professional, Senior }
     public Type type;
+    public List<Ingredient> ingredientNeeds;
 
     float satisfactionLevel;
     float freshnessBias;
@@ -37,6 +38,10 @@ public class Customer : MonoBehaviour {
             default:
                 return null;
         }
+    }
+
+    public void OnPizzaHit(Pizza pizza) {
+
     }
     // Topping IDs:
     // 2  Arugula

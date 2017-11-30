@@ -17,8 +17,7 @@ public class IngredientSpawner : MonoBehaviour {
 
     PizzaTruck pizzaTruck;
 
-    void Awake()
-    {
+    void Awake() {
         if (Instance != null) {
             Debug.LogWarning("More than one IngredientSpawner instance!");
             return;
@@ -31,20 +30,21 @@ public class IngredientSpawner : MonoBehaviour {
     public void SpawnTruckIngredients() {
         // For now, just spawn 1 dough, 4 sauce, 4 cheese
         Instantiate(doughPrefab, doughSpawnpoint);
-        for (int i = 0; i < 4; i++) {
-            Instantiate(saucePrefab, sauceSpawnpoint.position + Vector3.up * 0.15f * i, Quaternion.Euler(-90,0,0), sauceSpawnpoint);
-            Instantiate(cheesePrefab, cheeseSpawnpoint.position + Vector3.up * 0.15f * i, Quaternion.Euler(-90,0,0), cheeseSpawnpoint);
+        int baseIngredientQuantity = 1;
+        for (int i = 0; i < baseIngredientQuantity; i++) {
+            Instantiate(saucePrefab, sauceSpawnpoint.position + Vector3.up * 0.15f * i, Quaternion.Euler(-90, 0, 0), sauceSpawnpoint);
+            Instantiate(cheesePrefab, cheeseSpawnpoint.position + Vector3.up * 0.15f * i, Quaternion.Euler(-90, 0, 0), cheeseSpawnpoint);
         }
 
         int spawnIndex = 0;
-        foreach (IngredientBundle ingredientBundle in pizzaTruck.ingredientList) {
+        int toppingQuantity = 1;
 
-            for (int i = 0; i < ingredientBundle.quantity; i++)
-            {
+        foreach (IngredientBundle ingredientBundle in pizzaTruck.ingredientList) {
+            for (int i = 0; i < toppingQuantity; i++) {
                 Instantiate(
                     ingredientBundle.ingredient, // prefab
                     ingredientSpawningPoints[spawnIndex].position + Vector3.up * .15f * i, //position 
-                    Quaternion.Euler(-90,0,0), // rotation
+                    Quaternion.Euler(-90, 0, 0), // rotation
                     ingredientSpawningPoints[spawnIndex] // parent
                 );
             }
@@ -52,11 +52,11 @@ public class IngredientSpawner : MonoBehaviour {
         }
     }
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+    void Start() {
+
+    }
+
+    void Update() {
+
+    }
 }

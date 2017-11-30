@@ -30,14 +30,17 @@ public class Pizza : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col) {
-
         CharacterAnimator anim = col.gameObject.GetComponent<CharacterAnimator>();
 
-        if (anim != null)
-        {
+        if (anim != null) {
             anim.MakeRagdoll();
         }
- 
+
+        Customer customer = col.gameObject.GetComponent<Customer>();
+
+        if (customer != null) {
+            customer.OnPizzaHit(this);
+        }
     }
 
     IEnumerator RollOutDough() {

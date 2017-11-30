@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2e8410bec0fddfa4e87bdb4f2b8c997a
 timeCreated: 1512067148
 licenseType: Pro
+=======
+guid: 6f62ef8a373dc494eb11dba7c2ddf310
+timeCreated: 1512066958
+licenseType: Free
+>>>>>>> PIVOT TO ARCADE MODE! Skip market phase, spawn one of each ingredient.
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}

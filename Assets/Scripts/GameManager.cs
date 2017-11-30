@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
         print("GameManager Start()");
         firstPersonController.enabled = false;
         IngredientDatabase.LoadDatabase();
-        SetupMarketDeck();
+        // SetupMarketDeck();
         PizzaTruck.Instance.Init();
         NewTurn();
     }
