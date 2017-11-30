@@ -43,6 +43,7 @@ public class Pizza : MonoBehaviour {
     IEnumerator RollOutDough() {
         float blendShapeWeightCurrent = 100;
         float interpolation = 0f;
+        Arms.Instance.GetComponent<Animator>().SetTrigger("Roll");
         while (blendShapeWeightCurrent > 0f) {
             blendShapeWeightCurrent = Mathf.Floor(Mathf.Lerp(blendShapeWeightCurrent, 0f, interpolation));
             doughMesh.SetBlendShapeWeight(0, blendShapeWeightCurrent);
