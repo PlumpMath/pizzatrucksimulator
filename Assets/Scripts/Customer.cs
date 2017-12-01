@@ -120,6 +120,7 @@ public class Customer : MonoBehaviour {
 
     void PizzaSuccess() {
         GetComponent<AudioSource>().clip = pizzaSuccessAudio;
+        GetComponent<AudioSource>().pitch = Random.Range(.8f,1.1f);
         GetComponent<AudioSource>().Play();
 
         StartCoroutine(HappyLaunch());
@@ -179,11 +180,13 @@ public class Customer : MonoBehaviour {
         Vector3 currentPosition = transform.position;
         navMeshAgent.enabled = false;
         transform.position = currentPosition;
+
     }
 
 
     void PizzaFailure() {
          GetComponent<AudioSource>().clip=sadEater;
+         GetComponent<AudioSource>().pitch = Random.Range(.8f,1.3f);
         GetComponent<AudioSource>().Play();
         foreach(Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
 
@@ -192,6 +195,7 @@ public class Customer : MonoBehaviour {
             ragdollRigidbody.drag = 0f;
             ragdollRigidbody.angularDrag = 0f;
             ragdollRigidbody.AddForce(0, 5f, -10f, ForceMode.VelocityChange);
+
         }
 
         Destroy(gameObject, 3f);
