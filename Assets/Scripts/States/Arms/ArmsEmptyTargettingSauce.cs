@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ArmsEmptyTargettingSauce : ArmsState {
     // Animator animator;
@@ -15,6 +16,8 @@ public class ArmsEmptyTargettingSauce : ArmsState {
         // animator = arms.animator;
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
+                sauce.GetComponent<Ingredient>().label.GetComponent<Text>().enabled =true;
+
     }
 
     public override void Tick() {
@@ -36,6 +39,7 @@ public class ArmsEmptyTargettingSauce : ArmsState {
     }
 
     public override void OnExit() {
+                sauce.GetComponent<Ingredient>().label.GetComponent<Text>().enabled =false;
 
     }
 

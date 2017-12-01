@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngredientSpawner : MonoBehaviour {
     public Transform[] ingredientSpawningPoints;
@@ -49,9 +50,11 @@ public class IngredientSpawner : MonoBehaviour {
                     
                 );
                 GameObject label = ingredientBundle.ingredient.label;
+                
                 if (label != null)
                 {
-                label.SetActive(false);
+                 
+                label.GetComponent<Text>().enabled =false;
                 }
             }
             spawnIndex++;

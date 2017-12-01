@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ArmsEmptyTargettingCheese : ArmsState {
     // Animator animator;
@@ -15,6 +16,8 @@ public class ArmsEmptyTargettingCheese : ArmsState {
         // animator = arms.animator;
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
+        cheese.GetComponent<Ingredient>().label.GetComponent<Text>().enabled =true;
+
     }
 
     public override void Tick() {
@@ -23,6 +26,11 @@ public class ArmsEmptyTargettingCheese : ArmsState {
         int layerMask = 1 << 10;
 
         bool hitSomething = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out objectInfo, 10f, layerMask);
+
+        if (hitSomething)
+        {
+        Debug.Log(objectInfo.transform.name);
+        }
 
         if (!hitSomething) {
             arms.SetState (new ArmsEmptyState(arms));
@@ -33,9 +41,17 @@ public class ArmsEmptyTargettingCheese : ArmsState {
                 LiftObject();
         }
 
+        if (hitSomething && objectInfo.transform.tag == "Toppings")
+        {
+            arms.SetState(new ArmsEmptyTargettingTopping(arms, objectInfo.transform));
+        }
+
     }
 
     public override void OnExit() {
+
+                cheese.GetComponent<Ingredient>().label.GetComponent<Text>().enabled =false;
+
 
     }
 
