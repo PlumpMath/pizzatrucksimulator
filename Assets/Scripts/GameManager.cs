@@ -93,4 +93,15 @@ public class GameManager : MonoBehaviour {
     void EndGame() {
         print("GameManager EndGame()");
     }
+
+    public void DelayedReplenish(Transform t) {
+        Vector3 position = t.position;
+        Quaternion rotation = t.rotation;
+        StartCoroutine(ReplenishObject(t, position, rotation));
+    }
+
+    IEnumerator ReplenishObject(Transform t, Vector3 position, Quaternion rotation) {
+        yield return new WaitForSeconds(3f);
+        Instantiate(t, position, rotation);
+    }
 }

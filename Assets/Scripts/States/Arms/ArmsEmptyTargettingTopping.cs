@@ -73,6 +73,7 @@ public class ArmsEmptyTargettingTopping : ArmsState {
         Arms.Instance.GetComponent<AudioSource>().Play();
         //      arms.heldObject = target;
         Arms.Instance.animator.SetTrigger("Lift");
+        GameManager.Instance.DelayedReplenish(topping);
         topping.gameObject.GetComponent<Rigidbody>().useGravity = false;
         topping.gameObject.GetComponent<BoxCollider>().enabled = false;
         topping.SetParent(holdingArea);

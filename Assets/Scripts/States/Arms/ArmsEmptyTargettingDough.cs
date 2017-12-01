@@ -47,9 +47,9 @@ public class ArmsEmptyTargettingDough : ArmsState {
     }
 
     void LiftObject() {
-            Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipPickUp;
+        Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipPickUp;
         Arms.Instance.GetComponent<AudioSource>().Play();
-                Arms.Instance.animator.SetTrigger("Lift");
+        Arms.Instance.animator.SetTrigger("Lift");
         dough.gameObject.GetComponent<Rigidbody>().useGravity = false;
         dough.gameObject.GetComponent<BoxCollider>().enabled = false;
         dough.SetParent(holdingArea);
