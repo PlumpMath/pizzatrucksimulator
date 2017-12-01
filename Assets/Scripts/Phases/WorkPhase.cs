@@ -64,7 +64,7 @@ public class WorkPhase : Phase {
 
         UnityEngine.UI.Text gameOverText = GameObject.Find("Game Over Text").GetComponent<UnityEngine.UI.Text>();
         gameOverText.text += "\nHappily Served: " + customersServed;
-        gameOverText.text += "\nThrown Back By Bad Pizza: " + customersServed;
+        gameOverText.text += "\nThrown Back By Bad Pizza: " + customersFailed;
 
         StartCoroutine(ReturnToStart());
     }
@@ -94,6 +94,6 @@ public class WorkPhase : Phase {
 	}
 
     void OnCustomerFailed() {
-        customersFailed--;
+        customersFailed++;
     }
 }
