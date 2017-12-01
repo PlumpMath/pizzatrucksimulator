@@ -27,6 +27,8 @@ public class Customer : MonoBehaviour {
     Rigidbody rigidBody;
     CapsuleCollider capsuleCollider;
 
+    Pizza pizza;
+
     public Customer(Type _type) {
         type = _type;
     }
@@ -63,13 +65,29 @@ public class Customer : MonoBehaviour {
         }
     }
 
-    public void OnPizzaHit(Pizza pizza) {
-        bool matchesNeeds = true;
+    public void OnPizzaHit(Pizza _pizza) {
+        pizza = _pizza;
+        bool matchesNeeds = CheckNeeds();
+
+        PrepForAnimation();
+
         if (matchesNeeds) {
-            PizzaSuccess(pizza);
+            PizzaSuccess();
         } else {
-            PizzaFailure(pizza);
+            PizzaFailure();
         }
+    }
+
+    bool CheckNeeds() {
+        int needsFulfilled = 0;
+        foreach (Ingredient ingredient in pizza.ingredientsList) {
+            if (ingredientNeeds.Contains(ingredient)) {
+                needsFulfilled += 1;
+            } else {
+                needsFulfilled -= 1;
+            }
+        }
+        return needsFulfilled == ingredientNeeds.Count;
     }
 
     void SetNeeds() {
@@ -97,38 +115,26 @@ public class Customer : MonoBehaviour {
         textObject.text = string.Join("\n", ingredientNames.ToArray());
     }
 
-    void PizzaSuccess(Pizza pizza) {
-
-        GetComponent<AudioSource>().clip=pizzaSuccessAudio;
+    void PizzaSuccess() {
+        GetComponent<AudioSource>().clip = pizzaSuccessAudio;
         GetComponent<AudioSource>().Play();
 
         textObject.text = "";
         textCanvas.enabled = false;
 
-        StartCoroutine(HappyLaunch(pizza));
+        StartCoroutine(HappyLaunch());
     }
 
-    IEnumerator HappyLaunch(Pizza pizza) {
+    IEnumerator HappyLaunch() {
         float customerRotation = 0f;
-
-        pizza.gameObject.layer = 0;
-        pizza.GetComponent<BoxCollider>().enabled = false;
-        pizza.GetComponent<Rigidbody>().isKinematic = true;
         pizza.transform.parent = transform;
         pizza.transform.localPosition = new Vector3(0, 1.48f, 0.45f);
         pizza.transform.rotation = Quaternion.Euler(-90, 0, 0);
 
-
-        animator.enabled = false;
-        Vector3 currentPosition = transform.position;
-        navMeshAgent.enabled = false;
-        transform.position = currentPosition;
-        capsuleCollider.enabled = false;
+        transform.rotation = Quaternion.identity;
         rigidBody.isKinematic = true;
         rigidBody.drag = 0;
         rigidBody.angularDrag = 0;
-
-        transform.rotation = Quaternion.identity;
 
         while (customerRotation < 1080f) {
             transform.Rotate(0, 30, 0);
@@ -136,7 +142,7 @@ public class Customer : MonoBehaviour {
             yield return null;
         }
 
-        foreach(Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
+        foreach (Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
             ragdollRigidbody.isKinematic = false;
             ragdollRigidbody.mass = .05f;
             ragdollRigidbody.drag = 0f;
@@ -160,15 +166,34 @@ public class Customer : MonoBehaviour {
         Destroy(gameObject, 1f);
     }
 
-    void PizzaFailure(Pizza pizza) {
-        foreach(Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
+    void PrepForAnimation() {
+        pizza.gameObject.layer = 0;
+        pizza.GetComponent<BoxCollider>().enabled = false;
+        pizza.GetComponent<Rigidbody>().isKinematic = true;
+
+        animator.enabled = false;
+        Vector3 currentPosition = transform.position;
+        navMeshAgent.enabled = false;
+        transform.position = currentPosition;
+        capsuleCollider.enabled = false;
+    }
+
+    void PizzaFailure() {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.pitch = Random.Range(.8f, 1.5f);
+        audio.Play();
+
+        foreach (Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
             ragdollRigidbody.isKinematic = false;
             ragdollRigidbody.mass = .05f;
             ragdollRigidbody.drag = 0f;
             ragdollRigidbody.angularDrag = 0f;
             ragdollRigidbody.useGravity = false;
-            ragdollRigidbody.AddForce(0, 5f, 5f, ForceMode.VelocityChange);
+            ragdollRigidbody.AddForce(0, 10f, -5f, ForceMode.VelocityChange);
         }
+
+        Destroy(gameObject, 3f);
+        Destroy(pizza.gameObject);
     }
 
     // Topping IDs:
