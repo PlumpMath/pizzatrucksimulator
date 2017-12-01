@@ -39,11 +39,13 @@ public class ArmsEmptyTargettingCheese : ArmsState {
 
         if (Input.GetMouseButtonDown(0)){
                 LiftObject();
+                return;
         }
 
         if (hitSomething && objectInfo.transform.tag == "Toppings")
         {
             arms.SetState(new ArmsEmptyTargettingTopping(arms, objectInfo.transform));
+            return;
         }
 
     }

@@ -23,15 +23,17 @@ public class ArmsHoldingToppingState : ArmsState {
             10f,
             layerMask
         );
-
+ 
+        if (Input.GetMouseButtonDown(0)) {
+            DropObject();
+        }
+        
         if (hitSomething && hitInfo.transform.tag == "Dough") {
             arms.SetState(new ArmsHoldingIngredientOverDoughState(arms, topping, hitInfo.transform));
             return;
         }
 
-        if (Input.GetMouseButtonDown(0)) {
-            DropObject();
-        }
+
     }
 
     public override void OnExit() {
