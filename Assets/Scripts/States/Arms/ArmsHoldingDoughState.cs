@@ -43,6 +43,9 @@ public class ArmsHoldingDoughState : ArmsState {
     }
 
     void DropObject() {
+                Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipDrop;
+        Arms.Instance.GetComponent<AudioSource>().Play();
+                Arms.Instance.animator.SetTrigger("Drop");
         dough.gameObject.GetComponent<Rigidbody>().useGravity = true;
         dough.gameObject.GetComponent<BoxCollider>().enabled = true;
         dough.SetParent(null);

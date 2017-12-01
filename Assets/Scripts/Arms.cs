@@ -18,6 +18,9 @@ public class Arms : MonoBehaviour {
 
     public AudioClip AudioClipWindUp;
     public AudioClip AudioClipWoosh;
+    public AudioClip AudioClipPickUp;
+    public AudioClip AudioClipDrop;
+
 
     Pizza pizza;
 

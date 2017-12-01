@@ -53,8 +53,9 @@ public class ArmsHoldingCheeseState : ArmsState {
 
     void DropObject() {
 
-
-
+        Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipDrop;
+        Arms.Instance.GetComponent<AudioSource>().Play();
+        Arms.Instance.animator.SetTrigger("Drop");
         cheese.gameObject.GetComponent<Rigidbody>().useGravity = true;
         cheese.gameObject.GetComponent<BoxCollider>().enabled = true;
         cheese.SetParent(null);

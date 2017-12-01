@@ -39,6 +39,10 @@ public class ArmsHoldingToppingState : ArmsState {
     }
 
     void DropObject() {
+        Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipDrop;
+        Arms.Instance.GetComponent<AudioSource>().Play();
+        Arms.Instance.animator.SetTrigger("Drop");
+
         topping.gameObject.GetComponent<Rigidbody>().useGravity = true;
         topping.gameObject.GetComponent<BoxCollider>().enabled = true;
         topping.SetParent(null);

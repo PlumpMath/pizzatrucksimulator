@@ -42,7 +42,9 @@ public class ArmsEmptyTargettingCheese : ArmsState {
         void LiftObject() {
             
        // arms.heldObject = target;
-
+        Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipPickUp;
+        Arms.Instance.GetComponent<AudioSource>().Play();
+        Arms.Instance.animator.SetTrigger("Lift");
         cheese.gameObject.GetComponent<Rigidbody>().useGravity = false;
         cheese.gameObject.GetComponent<BoxCollider>().enabled = false;
         cheese.SetParent(holdingArea);

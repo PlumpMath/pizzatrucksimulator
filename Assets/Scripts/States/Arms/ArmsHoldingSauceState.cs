@@ -43,6 +43,9 @@ public class ArmsHoldingSauceState : ArmsState {
     }
 
     void DropObject() {
+                Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipDrop;
+        Arms.Instance.GetComponent<AudioSource>().Play();
+                Arms.Instance.animator.SetTrigger("Drop");
         sauce.gameObject.GetComponent<Rigidbody>().useGravity = true;
         sauce.gameObject.GetComponent<BoxCollider>().enabled = true;
         sauce.SetParent(null);
