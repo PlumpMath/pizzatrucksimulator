@@ -15,4 +15,7 @@ public class Ingredient : MonoBehaviour {
     public GameObject label;       
 
     public int spawnIndex;
+
+
+
 }

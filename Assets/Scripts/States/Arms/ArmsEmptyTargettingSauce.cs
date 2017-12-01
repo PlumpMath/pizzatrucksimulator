@@ -43,6 +43,12 @@ public class ArmsEmptyTargettingSauce : ArmsState {
             return;
         }
 
+                if (hitSomething && objectInfo.transform.tag == "Dough")
+        {
+            arms.SetState(new ArmsEmptyTargettingDough(arms, objectInfo.transform));
+            return;
+        }
+
                                 if (hitSomething && objectInfo.transform.tag == "Toppings") {
             arms.SetState(new ArmsEmptyTargettingTopping(arms, objectInfo.transform));
             return;
