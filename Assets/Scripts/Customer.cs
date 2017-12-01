@@ -12,6 +12,8 @@ public class Customer : MonoBehaviour {
 
     public Transform explosionPrefab;
 
+    public AudioClip pizzaSuccessAudio;
+    public AudioClip pizzaLaunch;
 
     static System.Random rng = new System.Random();
 
@@ -96,6 +98,10 @@ public class Customer : MonoBehaviour {
     }
 
     void PizzaSuccess(Pizza pizza) {
+
+        GetComponent<AudioSource>().clip=pizzaSuccessAudio;
+        GetComponent<AudioSource>().Play();
+
         textObject.text = "";
         textCanvas.enabled = false;
 
@@ -143,6 +149,7 @@ public class Customer : MonoBehaviour {
         pizza.GetComponent<Rigidbody>().AddForce(0, 10f, 0, ForceMode.VelocityChange);
 
         AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = pizzaLaunch;
         audio.pitch = Random.Range(.8f, 1.5f);
         audio.Play();
 
