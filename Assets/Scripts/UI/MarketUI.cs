@@ -4,22 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MarketUI : MonoBehaviour {
+    public GameObject viewportShop;
+    public GameObject ItemChoicePrefab;
 
-public GameObject viewportShop;
-public GameObject ItemChoicePrefab;
+    public List<IngredientBundle> marketList;
 
-public List<IngredientBundle> marketList;
+    public Transform marketIngredientsArea;
+    public Transform truckIngredientsArea;
 
-public Transform marketIngredientsArea;
-public Transform truckIngredientsArea;
+    CanvasGroup marketIngredientsAreaCanvas;
 
-CanvasGroup marketIngredientsAreaCanvas;
+    public Button nextPhaseButton;
 
-public Button nextPhaseButton;
+    PizzaTruck pizzaTruck;
 
-PizzaTruck pizzaTruck;
-
-GameObject shop;
+    GameObject shop;
     void Awake() {
         pizzaTruck = PizzaTruck.Instance;
         marketIngredientsAreaCanvas = marketIngredientsArea.GetComponent<CanvasGroup>();
@@ -44,7 +43,7 @@ GameObject shop;
         GameObject newItemChoiceObject = Instantiate(ItemChoicePrefab, Vector3.zero, Quaternion.identity);
         newItemChoiceObject.transform.SetParent(viewportShop.transform);
         newItemChoiceObject.transform.localScale = Vector3.one;
-        
+
         ItemChoice newItemChoice = newItemChoiceObject.GetComponent<ItemChoice>();
 
         newItemChoice.ingredientBundle = ingredient;

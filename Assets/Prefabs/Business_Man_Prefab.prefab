@@ -2250,7 +2250,7 @@ MonoBehaviour:
   ingredientNeeds: []
   textCanvas: {fileID: 223705007761588012}
   textObject: {fileID: 114584270137929070}
-  explosionPrefab: {fileID: 4333778821151304, guid: 472b8febce40512458ee53a578ddfa59,
+  explosionPrefab: {fileID: 4906458688011398, guid: 0d799bef3aea0914fa543f56bc4ae74d,
     type: 2}
 --- !u!114 &114766866815038240
 MonoBehaviour:

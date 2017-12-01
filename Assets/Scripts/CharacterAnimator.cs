@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 
 public class CharacterAnimator : MonoBehaviour {
-
-
     public const float locomotionAnimationSmoothTime = .1f;
 
     NavMeshAgent agent;
@@ -16,10 +14,8 @@ public class CharacterAnimator : MonoBehaviour {
     public Rigidbody[] ragdollRigidbodies;
     // Use this for initialization
     void Start() {
-
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
-
     }
 
     // Update is called once per frame
