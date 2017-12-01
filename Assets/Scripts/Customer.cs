@@ -10,6 +10,8 @@ public class Customer : MonoBehaviour {
     public Canvas textCanvas;
     public UnityEngine.UI.Text textObject;
 
+    public Transform explosionPrefab;
+
 
     static System.Random rng = new System.Random();
 
@@ -18,6 +20,10 @@ public class Customer : MonoBehaviour {
     float priceBias;
 
     UnityEngine.AI.NavMeshAgent navMeshAgent;
+    CharacterAnimator characterAnimator;
+    Animator animator;
+    Rigidbody rigidBody;
+    CapsuleCollider capsuleCollider;
 
     public Customer(Type _type) {
         type = _type;
@@ -25,6 +31,10 @@ public class Customer : MonoBehaviour {
 
     void Awake() {
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        characterAnimator = GetComponent<CharacterAnimator>();
+        rigidBody = GetComponent<Rigidbody>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     void Start() {
@@ -52,16 +62,21 @@ public class Customer : MonoBehaviour {
     }
 
     public void OnPizzaHit(Pizza pizza) {
-        Destroy(pizza.gameObject);
+        bool matchesNeeds = true;
+        if (matchesNeeds) {
+            PizzaSuccess(pizza);
+        } else {
+            PizzaFailure(pizza);
+        }
     }
 
     void SetNeeds() {
         Debug.Log("SetNeeds()");
-        int numToppings = Customer.rng.Next(1,3);
+        int numToppings = Customer.rng.Next(1, 3);
 
         for (int i = 0; i < numToppings; i++) {
             Ingredient randomTopping = PizzaTruck.Instance.GetRandomIngredient();
-            while(ingredientNeeds.Contains(randomTopping)) {
+            while (ingredientNeeds.Contains(randomTopping)) {
                 randomTopping = PizzaTruck.Instance.GetRandomIngredient();
             }
             ingredientNeeds.Add(randomTopping);
@@ -70,14 +85,50 @@ public class Customer : MonoBehaviour {
     }
 
     void ShowNeeds() {
-        textCanvas.transform.localPosition = new Vector3(0f,2f,0f);
+        textCanvas.transform.localPosition = new Vector3(0f, 2f, 0f);
         List<string> ingredientNames = new List<string>();
 
-        foreach(Ingredient ingredient in ingredientNeeds) {
+        foreach (Ingredient ingredient in ingredientNeeds) {
             ingredientNames.Add(ingredient.Name);
         }
 
         textObject.text = string.Join("\n", ingredientNames.ToArray());
+    }
+
+    void PizzaSuccess(Pizza pizza) {
+        textObject.text = "";
+        textCanvas.enabled = false;
+
+        animator.enabled = false;
+        navMeshAgent.enabled = false;
+
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.pitch = Random.Range(.8f, 1.5f);
+        audio.Play();
+
+        foreach(Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
+            ragdollRigidbody.isKinematic = false;
+            ragdollRigidbody.mass = .05f;
+            ragdollRigidbody.drag = 0f;
+            ragdollRigidbody.angularDrag = 0f;
+            ragdollRigidbody.AddForce(0f, 5f, -10f, ForceMode.VelocityChange);
+        }
+
+        capsuleCollider.enabled = false;
+
+        rigidBody.isKinematic = false;
+        rigidBody.drag = 0;
+        rigidBody.angularDrag = 0;
+
+
+        Destroy(pizza.gameObject);
+        Destroy(gameObject, 5f);
+    }
+
+    void PizzaFailure(Pizza pizza) {
+
     }
 
     // Topping IDs:

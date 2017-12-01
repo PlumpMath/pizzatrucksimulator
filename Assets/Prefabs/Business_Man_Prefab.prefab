@@ -1013,7 +1013,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1806913814960176}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.38, y: 1, z: -5.98}
+  m_LocalPosition: {x: -7.103, y: 1, z: -6.333692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4040897134901274}
@@ -2225,6 +2225,8 @@ MonoBehaviour:
   ingredientNeeds: []
   textCanvas: {fileID: 223705007761588012}
   textObject: {fileID: 114584270137929070}
+  explosionPrefab: {fileID: 4333778821151304, guid: 472b8febce40512458ee53a578ddfa59,
+    type: 2}
 --- !u!114 &114766866815038240
 MonoBehaviour:
   m_ObjectHideFlags: 1

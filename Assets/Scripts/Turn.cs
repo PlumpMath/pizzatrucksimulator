@@ -28,7 +28,7 @@ public class Turn : MonoBehaviour {
 					}
 				);
 
-		customerCount = 5 * turnNumber;
+		customerCount = 2 * turnNumber;
 
 		NextPhase();
 	}
