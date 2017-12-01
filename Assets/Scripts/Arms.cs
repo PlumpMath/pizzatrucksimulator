@@ -22,6 +22,7 @@ public class Arms : MonoBehaviour {
     public AudioClip AudioClipDrop;
     public AudioClip Sprinkle;
 
+    public UnityEngine.UI.Text warningDisplay;
 
     Pizza pizza;
 
@@ -66,5 +67,14 @@ public class Arms : MonoBehaviour {
             currentState.Tick();
         }
 
+    }
+
+    public void ShowWarning(string warningText) {
+        warningDisplay.text = warningText;
+        warningDisplay.enabled = true;
+    }
+
+    public void HideWarning() {
+        warningDisplay.enabled = false;
     }
 }

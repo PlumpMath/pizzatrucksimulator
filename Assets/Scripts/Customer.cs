@@ -102,7 +102,6 @@ public class Customer : MonoBehaviour {
     }
 
     void SetNeeds() {
-        Debug.Log("SetNeeds()");
         int numToppings = Customer.rng.Next(1, 3);
 
         for (int i = 0; i < numToppings; i++) {
@@ -111,7 +110,6 @@ public class Customer : MonoBehaviour {
                 randomTopping = PizzaTruck.Instance.GetRandomIngredient();
             }
             ingredientNeeds.Add(randomTopping);
-            Debug.Log("Adding Topping: " + randomTopping.Name);
         }
     }
 

@@ -43,9 +43,10 @@ public class ArmsHoldingIngredientOverDoughState : ArmsState {
         }
 
         if (!pizza.CanReceiveIngredient(ingredient)) {
-            // Show warning that pizza cannot receive this ingredient yet
+            // arms.ShowWarning("Pizza needs Sauce and Cheese");
             return;
         }
+        // arms.HideWarning();
 
         if (Input.GetMouseButtonDown(0)) {
             Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.Sprinkle;

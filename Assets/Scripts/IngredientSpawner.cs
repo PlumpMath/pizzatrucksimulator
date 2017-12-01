@@ -31,31 +31,16 @@ public class IngredientSpawner : MonoBehaviour {
     public void SpawnTruckIngredients() {
         SpawnDough();
 
-        int baseIngredientQuantity = 1;
-        for (int i = 0; i < baseIngredientQuantity; i++) {
-            Instantiate(saucePrefab, sauceSpawnpoint.position + Vector3.up * 0.15f * i, Quaternion.Euler(-90, 0, 0), sauceSpawnpoint);
-            Instantiate(cheesePrefab, cheeseSpawnpoint.position + Vector3.up * 0.15f * i, Quaternion.Euler(-90, 0, 0), cheeseSpawnpoint);
-        }
+        AddSauce();
+        AddCheese();
 
         int spawnIndex = 0;
         int toppingQuantity = 1;
 
         foreach (IngredientBundle ingredientBundle in pizzaTruck.ingredientList) {
             for (int i = 0; i < toppingQuantity; i++) {
-                Instantiate(
-                    ingredientBundle.ingredient, // prefab
-                    ingredientSpawningPoints[spawnIndex].position + Vector3.up * .15f * i, //position 
-                    Quaternion.Euler(-90, 0, 0), // rotation
-                    ingredientSpawningPoints[spawnIndex] // parent
-                    
-                );
-                GameObject label = ingredientBundle.ingredient.label;
-                
-                if (label != null)
-                {
-                 
-                label.GetComponent<Text>().enabled =false;
-                }
+                ingredientBundle.ingredient.spawnIndex = spawnIndex;
+                AddIngredient(ingredientBundle.ingredient);
             }
             spawnIndex++;
         }
@@ -63,6 +48,29 @@ public class IngredientSpawner : MonoBehaviour {
 
     public void SpawnDough() {
         Instantiate(doughPrefab, doughSpawnpoint);
+    }
+
+    public void AddSauce() {
+        Instantiate(saucePrefab, sauceSpawnpoint.position + Vector3.up * 0.15f, Quaternion.Euler(-90, 0, 0), sauceSpawnpoint);
+    }
+
+    public void AddCheese() {
+        Instantiate(cheesePrefab, cheeseSpawnpoint.position + Vector3.up * 0.15f, Quaternion.Euler(-90, 0, 0), cheeseSpawnpoint);
+    }
+
+    public void AddIngredient(Ingredient ingredient) {
+                Instantiate(
+                    ingredient, // prefab
+                    ingredientSpawningPoints[ingredient.spawnIndex].position + Vector3.up * .15f, //position 
+                    Quaternion.Euler(-90, 0, 0), // rotation
+                    ingredientSpawningPoints[ingredient.spawnIndex] // parent
+
+                );
+                GameObject label = ingredient.label;
+                if (label != null) {
+
+                    label.GetComponent<Text>().enabled = false;
+                }
     }
 
     void Start() {

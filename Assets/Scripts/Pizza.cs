@@ -75,20 +75,22 @@ public class Pizza : MonoBehaviour {
             return false;
         }
 
-        
         string ingredientType = GetIngredientType(ingredient);
         switch (ingredientType) {
             case "Sauce":
                 sauceAdded = true;
                 label.GetComponent<Text>().text = "Now add the cheese...";
+                IngredientSpawner.Instance.AddSauce();
                 break;
             case "Cheese":
                 cheeseAdded = true;
                 label.GetComponent<Text>().text = "Now add the toppings...";
+                IngredientSpawner.Instance.AddCheese();
                 break;
             case "Topping":
                 ingredientsList.Add(ingredient.GetComponent<Ingredient>());
                 label.GetComponent<Text>().text = "Add more or cook to serve...";
+                IngredientSpawner.Instance.AddIngredient(ingredient.GetComponent<Ingredient>());
                 break;
             default:
                 break;

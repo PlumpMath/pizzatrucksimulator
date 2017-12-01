@@ -13,4 +13,6 @@ public class Ingredient : MonoBehaviour {
 	public Sprite icon;
     public float stackLayer; // where this ingredient pizza sits in the stack
     public GameObject label;       
+
+    public int spawnIndex;
 }
