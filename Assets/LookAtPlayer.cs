@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour {
 
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +13,8 @@ public class LookAtPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		transform.LookAt(Arms.Instance.transform);
 		
 	}
 }

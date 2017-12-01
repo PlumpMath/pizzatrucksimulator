@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 223705007761588012}
   - component: {fileID: 114018491676968288}
   - component: {fileID: 114054517054469024}
+  - component: {fileID: 114083248177897762}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -834,6 +835,7 @@ GameObject:
   - component: {fileID: 136572758242356856}
   - component: {fileID: 23618773360056714}
   - component: {fileID: 82395193031580656}
+  - component: {fileID: 114016406731077710}
   m_Layer: 0
   m_Name: Business_Man_Prefab
   m_TagString: Untagged
@@ -1013,7 +1015,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1806913814960176}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.138, y: 9.290676e-17, z: -8.857397}
+  m_LocalPosition: {x: -3.0084188, y: 1.8403654e-17, z: -6.7183776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4040897134901274}
@@ -2140,6 +2142,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114016406731077710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806913814960176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c86818061549d048bd1c98ce709191c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
 --- !u!114 &114018491676968288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2177,6 +2191,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114083248177897762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094067164224764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e72d343d33cf34ca0d8baabcf622c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114584270137929070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3282,13 +3307,13 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1250563518518990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 224852386025242526}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
