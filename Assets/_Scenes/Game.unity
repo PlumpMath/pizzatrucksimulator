@@ -790,7 +790,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585910602}
   m_HandleRect: {fileID: 585910601}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 664405832}
   m_HandleRect: {fileID: 664405831}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 224834682}
   m_HandleRect: {fileID: 224834681}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5993,7 +5993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 1120291559}
-  timePerGame: 30
+  timePerGame: 60
   numberOfTurnsInGame: 7
   availableToppings:
   - {fileID: 114522160955025286, guid: b49ed8897807b5d4dac0fe56fedbc3fe, type: 2}
