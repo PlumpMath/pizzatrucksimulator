@@ -51,7 +51,7 @@ public class PizzaTruck {
     }
 
     public Ingredient GetRandomIngredient() {
-        int r = PizzaTruck.rng.Next(0, ingredientList.Count - 1);
+        int r = PizzaTruck.rng.Next(0, ingredientList.Count);
         return ingredientList[r].ingredient;
     }
 
