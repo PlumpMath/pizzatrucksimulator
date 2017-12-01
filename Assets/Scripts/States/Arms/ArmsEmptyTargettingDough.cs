@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ArmsEmptyTargettingDough : ArmsState {
     // Animator animator;
@@ -18,6 +19,17 @@ public class ArmsEmptyTargettingDough : ArmsState {
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
         pizza = dough.GetComponent<Pizza>();
+
+        pizza.label.GetComponent<Text>().enabled = true;
+
+        if (pizza.cooked == true)
+        {
+            pizza.label.transform.gameObject.SetActive(true);
+            pizza.label.GetComponent<Text>().enabled = true;
+
+             pizza.label.GetComponent<Text>().text = "Serve the pizza!";
+        }
+
     }
 
     public override void Tick() {
@@ -43,6 +55,9 @@ public class ArmsEmptyTargettingDough : ArmsState {
 
 
     public override void OnExit() {
+
+        pizza.label.GetComponent<Text>().enabled = false;
+
 
     }
 

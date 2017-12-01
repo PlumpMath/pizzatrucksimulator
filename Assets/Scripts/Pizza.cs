@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pizza : MonoBehaviour {
     public List<Ingredient> ingredientsList;
@@ -15,6 +16,8 @@ public class Pizza : MonoBehaviour {
 
     public Material pizzaTop;
     public Material pizzaBottom;
+
+    public GameObject label;
 
     public SkinnedMeshRenderer doughMesh;
 
@@ -59,6 +62,7 @@ public class Pizza : MonoBehaviour {
         }
         doughRolled = true;
         rollingDough = false;
+        label.GetComponent<Text>().text = "Add the sauce...";
     }
 
     void Update() {
@@ -76,12 +80,15 @@ public class Pizza : MonoBehaviour {
         switch (ingredientType) {
             case "Sauce":
                 sauceAdded = true;
+                label.GetComponent<Text>().text = "Now add the cheese...";
                 break;
             case "Cheese":
                 cheeseAdded = true;
+                label.GetComponent<Text>().text = "Now add the toppings...";
                 break;
             case "Topping":
                 ingredientsList.Add(ingredient.GetComponent<Ingredient>());
+                label.GetComponent<Text>().text = "Add more or cook to serve...";
                 break;
             default:
                 break;
