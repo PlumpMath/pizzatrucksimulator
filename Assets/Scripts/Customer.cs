@@ -177,7 +177,6 @@ public class Customer : MonoBehaviour {
         Vector3 currentPosition = transform.position;
         navMeshAgent.enabled = false;
         transform.position = currentPosition;
-        capsuleCollider.enabled = false;
     }
 
     void PizzaFailure() {
@@ -190,8 +189,7 @@ public class Customer : MonoBehaviour {
             ragdollRigidbody.mass = .05f;
             ragdollRigidbody.drag = 0f;
             ragdollRigidbody.angularDrag = 0f;
-            ragdollRigidbody.useGravity = false;
-            ragdollRigidbody.AddForce(0, 10f, -5f, ForceMode.VelocityChange);
+            ragdollRigidbody.AddForce(0, 5f, -10f, ForceMode.VelocityChange);
         }
 
         Destroy(gameObject, 3f);
