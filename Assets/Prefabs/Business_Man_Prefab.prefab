@@ -2254,6 +2254,7 @@ MonoBehaviour:
     type: 2}
   pizzaSuccessAudio: {fileID: 8300000, guid: 0a77d0705c92a774b93795c792d6edd0, type: 3}
   pizzaLaunch: {fileID: 8300000, guid: 85549006c8457df40bf0ecd160f237e2, type: 3}
+  sadEater: {fileID: 8300000, guid: 1eac17e8b7efc5d469b417703daeded8, type: 3}
 --- !u!114 &114766866815038240
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,6 +14,7 @@ public class Customer : MonoBehaviour {
 
     public AudioClip pizzaSuccessAudio;
     public AudioClip pizzaLaunch;
+    public AudioClip sadEater;
 
     static System.Random rng = new System.Random();
 
@@ -165,6 +166,7 @@ public class Customer : MonoBehaviour {
         Destroy(gameObject, 1f);
     }
 
+
     void PrepForAnimation() {
         textObject.text = "";
         textCanvas.enabled = false;
@@ -179,12 +181,12 @@ public class Customer : MonoBehaviour {
         transform.position = currentPosition;
     }
 
-    void PizzaFailure() {
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.pitch = Random.Range(.8f, 1.5f);
-        audio.Play();
 
-        foreach (Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
+    void PizzaFailure() {
+         GetComponent<AudioSource>().clip=sadEater;
+        GetComponent<AudioSource>().Play();
+        foreach(Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
+
             ragdollRigidbody.isKinematic = false;
             ragdollRigidbody.mass = .05f;
             ragdollRigidbody.drag = 0f;
