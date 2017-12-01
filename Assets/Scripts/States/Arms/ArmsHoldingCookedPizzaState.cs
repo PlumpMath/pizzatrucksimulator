@@ -6,6 +6,7 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
     Animator animator;
     RaycastHit objectInfo;
     Transform pizzaObject;
+    AudioSource audio;
 
     public ArmsHoldingCookedPizzaState(Arms _arms, Transform _pizzaObject) : base(_arms) {
         pizzaObject = _pizzaObject;
@@ -15,7 +16,11 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
     }
 
     public override void Tick() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
+            audio = Arms.Instance.GetComponent<AudioSource>();
+            audio.clip = Arms.Instance.AudioClipWindUp;
+            audio.Play();
             arms.StartCoroutine(FirePizza());
         }
     }
@@ -30,6 +35,7 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
         pizzaBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
         while (Input.GetMouseButton(0)) {
+
             pizzaPower += 1.25f;
             pizzaBody.AddTorque(.1f, 0f, 0f, ForceMode.VelocityChange);
             yield return null;
@@ -43,6 +49,8 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
         BoxCollider pizzaCollider = pizzaObject.GetComponent<BoxCollider>();
 
         pizzaBody.transform.SetParent(null);
+        audio.clip = Arms.Instance.AudioClipWoosh;
+        audio.Play();
         pizzaBody.AddForce(arms.mainCamera.transform.forward * pizzaPower, ForceMode.Impulse);
         pizzaBody.useGravity = true;
         // pizzaBody.velocity = Vector3.back * pizzaPower;

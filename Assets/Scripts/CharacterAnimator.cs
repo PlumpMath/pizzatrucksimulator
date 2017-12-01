@@ -33,7 +33,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public void MakeRagdoll()
 	{
         AudioSource audio = GetComponent<AudioSource>();
-        audio.pitch = Random.Range(.6f, 1.4f);
+        audio.pitch = Random.Range(.8f, 1.5f);
         audio.Play();
 
 		foreach (Rigidbody ragdollRigidbody in ragdollRigidbodies)

@@ -70,7 +70,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.96665, y: 1.9666502, z: 0.1}
+  m_Size: {x: 1.96665, y: 1.9666502, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0.004386762}
 --- !u!82 &82847788795404862
 AudioSource:
@@ -121,7 +121,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.87
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   gettable: 1
   holdingAPizza: 0
   cooked: 0
+  rollingDough: 0
   doughMesh: {fileID: 0}
 --- !u!114 &114636438925103752
 MonoBehaviour:

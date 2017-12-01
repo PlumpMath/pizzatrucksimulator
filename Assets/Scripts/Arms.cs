@@ -16,6 +16,9 @@ public class Arms : MonoBehaviour {
     Transform heldObjectParent;
     public Animator animator;
 
+    public AudioClip AudioClipWindUp;
+    public AudioClip AudioClipWoosh;
+
     Pizza pizza;
 
     #region Singleton
