@@ -70,7 +70,7 @@ public class WorkPhase : Phase {
     }
 
     IEnumerator ReturnToStart() {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.5f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
