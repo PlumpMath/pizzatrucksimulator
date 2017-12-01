@@ -69,6 +69,7 @@ public class Pizza : MonoBehaviour {
             return false;
         }
 
+        
         string ingredientType = GetIngredientType(ingredient);
         switch (ingredientType) {
             case "Sauce":

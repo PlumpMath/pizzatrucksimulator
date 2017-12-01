@@ -46,7 +46,13 @@ public class IngredientSpawner : MonoBehaviour {
                     ingredientSpawningPoints[spawnIndex].position + Vector3.up * .15f * i, //position 
                     Quaternion.Euler(-90, 0, 0), // rotation
                     ingredientSpawningPoints[spawnIndex] // parent
+                    
                 );
+                GameObject label = ingredientBundle.ingredient.label;
+                if (label != null)
+                {
+                label.SetActive(false);
+                }
             }
             spawnIndex++;
         }

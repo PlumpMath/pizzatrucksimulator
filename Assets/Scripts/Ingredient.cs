@@ -11,5 +11,6 @@ public class Ingredient : MonoBehaviour {
 	public string description;
 	public bool isBaseIngredient;
 	public Sprite icon;
-    public float stackLayer;        // where this ingredient pizza sits in the stack
+    public float stackLayer; // where this ingredient pizza sits in the stack
+    public GameObject label;       
 }
