@@ -18,10 +18,11 @@ public class Pizza : MonoBehaviour {
 
     public SkinnedMeshRenderer doughMesh;
 
+    bool collided = false;
+
     void Start() {
         doughMesh = GetComponent<SkinnedMeshRenderer>();
     }
-
 
     public int Reputation { get; set; }
     // public Customer customer;
@@ -38,8 +39,9 @@ public class Pizza : MonoBehaviour {
     void OnCollisionEnter(Collision col) {
         Customer customer = col.gameObject.GetComponent<Customer>();
 
-        if (customer != null) {
+        if (!collided && customer != null) {
             customer.OnPizzaHit(this);
+            collided = true;
         }
     }
 

@@ -16,6 +16,10 @@ public class Customer : MonoBehaviour {
     public AudioClip pizzaLaunch;
     public AudioClip sadEater;
 
+    public event System.Action OnPizzaReceive;
+    public event System.Action OnSuccess;
+    public event System.Action OnFailure;
+
     static System.Random rng = new System.Random();
 
     float satisfactionLevel;
@@ -77,6 +81,10 @@ public class Customer : MonoBehaviour {
         } else {
             PizzaFailure();
         }
+
+        if (OnPizzaReceive != null) {
+            OnPizzaReceive();
+        }
     }
 
     bool CheckNeeds() {
@@ -131,6 +139,8 @@ public class Customer : MonoBehaviour {
         pizza.transform.parent = transform;
         pizza.transform.localPosition = new Vector3(0, 1.48f, 0.45f);
         pizza.transform.rotation = Quaternion.Euler(-90, 0, 0);
+        pizza.GetComponent<BoxCollider>().enabled = false;
+        pizza.GetComponent<Rigidbody>().isKinematic = true;
 
         transform.rotation = Quaternion.identity;
         rigidBody.isKinematic = true;
@@ -165,16 +175,16 @@ public class Customer : MonoBehaviour {
 
         // Destroy(pizza.gameObject);
         Destroy(gameObject, 1f);
+
+        if (OnSuccess != null) {
+            OnSuccess();
+        }
     }
 
 
     void PrepForAnimation() {
         textObject.text = "";
         textCanvas.enabled = false;
-
-        pizza.gameObject.layer = 0;
-        pizza.GetComponent<BoxCollider>().enabled = false;
-        pizza.GetComponent<Rigidbody>().isKinematic = true;
 
         animator.enabled = false;
         Vector3 currentPosition = transform.position;
@@ -194,12 +204,14 @@ public class Customer : MonoBehaviour {
             ragdollRigidbody.mass = .05f;
             ragdollRigidbody.drag = 0f;
             ragdollRigidbody.angularDrag = 0f;
-            ragdollRigidbody.AddForce(0, 5f, -10f, ForceMode.VelocityChange);
-
         }
 
         Destroy(gameObject, 3f);
-        Destroy(pizza.gameObject);
+        Destroy(pizza.gameObject, 3f);
+
+        if (OnFailure != null) {
+            OnFailure();
+        }
     }
 
     // Topping IDs:

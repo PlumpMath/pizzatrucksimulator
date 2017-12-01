@@ -14,10 +14,7 @@ public class PizzaTruck {
 
     static System.Random rng = new System.Random();
 
-    private PizzaTruck() {
-        baseIngredientList = new List<IngredientBundle>();
-        ingredientList = new List<IngredientBundle>();
-    }
+    private PizzaTruck() { }
 
     public static PizzaTruck Instance {
         get {
@@ -29,6 +26,9 @@ public class PizzaTruck {
     }
 
     public void Init() {
+        baseIngredientList = new List<IngredientBundle>();
+        ingredientList = new List<IngredientBundle>();
+
 		// Add one of each ingredient to the truck's ingredient list
         int ingredientQuantity = 1;
         foreach (Ingredient ingredient in IngredientDatabase.GetList()) {

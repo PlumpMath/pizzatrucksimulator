@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController firstPersonController;
-    public float reputation = 0f;
-    public float money = 0f;
+    // public float reputation = 0f;
+    // public float money = 0f;
     public Queue<IngredientBundle> marketIngredientsDeck;
 
+    public float timePerGame = 60f;
     public int numberOfTurnsInGame = 7;
     public List<Ingredient> availableToppings;
 
