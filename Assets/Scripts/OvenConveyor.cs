@@ -29,6 +29,9 @@ public class OvenConveyor : MonoBehaviour {
 
     IEnumerator MoveOnOven() {
         isCooking = true;
+        if (GameManager.Instance.debugMode) {
+            conveyorSpeed = 100f;
+        }
         
         Pizza pizza = placedPizza.GetComponent<Pizza>();
 

@@ -99,36 +99,68 @@ public class Customer : MonoBehaviour {
         textObject.text = "";
         textCanvas.enabled = false;
 
+        StartCoroutine(HappyLaunch(pizza));
+    }
+
+    IEnumerator HappyLaunch(Pizza pizza) {
+        float customerRotation = 0f;
+
+        pizza.GetComponent<BoxCollider>().enabled = false;
+        pizza.GetComponent<Rigidbody>().isKinematic = true;
+        pizza.transform.parent = transform;
+        pizza.transform.localPosition = new Vector3(0, 1.48f, 0.45f);
+        pizza.transform.rotation = Quaternion.Euler(-90, 0, 0);
+
+
         animator.enabled = false;
+        Vector3 currentPosition = transform.position;
         navMeshAgent.enabled = false;
+        transform.position = currentPosition;
+        capsuleCollider.enabled = false;
+        rigidBody.isKinematic = true;
+        rigidBody.drag = 0;
+        rigidBody.angularDrag = 0;
 
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        transform.rotation = Quaternion.identity;
 
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.pitch = Random.Range(.8f, 1.5f);
-        audio.Play();
+        while (customerRotation < 1080f) {
+            transform.Rotate(0, 10, 0);
+            customerRotation += 10;
+            yield return null;
+        }
 
         foreach(Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
             ragdollRigidbody.isKinematic = false;
             ragdollRigidbody.mass = .05f;
             ragdollRigidbody.drag = 0f;
             ragdollRigidbody.angularDrag = 0f;
-            ragdollRigidbody.AddForce(0f, 5f, -10f, ForceMode.VelocityChange);
+            ragdollRigidbody.useGravity = false;
+            ragdollRigidbody.AddForce(0, 15f, 0, ForceMode.VelocityChange);
         }
 
-        capsuleCollider.enabled = false;
+        pizza.GetComponent<Rigidbody>().isKinematic = false;
+        pizza.GetComponent<Rigidbody>().AddForce(0, 15f, 0, ForceMode.VelocityChange);
 
-        rigidBody.isKinematic = false;
-        rigidBody.drag = 0;
-        rigidBody.angularDrag = 0;
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.pitch = Random.Range(.8f, 1.5f);
+        audio.Play();
 
+        Transform explosion = Instantiate(explosionPrefab, transform.position - Vector3.down, Quaternion.identity);
+        Destroy(explosion.gameObject, 1f);
 
-        Destroy(pizza.gameObject);
+        // Destroy(pizza.gameObject);
         Destroy(gameObject, 5f);
     }
 
     void PizzaFailure(Pizza pizza) {
-
+        foreach(Rigidbody ragdollRigidbody in characterAnimator.ragdollRigidbodies) {
+            ragdollRigidbody.isKinematic = false;
+            ragdollRigidbody.mass = .05f;
+            ragdollRigidbody.drag = 0f;
+            ragdollRigidbody.angularDrag = 0f;
+            ragdollRigidbody.useGravity = false;
+            ragdollRigidbody.AddForce(0, 5f, 5f, ForceMode.VelocityChange);
+        }
     }
 
     // Topping IDs:
