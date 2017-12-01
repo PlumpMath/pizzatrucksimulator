@@ -70,7 +70,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.96665, y: 1.9666502, z: 0.3}
+  m_Size: {x: 1.96665, y: 1.9666502, z: 1}
   m_Center: {x: 0, y: 0, z: 0.004386762}
 --- !u!82 &82847788795404862
 AudioSource:
@@ -171,6 +171,8 @@ MonoBehaviour:
   holdingAPizza: 0
   cooked: 0
   rollingDough: 0
+  pizzaTop: {fileID: 2100000, guid: 4f4697cc4e25fba4da9e17280759664b, type: 2}
+  pizzaBottom: {fileID: 2100000, guid: ec00bca4e16c6c646a8217031aac299e, type: 2}
   doughMesh: {fileID: 0}
 --- !u!114 &114636438925103752
 MonoBehaviour:
@@ -197,6 +199,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
+  - {fileID: 2100000, guid: ba1751b25b639a044a977674b1d7fb7e, type: 2}
   - {fileID: 2100000, guid: ba1751b25b639a044a977674b1d7fb7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

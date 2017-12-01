@@ -13,6 +13,9 @@ public class Pizza : MonoBehaviour {
     public bool cooked = false;
     public bool rollingDough;
 
+    public Material pizzaTop;
+    public Material pizzaBottom;
+
     public SkinnedMeshRenderer doughMesh;
 
     void Start() {
@@ -96,6 +99,19 @@ public class Pizza : MonoBehaviour {
             Debug.Log("Not sauce or cheese or ingredient!");
             return false;
         }
+    }
+
+    public void ChangeMaterial(){
+
+        Material[] mats = doughMesh.materials; 
+        mats[0] = pizzaTop;
+        mats[1] = pizzaBottom;
+        doughMesh.materials = mats;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
     }
 
     public string GetIngredientType(Transform ingredient) {

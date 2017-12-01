@@ -39,6 +39,12 @@ public class OvenConveyor : MonoBehaviour {
                                                  conveyorSpeed * Time.deltaTime
                                              );
 
+            if (Vector3.Distance(placedPizza.transform.position, destinationPoint.transform.position) < .5f)
+            {
+                print("change pizza material");
+                pizza.ChangeMaterial();
+            }
+
             bool atDestination = Vector3.Distance(placedPizza.transform.position, destinationPoint.transform.position) < .01f; 
             if (atDestination) {
                 pizza.cooked = true;
