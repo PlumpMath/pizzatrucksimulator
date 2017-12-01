@@ -10,6 +10,7 @@ TagManager:
   - Cheese
   - Toppings
   - Oven
+  - Waypoint
   layers:
   - Default
   - TransparentFX
