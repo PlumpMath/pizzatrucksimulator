@@ -48,6 +48,9 @@ public class ArmsHoldingIngredientOverDoughState : ArmsState {
         }
 
         if (Input.GetMouseButtonDown(0)) {
+            Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.Sprinkle;
+            Arms.Instance.GetComponent<AudioSource>().pitch = Random.Range(.9f,1.2f);
+            Arms.Instance.GetComponent<AudioSource>().Play();
             pizza.AddToPizza(ingredient);
             ingredient.SetParent(pizza.transform);
             ingredient.transform.localPosition= new Vector3(0f,0f, ingredient.GetComponent<Ingredient>().stackLayer);
