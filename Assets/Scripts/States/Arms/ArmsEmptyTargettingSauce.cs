@@ -34,12 +34,25 @@ public class ArmsEmptyTargettingSauce : ArmsState {
 
         if (Input.GetMouseButtonDown(0)) {
             LiftObject();
+            return;
         }
 
+        if (hitSomething && objectInfo.transform.tag == "Cheese")
+        {
+            arms.SetState(new ArmsEmptyTargettingCheese(arms, objectInfo.transform));
+            return;
+        }
+
+                                if (hitSomething && objectInfo.transform.tag == "Toppings") {
+            arms.SetState(new ArmsEmptyTargettingTopping(arms, objectInfo.transform));
+            return;
+        }
     }
 
     public override void OnExit() {
                 sauce.GetComponent<Ingredient>().label.GetComponent<Text>().enabled =false;
+
+
 
     }
 

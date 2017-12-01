@@ -22,12 +22,11 @@ public class ArmsEmptyTargettingDough : ArmsState {
 
         pizza.label.GetComponent<Text>().enabled = true;
 
-        if (pizza.cooked == true)
-        {
+        if (pizza.cooked == true) {
             pizza.label.transform.gameObject.SetActive(true);
             pizza.label.GetComponent<Text>().enabled = true;
 
-             pizza.label.GetComponent<Text>().text = "Serve the pizza!";
+            pizza.label.GetComponent<Text>().text = "Serve the pizza!";
         }
 
     }
@@ -50,6 +49,22 @@ public class ArmsEmptyTargettingDough : ArmsState {
             } else {
                 pizza.RollDough();
             }
+            return;
+        }
+
+        if (hitSomething && objectInfo.transform.tag == "Sauce") {
+            arms.SetState(new ArmsEmptyTargettingSauce(arms, objectInfo.transform));
+            return;
+        }
+
+                if (hitSomething && objectInfo.transform.tag == "Cheese") {
+            arms.SetState(new ArmsEmptyTargettingCheese(arms, objectInfo.transform));
+            return;
+        }
+
+                        if (hitSomething && objectInfo.transform.tag == "Toppings") {
+            arms.SetState(new ArmsEmptyTargettingTopping(arms, objectInfo.transform));
+            return;
         }
     }
 

@@ -48,6 +48,13 @@ public class ArmsEmptyTargettingCheese : ArmsState {
             return;
         }
 
+        
+        if (hitSomething && objectInfo.transform.tag == "Sauce")
+        {
+            arms.SetState(new ArmsEmptyTargettingSauce(arms, objectInfo.transform));
+            return;
+        }
+
     }
 
     public override void OnExit() {
