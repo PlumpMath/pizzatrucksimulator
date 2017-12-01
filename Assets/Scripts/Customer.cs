@@ -105,6 +105,7 @@ public class Customer : MonoBehaviour {
     IEnumerator HappyLaunch(Pizza pizza) {
         float customerRotation = 0f;
 
+        pizza.gameObject.layer = 0;
         pizza.GetComponent<BoxCollider>().enabled = false;
         pizza.GetComponent<Rigidbody>().isKinematic = true;
         pizza.transform.parent = transform;
@@ -124,8 +125,8 @@ public class Customer : MonoBehaviour {
         transform.rotation = Quaternion.identity;
 
         while (customerRotation < 1080f) {
-            transform.Rotate(0, 10, 0);
-            customerRotation += 10;
+            transform.Rotate(0, 30, 0);
+            customerRotation += 30;
             yield return null;
         }
 
@@ -135,11 +136,11 @@ public class Customer : MonoBehaviour {
             ragdollRigidbody.drag = 0f;
             ragdollRigidbody.angularDrag = 0f;
             ragdollRigidbody.useGravity = false;
-            ragdollRigidbody.AddForce(0, 15f, 0, ForceMode.VelocityChange);
+            ragdollRigidbody.AddForce(0, 10f, 0, ForceMode.VelocityChange);
         }
 
         pizza.GetComponent<Rigidbody>().isKinematic = false;
-        pizza.GetComponent<Rigidbody>().AddForce(0, 15f, 0, ForceMode.VelocityChange);
+        pizza.GetComponent<Rigidbody>().AddForce(0, 10f, 0, ForceMode.VelocityChange);
 
         AudioSource audio = GetComponent<AudioSource>();
         audio.pitch = Random.Range(.8f, 1.5f);
@@ -149,7 +150,7 @@ public class Customer : MonoBehaviour {
         Destroy(explosion.gameObject, 1f);
 
         // Destroy(pizza.gameObject);
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 1f);
     }
 
     void PizzaFailure(Pizza pizza) {
