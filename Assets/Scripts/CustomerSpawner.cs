@@ -12,6 +12,7 @@ public class CustomerSpawner : MonoBehaviour {
 
     Turn currentTurn;
     int customersRemainingInWave;
+    int wave = 1;
 
     #region Singleton
     public static CustomerSpawner Instance;
@@ -29,6 +30,7 @@ public class CustomerSpawner : MonoBehaviour {
     public void Begin() {
         Debug.Log("CustomerSpawner Begin()");
         currentTurn = GameManager.Instance.currentTurn;
+        customersRemainingInWave = currentTurn.customerCount;
         StartCoroutine(SpawnCustomers());
         // get turn info
         // start spawning customers
@@ -36,16 +38,17 @@ public class CustomerSpawner : MonoBehaviour {
 
     void Update() {
         if (customersRemainingInWave == 0) {
+            customersRemainingInWave = currentTurn.customerCount + wave;
+            wave++;
             StartCoroutine(SpawnCustomers());
         }
     }
 
     IEnumerator SpawnCustomers() {
-        Debug.Log("CustomerSpawner SpawnCustomers(), spawning customers: " + currentTurn.customerCount);
+        Debug.Log("CustomerSpawner SpawnCustomers(), spawning customers: " + customersRemainingInWave);
         // float spawningRadius = spawnArea.localScale.y;
-        customersRemainingInWave = currentTurn.customerCount;
 
-        for(int i = 0; i < currentTurn.customerCount; i++) {
+        for(int i = 0; i < customersRemainingInWave; i++) {
             // Debug.Log("CustomerSpawner Spawning Customer " + i);
             Vector3 randomPosition = new Vector3(
                                          Random.Range(-7f, 7f), 

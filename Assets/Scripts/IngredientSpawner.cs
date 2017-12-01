@@ -13,6 +13,8 @@ public class IngredientSpawner : MonoBehaviour {
     public Transform cheesePrefab;
     public Transform cheeseSpawnpoint;
 
+    public List<Transform> toppingPrefabs;
+
     #region Singleton
     public static IngredientSpawner Instance;
 
@@ -59,18 +61,17 @@ public class IngredientSpawner : MonoBehaviour {
     }
 
     public void AddIngredient(Ingredient ingredient) {
-                Instantiate(
-                    ingredient, // prefab
-                    ingredientSpawningPoints[ingredient.spawnIndex].position + Vector3.up * .15f, //position 
-                    Quaternion.Euler(-90, 0, 0), // rotation
-                    ingredientSpawningPoints[ingredient.spawnIndex] // parent
-
-                );
-                GameObject label = ingredient.label;
-                if (label != null) {
-
-                    label.GetComponent<Text>().enabled = false;
-                }
+        Transform prefab = toppingPrefabs.Find(t => t.GetComponent<Ingredient>().ingredientID == ingredient.ingredientID);
+        Instantiate(
+            prefab, // prefab
+            ingredientSpawningPoints[ingredient.spawnIndex].position + Vector3.up * .15f, //position 
+            Quaternion.Euler(-90, 0, 0), // rotation
+            ingredientSpawningPoints[ingredient.spawnIndex] // parent
+        );
+        GameObject label = ingredient.label;
+        if (label != null) {
+            label.GetComponent<Text>().enabled = false;
+        }
     }
 
     void Start() {

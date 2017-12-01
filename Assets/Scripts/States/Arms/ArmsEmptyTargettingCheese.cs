@@ -16,7 +16,7 @@ public class ArmsEmptyTargettingCheese : ArmsState {
         // animator = arms.animator;
         mainCamera = arms.mainCamera;
         holdingArea = arms.holdingArea;
-        cheese.GetComponent<Ingredient>().label.GetComponent<Text>().enabled =true;
+        cheese.GetComponent<Ingredient>().label.GetComponent<Text>().enabled = true;
 
     }
 
@@ -27,30 +27,23 @@ public class ArmsEmptyTargettingCheese : ArmsState {
 
         bool hitSomething = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out objectInfo, 10f, layerMask);
 
-        if (hitSomething)
-        {
-        Debug.Log(objectInfo.transform.name);
-        }
-
         if (!hitSomething) {
-            arms.SetState (new ArmsEmptyState(arms));
+            arms.SetState(new ArmsEmptyState(arms));
             return;
         }
 
-        if (Input.GetMouseButtonDown(0)){
-                LiftObject();
-                return;
+        if (Input.GetMouseButtonDown(0)) {
+            LiftObject();
+            return;
         }
 
-        if (hitSomething && objectInfo.transform.tag == "Toppings")
-        {
+        if (hitSomething && objectInfo.transform.tag == "Toppings") {
             arms.SetState(new ArmsEmptyTargettingTopping(arms, objectInfo.transform));
             return;
         }
 
-        
-        if (hitSomething && objectInfo.transform.tag == "Sauce")
-        {
+
+        if (hitSomething && objectInfo.transform.tag == "Sauce") {
             arms.SetState(new ArmsEmptyTargettingSauce(arms, objectInfo.transform));
             return;
         }
@@ -59,14 +52,14 @@ public class ArmsEmptyTargettingCheese : ArmsState {
 
     public override void OnExit() {
 
-                cheese.GetComponent<Ingredient>().label.GetComponent<Text>().enabled =false;
+        cheese.GetComponent<Ingredient>().label.GetComponent<Text>().enabled = false;
 
 
     }
 
-        void LiftObject() {
-            
-       // arms.heldObject = target;
+    void LiftObject() {
+
+        // arms.heldObject = target;
         Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipPickUp;
         Arms.Instance.GetComponent<AudioSource>().Play();
         Arms.Instance.animator.SetTrigger("Lift");
