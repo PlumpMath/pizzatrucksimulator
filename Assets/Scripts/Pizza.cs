@@ -87,7 +87,7 @@ public class Pizza : MonoBehaviour {
         }
 
         ingredient.SetParent(null);
-        ingredient.gameObject.GetComponent<MeshRenderer>().enabled = false;
+       // ingredient.gameObject.GetComponent<MeshRenderer>().enabled = false;
         return true;
     }
 

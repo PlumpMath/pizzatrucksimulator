@@ -49,6 +49,10 @@ public class ArmsHoldingIngredientOverDoughState : ArmsState {
 
         if (Input.GetMouseButtonDown(0)) {
             pizza.AddToPizza(ingredient);
+            ingredient.SetParent(pizza.transform);
+            ingredient.transform.localPosition= new Vector3(0f,0f, ingredient.GetComponent<Ingredient>().stackLayer);
+            ingredient.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            ingredient.GetComponent<Rigidbody>().isKinematic = true;
             arms.SetState(new ArmsEmptyState(arms));
         }
     }

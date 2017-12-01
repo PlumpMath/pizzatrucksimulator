@@ -129,3 +129,4 @@ MonoBehaviour:
   description: 
   isBaseIngredient: 0
   icon: {fileID: 21300000, guid: a510e403ecfdabf44ad5b953c5eda1c4, type: 3}
+  stackLayer: 0.6
