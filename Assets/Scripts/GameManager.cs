@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
+        if (Input.GetKey("escape"))
+            Application.Quit();
     }
 
     void SetupMarketDeck() {
