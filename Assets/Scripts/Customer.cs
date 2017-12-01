@@ -80,13 +80,15 @@ public class Customer : MonoBehaviour {
 
     bool CheckNeeds() {
         int needsFulfilled = 0;
+
         foreach (Ingredient ingredient in pizza.ingredientsList) {
-            if (ingredientNeeds.Contains(ingredient)) {
+            if (ingredientNeeds.Find(x => x.ingredientID == ingredient.ingredientID) != null) {
                 needsFulfilled += 1;
             } else {
                 needsFulfilled -= 1;
             }
         }
+
         return needsFulfilled == ingredientNeeds.Count;
     }
 
@@ -118,9 +120,6 @@ public class Customer : MonoBehaviour {
     void PizzaSuccess() {
         GetComponent<AudioSource>().clip = pizzaSuccessAudio;
         GetComponent<AudioSource>().Play();
-
-        textObject.text = "";
-        textCanvas.enabled = false;
 
         StartCoroutine(HappyLaunch());
     }
@@ -167,6 +166,9 @@ public class Customer : MonoBehaviour {
     }
 
     void PrepForAnimation() {
+        textObject.text = "";
+        textCanvas.enabled = false;
+
         pizza.gameObject.layer = 0;
         pizza.GetComponent<BoxCollider>().enabled = false;
         pizza.GetComponent<Rigidbody>().isKinematic = true;
