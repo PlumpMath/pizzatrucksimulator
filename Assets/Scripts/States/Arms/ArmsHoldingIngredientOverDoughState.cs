@@ -53,10 +53,6 @@ public class ArmsHoldingIngredientOverDoughState : ArmsState {
             Arms.Instance.GetComponent<AudioSource>().pitch = Random.Range(.9f,1.2f);
             Arms.Instance.GetComponent<AudioSource>().Play();
             pizza.AddToPizza(ingredient);
-            ingredient.SetParent(pizza.transform);
-            ingredient.transform.localPosition= new Vector3(0f,0f, ingredient.GetComponent<Ingredient>().stackLayer);
-            ingredient.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            ingredient.GetComponent<Rigidbody>().isKinematic = true;
             arms.SetState(new ArmsEmptyState(arms));
         }
     }

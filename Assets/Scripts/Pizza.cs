@@ -71,9 +71,14 @@ public class Pizza : MonoBehaviour {
 
     public bool AddToPizza(Transform ingredient) {
         if (!CanReceiveIngredient(ingredient)) {
-            // Show warning that this ingredient cannot be received
             return false;
         }
+
+        ingredient.GetComponent<Ingredient>().pizza = this;
+        ingredient.SetParent(transform);
+        ingredient.transform.localPosition = new Vector3(0f, 0f, ingredient.GetComponent<Ingredient>().stackLayer);
+        ingredient.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        ingredient.GetComponent<Rigidbody>().isKinematic = true;
 
         string ingredientType = GetIngredientType(ingredient);
         switch (ingredientType) {
@@ -96,8 +101,6 @@ public class Pizza : MonoBehaviour {
                 break;
         }
 
-        ingredient.SetParent(null);
-       // ingredient.gameObject.GetComponent<MeshRenderer>().enabled = false;
         return true;
     }
 

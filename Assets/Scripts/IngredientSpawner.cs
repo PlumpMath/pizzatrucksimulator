@@ -53,7 +53,7 @@ public class IngredientSpawner : MonoBehaviour {
     }
 
     public void AddSauce() {
-        Instantiate(saucePrefab, sauceSpawnpoint.position + Vector3.up * 0.15f, Quaternion.Euler(-90, 0, 0), sauceSpawnpoint);
+        Instantiate(saucePrefab, sauceSpawnpoint.position + Vector3.up, Quaternion.Euler(-90, 0, 0), sauceSpawnpoint);
     }
 
     public void AddCheese() {

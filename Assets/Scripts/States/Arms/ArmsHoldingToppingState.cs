@@ -32,12 +32,9 @@ public class ArmsHoldingToppingState : ArmsState {
             arms.SetState(new ArmsHoldingIngredientOverDoughState(arms, topping, hitInfo.transform));
             return;
         }
-
-
     }
 
     public override void OnExit() {
-
     }
 
     void DropObject() {

@@ -52,7 +52,6 @@ public class ArmsHoldingCheeseState : ArmsState {
     }
 
     void DropObject() {
-
         Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipDrop;
         Arms.Instance.GetComponent<AudioSource>().Play();
         Arms.Instance.animator.SetTrigger("Drop");
@@ -63,9 +62,5 @@ public class ArmsHoldingCheeseState : ArmsState {
         cheese.rotation = Quaternion.Euler(-90, 0, 0);
         arms.heldObject = null;
         arms.SetState(new ArmsEmptyState(arms));
-
     }
-
-
-
 }

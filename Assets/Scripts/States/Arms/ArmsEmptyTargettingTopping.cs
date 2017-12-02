@@ -71,7 +71,7 @@ public class ArmsEmptyTargettingTopping : ArmsState {
     void LiftObject() {
         Arms.Instance.GetComponent<AudioSource>().clip = Arms.Instance.AudioClipPickUp;
         Arms.Instance.GetComponent<AudioSource>().Play();
-        //      arms.heldObject = target;
+
         Arms.Instance.animator.SetTrigger("Lift");
         topping.gameObject.GetComponent<Rigidbody>().useGravity = false;
         topping.gameObject.GetComponent<BoxCollider>().enabled = false;
