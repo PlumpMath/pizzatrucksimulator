@@ -13,8 +13,9 @@ public class ArmsHoldingDoughState : ArmsState {
     }
 
     public override void OnEnter() {
-
-
+        GameManager.Instance.firstPersonController.mouseLook.clampHorizontalRotation = true;
+        GameManager.Instance.firstPersonController.mouseLook.MinimumYRotation = 71f;
+        GameManager.Instance.firstPersonController.mouseLook.MaximumYRotation = 185f;
     }
 
     public override void Tick() {
@@ -40,6 +41,7 @@ public class ArmsHoldingDoughState : ArmsState {
     }
 
     public override void OnExit() {
+        GameManager.Instance.firstPersonController.mouseLook.clampHorizontalRotation = false;
     }
 
     void DropObject() {
