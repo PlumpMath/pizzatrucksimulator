@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WorkPhase : Phase {
     GameObject workdayUIObject;
-    WorkdayUI workdayUI;
+    // WorkdayUI workdayUI;
     float timeLeft;
     UnityEngine.UI.Text countdownDisplay;
     UnityEngine.UI.Text timeBonusDisplay;
@@ -43,8 +43,9 @@ public class WorkPhase : Phase {
         workdayUIObject.GetComponent<CanvasGroup>().interactable = true;
         workdayUIObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
 
-        workdayUI = workdayUIObject.GetComponent<WorkdayUI>();
+        // workdayUI = workdayUIObject.GetComponent<WorkdayUI>();
         countdownDisplay = GameObject.Find("Countdown").GetComponent<UnityEngine.UI.Text>();
+        countdownDisplay.enabled = true;
         timeBonusDisplay = GameObject.Find("Time Bonus").GetComponent<UnityEngine.UI.Text>();
     }
 

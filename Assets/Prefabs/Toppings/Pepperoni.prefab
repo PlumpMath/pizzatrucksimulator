@@ -195,6 +195,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 3efdb8be5d76ce7418737729a83252c5, type: 3}
   stackLayer: 0.4
   label: {fileID: 1046707820925938}
+  spawnIndex: 0
+  pizza: {fileID: 0}
 --- !u!222 &222136103565570244
 CanvasRenderer:
   m_ObjectHideFlags: 1

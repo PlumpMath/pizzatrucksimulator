@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OvenConveyor : MonoBehaviour {
 
-    AudioSource audio;
+    AudioSource audioSource;
 
     public GameObject destinationPoint;
     public float conveyorSpeed;
@@ -20,8 +20,8 @@ public class OvenConveyor : MonoBehaviour {
         pizza.transform.localPosition = new Vector3(0, 0, 0);
         pizza.transform.localRotation = Quaternion.Euler(-90, 0, 0);
 
-        audio = GetComponent<AudioSource>();
-        audio.Play();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
 
 
         StartCoroutine(MoveOnOven());

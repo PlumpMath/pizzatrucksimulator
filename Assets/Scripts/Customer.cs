@@ -30,7 +30,6 @@ public class Customer : MonoBehaviour {
     CharacterAnimator characterAnimator;
     Animator animator;
     Rigidbody rigidBody;
-    CapsuleCollider capsuleCollider;
 
     Pizza pizza;
 
@@ -43,7 +42,6 @@ public class Customer : MonoBehaviour {
         animator = GetComponent<Animator>();
         characterAnimator = GetComponent<CharacterAnimator>();
         rigidBody = GetComponent<Rigidbody>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     void Start() {

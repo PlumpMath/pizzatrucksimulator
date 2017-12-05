@@ -7,29 +7,19 @@ public class Pathfinding : MonoBehaviour {
 
 
     public List<GameObject> points;
-    private int destPoint = 0;
     private NavMeshAgent agent;
-    int lengthOfPoints;
-
-
 
     void Start() {
-
-		points = new List<GameObject>();
+        points = new List<GameObject>();
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Waypoint")) {
-
-			points.Add(o);
-            
+            points.Add(o);
         }
         agent = GetComponent<NavMeshAgent>();
-        lengthOfPoints = points.Count;
+
         // Disabling auto-braking allows for continuous movement
         // between points (ie, the agent doesn't slow down as it
         // approaches a destination point).
         agent.autoBraking = false;
-
-
-
         GotoNextPoint();
     }
 
