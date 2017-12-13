@@ -30,6 +30,7 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
     IEnumerator FirePizza() {
         float pizzaPower = 0f;
         Rigidbody pizzaBody = pizzaObject.GetComponent<Rigidbody>();
+
         pizzaBody.maxAngularVelocity = 75f;
         pizzaBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
@@ -48,6 +49,9 @@ public class ArmsHoldingCookedPizzaState : ArmsState {
 
         pizzaPower = Mathf.Clamp(pizzaPower, 1f, 150f);
         Debug.Log("FIRING PIZZA AT: " + pizzaPower);
+
+        pizzaObject.gameObject.layer = 0;
+
 
         Vector3 originalPosition = pizzaObject.transform.localPosition;
         BoxCollider pizzaCollider = pizzaObject.GetComponent<BoxCollider>();
