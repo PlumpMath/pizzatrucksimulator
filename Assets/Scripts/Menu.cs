@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
     public AudioSource introMusic;
-    public UnityEngine.UI.Text startText;
+    public Text startText;
     public float startTextBlinkSpeed = 0.5f;
+    public Image pizzaImage;
+    public float pizzaRotation;
     bool showingInstructions = false;
     public CanvasGroup introCanvas;
     public CanvasGroup instructionsCanvas;
@@ -16,6 +19,7 @@ public class Menu : MonoBehaviour {
         StartCoroutine(BlinkStartText());
         introCanvas.alpha = 1;
         instructionsCanvas.alpha = 0;
+        pizzaRotation = pizzaImage.transform.rotation.z;
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class Menu : MonoBehaviour {
 				showingInstructions = true;
             }
         }
-
+        pizzaImage.transform.Rotate(0f, 0f, 10f * Time.deltaTime);
     }
 
     IEnumerator BlinkStartText() {
